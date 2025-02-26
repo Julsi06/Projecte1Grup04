@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 3847ee953b46c3c45a513b3fdfa5a6e2
+  productGUID: 5616f276fa8780e418942b3c0f027ea9
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Project1Grup04_Unity
+  productName: projecteUnity
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -623,14 +623,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Project1Grup04_Unity
+  metroPackageName: projecteUnity
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Project1Grup04_Unity
+  metroApplicationDescription: projecteUnity
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -698,10 +698,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 99f3b9c4-7e11-4196-86cb-cd822b3bfde5
+  cloudProjectId: 46c36088-2130-45c8-b056-b0dee369c830
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Project1Grup04_Unity
+  projectName: projecteUnity
   organizationId: julsi06
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
