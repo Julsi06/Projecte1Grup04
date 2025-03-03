@@ -15,8 +15,9 @@ public class PlayerMovement : MonoBehaviour
     //update is called once per frame
     private void Update()
     {
-        // El jugador es mourà depennet de les tecles "A" (esquerra, cap a 1) i "D" (dreta, cap a -1)
-        player.velocity = new Vector2(Input.GetAxis("Horizontal")*speed, player.velocity.y);
-
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            player.velocity = new Vector2((0-speed), 0);
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            player.velocity = new Vector2(speed, 0);
     }
 }
