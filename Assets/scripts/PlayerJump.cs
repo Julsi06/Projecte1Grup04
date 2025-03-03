@@ -15,7 +15,7 @@ public class PlayerJump : MonoBehaviour
     {
         // If the player presses "space", the GameObject will jump
         // The GameObject jumps for as long as the player presses "space" (arreglar)
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
             player.velocity = new Vector2(player.velocity.x, speed);
     }
 }
