@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 246666032}
   - component: {fileID: 246666031}
   - component: {fileID: 246666030}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,9 +358,9 @@ GameObject:
   - component: {fileID: 2055013539}
   - component: {fileID: 2055013538}
   - component: {fileID: 2055013537}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,10 +377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f3052f3bce3f3458d3943401ab631f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  jumpForce: 50
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   maxJumps: 2
 --- !u!50 &2055013538
 Rigidbody2D:
@@ -495,7 +495,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &2055013541
 Transform:
   m_ObjectHideFlags: 0

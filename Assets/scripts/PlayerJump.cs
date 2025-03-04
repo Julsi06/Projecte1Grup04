@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private LayerMask groundLayer; // el layerMask estableix el que detectara el rayccast 
     [SerializeField] private int maxJumps = 2; // Número máximo de saltos permitidos
 
@@ -32,17 +32,24 @@ public class PlayerJump : MonoBehaviour
 
     private void CheckGrounded()
     {
+        RaycastHit2D hit;
+
+
         // Lanza un rayo hacia abajo para detectar el suelo
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, groundLayer); 
+        hit = Physics2D.Linecast(transform.position + new Vector3(0, transform.position.y - 0.5f, 0), transform.position + Vector3.down);
 
         // Dibuja el rayo en la escena para depuración
-        Debug.DrawRay(transform.position, Vector2.down * 0.2f, Color.red);
+        Debug.DrawRay(transform.position, Vector2.down, Color.red);
 
-        // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
-        if (isGrounded)
-        {
-            jumpCount = 0;
+        if (hit.collider != null) {
+            // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
+            if (hit.collider.gameObject.name == "Ground")
+            {
+
+                jumpCount = 0;
+            }
         }
+
 
        
      
@@ -50,7 +57,8 @@ public class PlayerJump : MonoBehaviour
 
     private void Jump()
     {
-        player.velocity = new Vector2(player.velocity.x, speed);
+        Debug.Log("Flag");
+        player.AddForce(new Vector2(0f, jumpForce));
         jumpCount++; // Aumenta el contador de saltos
     }
 }
