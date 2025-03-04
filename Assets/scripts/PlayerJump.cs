@@ -6,16 +6,17 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask groundLayer; // el layerMask estableix el que detectara el rayccast 
     [SerializeField] private int maxJumps = 2; // Número máximo de saltos permitidos
 
     private Rigidbody2D player;
     private int jumpCount; // Contador de saltos
     private bool isGrounded; // Estado actual del suelo
-    private bool wasGrounded; // Estado del frame anterior
+ 
 
     private void Awake()
     {
+        // Agafa els components del GameObject (jugador)
         player = GetComponent<Rigidbody2D>();
     }
 
@@ -32,19 +33,19 @@ public class PlayerJump : MonoBehaviour
     private void CheckGrounded()
     {
         // Lanza un rayo hacia abajo para detectar el suelo
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, groundLayer);
+        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.2f, groundLayer); 
 
         // Dibuja el rayo en la escena para depuración
         Debug.DrawRay(transform.position, Vector2.down * 0.2f, Color.red);
 
         // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
-        if (isGrounded && !wasGrounded)
+        if (isGrounded)
         {
             jumpCount = 0;
         }
 
-        // Guardamos el estado del suelo para el próximo frame
-        wasGrounded = isGrounded;
+       
+     
     }
 
     private void Jump()
