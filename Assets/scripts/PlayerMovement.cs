@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed; // S'estableix que la seva velocitat s'indicarà a Unity
     private Rigidbody2D player; // S'estableix que tindrà físiques
+        
     private void Awake()
     {
         // S'agafaran les dades del rigidbody2d del player a Unity
@@ -15,8 +18,15 @@ public class PlayerMovement : MonoBehaviour
     //update is called once per frame
     private void Update()
     {
-        // El jugador es mourà depennet de les tecles "A" (esquerra, cap a 1) i "D" (dreta, cap a -1)
-        player.velocity = new Vector2(Input.GetAxis("Horizontal")*speed, player.velocity.y);
-
+        float horizontalSpeed = speed;
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            player.velocity = new Vector2((0 - horizontalSpeed), 0);
+        }
+       
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            player.velocity = new Vector2(horizontalSpeed, 0);
+        }
     }
 }
