@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
+  heartManager: {fileID: 919093494}
 --- !u!50 &261946088
 Rigidbody2D:
   serializedVersion: 4
@@ -389,10 +390,9 @@ GameObject:
   - component: {fileID: 871127048}
   - component: {fileID: 871127047}
   - component: {fileID: 871127046}
-  - component: {fileID: 871127050}
   m_Layer: 0
   m_Name: coin2
-  m_TagString: Untagged
+  m_TagString: heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,18 +526,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &871127050
+--- !u!1 &919093493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919093495}
+  - component: {fileID: 919093494}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &919093494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871127045}
+  m_GameObject: {fileID: 919093493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83985306974117040ba99ebbb181ede1, type: 3}
+  m_Script: {fileID: 11500000, guid: fe3bc74b5c4c0e848bce4ed3fee8e914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartCounter: 0
+--- !u!4 &919093495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919093493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.059498936, y: 0.24243149, z: 0.04034654}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548922973
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,10 +583,9 @@ GameObject:
   - component: {fileID: 1548922976}
   - component: {fileID: 1548922975}
   - component: {fileID: 1548922978}
-  - component: {fileID: 1548922979}
   m_Layer: 0
   m_Name: coin1
-  m_TagString: Untagged
+  m_TagString: heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,18 +719,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1548922979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548922973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83985306974117040ba99ebbb181ede1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1634750219
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,10 +731,9 @@ GameObject:
   - component: {fileID: 1634750222}
   - component: {fileID: 1634750221}
   - component: {fileID: 1634750220}
-  - component: {fileID: 1634750224}
   m_Layer: 0
   m_Name: coin3
-  m_TagString: Untagged
+  m_TagString: heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -848,18 +867,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1634750224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634750219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83985306974117040ba99ebbb181ede1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1649824347
 GameObject:
   m_ObjectHideFlags: 0
