@@ -21,22 +21,26 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Captura la velocidad vertical actual para no afectar el salto
-        float VerticalVelocity = player.velocity.y;
+        float verticalVelocity = player.velocity.y;
+        float horizontalVelocity = horizontalSpeed;
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            player.velocity = new Vector2((0 - horizontalSpeed), 0);
+            horizontalVelocity = -horizontalSpeed;
         }
        
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            player.velocity = new Vector2(horizontalSpeed, 0);
+            horizontalVelocity = horizontalSpeed;
         }
 
         else
         {
-            // Detiene solo el movimiento horizontal, mantiene el salto
-            player.velocity = new Vector2(0, VerticalVelocity);
+            // Detiene solo el movimiento horizontal (drag) cuando no se presionan teclas
+            horizontalVelocity = 0;
         }
+        
+        // Aplica la velocidad manteniendo el eje Y (vertical) sin cambios
+        player.velocity = new Vector2(horizontalVelocity, verticalVelocity);
     }
 }
