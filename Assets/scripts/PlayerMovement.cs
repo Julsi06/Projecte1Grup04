@@ -18,12 +18,12 @@ public class PlayerMovement : MonoBehaviour
     //update is called once per frame
     private void Update()
     {
-<<<<<<< HEAD
+
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             player.velocity = new Vector2((0-speed), 0);
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             player.velocity = new Vector2(speed, 0);
-=======
+
         float horizontalSpeed = speed;
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
@@ -34,6 +34,6 @@ public class PlayerMovement : MonoBehaviour
         {
             player.velocity = new Vector2(horizontalSpeed, 0);
         }
->>>>>>> origin/feature/PlayerMovement
+
     }
 }
