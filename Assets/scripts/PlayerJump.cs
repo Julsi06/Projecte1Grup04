@@ -11,7 +11,6 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody2D player;
     private int jumpCount; // Contador de saltos
-    private bool isGrounded; // Estado actual del suelo
  
 
     private void Awake()
@@ -22,6 +21,7 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
+        jumpCount = 2;
         CheckGrounded(); // Verifica si el personaje toca el suelo
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
