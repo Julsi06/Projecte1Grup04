@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
+    public int damage = 40;
     private Rigidbody2D rb;
 
     void Start()
@@ -22,10 +23,19 @@ public class Bullet : MonoBehaviour
     {
         // Printeo para saber si todo va bien
         Debug.Log("Impacto con: " + hitInfo.name);
+        EnemyDamage enemy = hitInfo.GetComponent<EnemyDamage>();
+        
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
 
         // Destruye la bala al colisionar
         Destroy(gameObject);
     }
 }
+
+
+
 
         
