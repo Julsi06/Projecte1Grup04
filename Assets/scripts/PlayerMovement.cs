@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float horizontalSpeed; // S'estableix que la seva velocitat s'indicarà a Unity
     private Rigidbody2D player; // S'estableix que tindrà físiques
+    public HeartManager heartManager; // Relaciona el moviment del jugador amb el comptador de cors
         
     private void Awake()
     {
@@ -42,5 +44,13 @@ public class PlayerMovement : MonoBehaviour
         
         // Aplica la velocidad manteniendo el eje Y (vertical) sin cambios
         player.velocity = new Vector2(horizontalVelocity, verticalVelocity);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("heart"))
+        {
+            heartManager.heartCounter++;
+            Destroy(collision.gameObject);
+        }
     }
 }
