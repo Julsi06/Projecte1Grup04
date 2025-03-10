@@ -17,71 +17,49 @@ public class PlayerJump : MonoBehaviour
     {
         // Agafa els components del GameObject (jugador)
         player = GetComponent<Rigidbody2D>();
+        jumpCount = 0;
     }
 
     private void Update()
     {
-        // Detecta input para saltar
+        CheckGrounded(); // Verifica si el personaje toca el suelo
+
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
         }
     }
 
-    // Nuevo método para reiniciar los saltos al tocar cualquier superficie
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void CheckGrounded()
     {
-        // Reinicia el contador de saltos al tocar cualquier cosa
-        jumpCount = 0;
+        RaycastHit2D hit;
+
+        // Lanza un rayo hacia abajo para detectar el suelo
+        hit = Physics2D.Linecast(transform.position + Vector3.down, transform.position + Vector3.down * 1.25f);
+
+
+        if (hit.collider != null)
+        {
+            // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
+            if (hit.collider.gameObject.tag == "Ground")
+            {
+                jumpCount = 0;
+            }
+        }
     }
 
     private void Jump()
     {
-        // Elimina la velocidad vertical anterior para saltos más consistentes
-        player.velocity = new Vector2(player.velocity.x, 0);
-
-        // Aplica la fuerza de salto (puedes cambiar a Impulse para un salto más inmediato)
-        player.AddForce(new Vector2(0f, jumpForce));
-
-        // Aumenta el contador de saltos
-        jumpCount++;
+        player.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Force);
+        jumpCount++; // Aumenta el contador de saltos
+        Debug.Log("Jump");
     }
 
-    //private void Update()
-    //{
-    //    jumpCount = 2;
-    //    CheckGrounded(); // Verifica si el personaje toca el suelo
-
-    //    if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
-    //    {
-    //        Jump();
-    //    }
-    //}
-
-    //private void CheckGrounded()
-    //{
-    //    RaycastHit2D hit;
-
-
-    //    // Lanza un rayo hacia abajo para detectar el suelo
-    //    hit = Physics2D.Linecast(transform.position + new Vector3(0, transform.position.y - 0.5f, 0), transform.position + Vector3.down);
-
-    //    // Dibuja el rayo en la escena para depuración
-    //    Debug.DrawRay(transform.position, Vector2.down, Color.red);
-
-    //    if (hit.collider != null) {
-    //        // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
-    //        if (hit.collider.gameObject.name == "Ground")
-    //        {
-
-    //            jumpCount = 0;
-    //        }
-    //    }
-    //}
-
-    //private void Jump()
-    //{
-    //    player.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Force);
-    //    jumpCount++; // Aumenta el contador de saltos
-    //}
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere(transform.position + Vector3.down, 0.1f);
+        Gizmos.DrawSphere(transform.position + Vector3.down * 1.25f, 0.1f);
+        // Dibuja el rayo en la escena para depuración
+        //Debug.DrawRay(transform.position + new Vector3(0, transform.position.y - 0.5f, 0), Vector3.down, Color.red);
+    }
 }
