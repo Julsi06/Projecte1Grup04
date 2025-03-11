@@ -20,10 +20,7 @@ public class HangingFromPipe : MonoBehaviour
     private void Update()
     {
         CheckHangingFromPipe();
-        while (isHanging)
-        {
-            player.gravityScale = 0f;
-        }
+        
     }
 
     private void CheckHangingFromPipe()
@@ -31,7 +28,7 @@ public class HangingFromPipe : MonoBehaviour
         Vector2 raycastOrigin = transform.position + new Vector3(0f, 1.01f);
         isHanging = false;
 
-        RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, Vector2.up, 0.5f, pipeLayer);
+        RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, Vector2.up, 0.1f, pipeLayer);
         if (hit.collider != null && hit.collider.gameObject.name == "Pipe")
         {
             isHanging = true;
@@ -42,6 +39,6 @@ public class HangingFromPipe : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Vector2 raycastOrigin = transform.position + new Vector3(0f, 1.01f);
-        Debug.DrawRay(raycastOrigin, Vector2.up * 0.5f, Color.red);
+        Debug.DrawRay(raycastOrigin, Vector2.up * 0.1f, Color.red);
     }
 }
