@@ -6,9 +6,10 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float horizontalSpeed; // S'estableix que la seva velocitat s'indicarà a Unity
-    private Rigidbody2D player; // S'estableix que tindrà físiques
-        
+    [SerializeField] private float horizontalSpeed; // S'estableix que la seva velocitat s'indicarï¿½ a Unity
+    private Rigidbody2D player; // S'estableix que tindrï¿½ fï¿½siques
+    private bool isFacingRight = true; // Indica si el personaje mira a la derecha
+
     private void Awake()
     {
         // S'agafaran les dades del rigidbody2d del player a Unity
@@ -33,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalVelocity = horizontalSpeed;
         }
+        else
+        {
+            // Detiene solo el movimiento horizontal (drag) cuando no se presionan teclas
+            horizontalVelocity = 0;
+        }
 
         else
         {
@@ -43,4 +49,13 @@ public class PlayerMovement : MonoBehaviour
         // Aplica la velocidad manteniendo el eje Y (vertical) sin cambios
         player.velocity = new Vector2(horizontalVelocity, verticalVelocity);
     }
+
+    private void flip()
+    {
+        isFacingRight = !isFacingRight; // Cambia la direcciï¿½n
+        //viene de fabrica del unity (x,y,z);
+        transform.Rotate(0f, 180f, 0f);
+    }
 }
+
+
