@@ -11,7 +11,7 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody2D player;
     private int jumpCount; // Contador de saltos
- 
+
 
     private void Awake()
     {
