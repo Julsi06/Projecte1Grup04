@@ -6,7 +6,7 @@ using UnityEngine;
 public class HangingFromPipe : MonoBehaviour
 {
     [SerializeField] private LayerMask pipeLayer;
-    [SerializeField] private float hangingSpeed;
+    //[SerializeField] private float hangingSpeed;
 
     private Rigidbody2D player;
     private bool isHanging = false;
@@ -32,7 +32,11 @@ public class HangingFromPipe : MonoBehaviour
         if (hit.collider != null && hit.collider.gameObject.name == "Pipe")
         {
             isHanging = true;
-            Debug.Log("Hanging from pipe");
+        }
+        if (isHanging)
+        {
+            player.gravityScale = -1f;
+            // cal remodificar la gravetat quna no estigui tocant pipe
         }
     }
 
