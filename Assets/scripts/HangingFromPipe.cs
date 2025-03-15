@@ -35,6 +35,7 @@ public class HangingFromPipe : MonoBehaviour
         {
             player.gravityScale = -1f;
             // cal remodificar la gravetat quna no estigui tocant pipe
+<<<<<<< HEAD
 =======
             player.gravityScale = -1.0f;
             if (Input.GetKey(KeyCode.S))
@@ -46,6 +47,8 @@ public class HangingFromPipe : MonoBehaviour
         {
             player.gravityScale = 1.0f;
 >>>>>>> 9b11068 (Beginning the layout for level 2)
+=======
+>>>>>>> origin/Levels/Level2Demo
         }
     }
 
