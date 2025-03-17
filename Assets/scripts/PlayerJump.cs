@@ -54,11 +54,4 @@ public class PlayerJump : MonoBehaviour
         jumpCount++; // Aumenta el contador de saltos
         Debug.Log("Jump");
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Vector2 raycastOrigin = transform.position - new Vector3(0f, 1.01f, 0f);
-        // Dibuja el rayo en la escena para depuración
-        Debug.DrawRay(raycastOrigin, Vector2.down*0.5f, Color.red);
-    }
 }
