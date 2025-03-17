@@ -39,12 +39,6 @@ public class PlayerMovement : MonoBehaviour
             // Detiene solo el movimiento horizontal (drag) cuando no se presionan teclas
             horizontalVelocity = 0;
         }
-
-        else
-        {
-            // Detiene solo el movimiento horizontal (drag) cuando no se presionan teclas
-            horizontalVelocity = 0;
-        }
         
         // Aplica la velocidad manteniendo el eje Y (vertical) sin cambios
         player.velocity = new Vector2(horizontalVelocity, verticalVelocity);
