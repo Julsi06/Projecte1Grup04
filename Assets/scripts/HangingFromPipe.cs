@@ -6,7 +6,6 @@ using UnityEngine;
 public class HangingFromPipe : MonoBehaviour
 {
     [SerializeField] private LayerMask pipeLayer;
-    //[SerializeField] private float hangingSpeed;
 
     private Rigidbody2D player;
 
@@ -28,16 +27,7 @@ public class HangingFromPipe : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, Vector2.up, 0.1f, pipeLayer);
         if (hit.collider != null && hit.collider.gameObject.name == "Pipe")
         {
-<<<<<<< HEAD
-            isHanging = true;
-        }
-        if (isHanging)
-        {
             player.gravityScale = -1f;
-            // cal remodificar la gravetat quna no estigui tocant pipe
-<<<<<<< HEAD
-=======
-            player.gravityScale = -1.0f;
             if (Input.GetKey(KeyCode.S))
             {
                 player.gravityScale = 1.0f;
@@ -46,9 +36,6 @@ public class HangingFromPipe : MonoBehaviour
         else
         {
             player.gravityScale = 1.0f;
->>>>>>> 9b11068 (Beginning the layout for level 2)
-=======
->>>>>>> origin/Levels/Level2Demo
         }
     }
 
