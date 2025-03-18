@@ -9,6 +9,7 @@ TagManager:
   - Pipe
   - fan
   - toxicWater
+  - fallingWater
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - pipeLayer
   - fanLayer
   - toxicLayer
-  - 
+  - fallingWaterLayer
   - 
   - 
   - 

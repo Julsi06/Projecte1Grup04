@@ -25,7 +25,7 @@ public class HangingFromPipe : MonoBehaviour
         Vector2 raycastOrigin = transform.position + new Vector3(0f, 1.01f);
 
         RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, Vector2.up, 0.1f, pipeLayer);
-        if (hit.collider != null && hit.collider.gameObject.name == "Pipe")
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Pipe"))
         {
             player.gravityScale = -1f;
             if (Input.GetKey(KeyCode.S))

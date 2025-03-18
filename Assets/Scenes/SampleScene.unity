@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 44943791}
   - component: {fileID: 44943792}
   m_Layer: 8
-  m_Name: Toxic water (2)
+  m_Name: Toxic water 3
   m_TagString: toxicWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 44943790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.5, y: -28, z: 0}
-  m_LocalScale: {x: 65, y: 1, z: 1}
+  m_LocalScale: {x: 66, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 468147698}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 259301597}
   - component: {fileID: 259301598}
   m_Layer: 0
-  m_Name: Ceiling (1)
+  m_Name: Ceiling 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,8 +339,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259301595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: -17, z: 0}
-  m_LocalScale: {x: 54, y: 1, z: 1}
+  m_LocalPosition: {x: -12, y: -17, z: 0}
+  m_LocalScale: {x: 56, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 106342718}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 375733705}
   - component: {fileID: 375733704}
   m_Layer: 7
-  m_Name: Fan (1)
+  m_Name: Fan 2
   m_TagString: fan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375733702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26, y: -11, z: 0}
+  m_LocalPosition: {x: -24, y: -11, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -699,8 +699,6 @@ Transform:
   - {fileID: 2091577301}
   - {fileID: 1842790406}
   - {fileID: 44943791}
-  - {fileID: 678807044}
-  - {fileID: 915734325}
   m_Father: {fileID: 1886429469}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -891,7 +889,7 @@ GameObject:
   - component: {fileID: 617638054}
   - component: {fileID: 617638053}
   m_Layer: 3
-  m_Name: Platform 1 (12)
+  m_Name: Platform 13
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1055,7 +1053,7 @@ GameObject:
   - component: {fileID: 638287912}
   - component: {fileID: 638287911}
   m_Layer: 3
-  m_Name: Platform 1 (2)
+  m_Name: Platform 3
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1184,9 +1182,9 @@ GameObject:
   - component: {fileID: 678807044}
   - component: {fileID: 678807045}
   - component: {fileID: 678807046}
-  m_Layer: 8
-  m_Name: Toxic water (3)
-  m_TagString: toxicWater
+  m_Layer: 9
+  m_Name: Falling toxic water 1
+  m_TagString: fallingWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1203,7 +1201,7 @@ Transform:
   m_LocalScale: {x: 14, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 468147698}
+  m_Father: {fileID: 818152725}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &678807045
@@ -1315,7 +1313,7 @@ GameObject:
   - component: {fileID: 738937625}
   - component: {fileID: 738937624}
   m_Layer: 3
-  m_Name: Platform 1 (1)
+  m_Name: Platform 2
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1445,7 +1443,7 @@ GameObject:
   - component: {fileID: 778043419}
   - component: {fileID: 778043418}
   m_Layer: 3
-  m_Name: Platform 1 (11)
+  m_Name: Platform 12
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,7 +1457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778043416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -47, y: -12.949999, z: 0}
+  m_LocalPosition: {x: -47, y: -14, z: 0}
   m_LocalScale: {x: 3.5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1563,6 +1561,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &818152724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818152725}
+  m_Layer: 0
+  m_Name: Falling Waters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818152725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818152724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 678807044}
+  - {fileID: 915734325}
+  m_Father: {fileID: 1886429469}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &867931635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,7 +1606,7 @@ GameObject:
   - component: {fileID: 867931637}
   - component: {fileID: 867931638}
   m_Layer: 0
-  m_Name: Ceiling
+  m_Name: Ceiling 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1589,8 +1620,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867931635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24, y: -4.8, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 1}
+  m_LocalPosition: {x: -25, y: -4.8, z: 0}
+  m_LocalScale: {x: 53, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 106342718}
@@ -1705,7 +1736,7 @@ GameObject:
   - component: {fileID: 903800410}
   - component: {fileID: 903800409}
   m_Layer: 3
-  m_Name: Platform 1 (6)
+  m_Name: Platform 7
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,9 +1865,9 @@ GameObject:
   - component: {fileID: 915734325}
   - component: {fileID: 915734326}
   - component: {fileID: 915734327}
-  m_Layer: 8
-  m_Name: Toxic water (4)
-  m_TagString: toxicWater
+  m_Layer: 9
+  m_Name: Falling toxic water 2
+  m_TagString: fallingWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1853,7 +1884,7 @@ Transform:
   m_LocalScale: {x: 12, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 468147698}
+  m_Father: {fileID: 818152725}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &915734326
@@ -2000,7 +2031,7 @@ GameObject:
   - component: {fileID: 1058289518}
   - component: {fileID: 1058289517}
   m_Layer: 3
-  m_Name: Platform 1 (3)
+  m_Name: Platform 4
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2014,7 +2045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058289515}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.5, y: 3, z: 0}
+  m_LocalPosition: {x: -10.5, y: 1, z: 0}
   m_LocalScale: {x: 3.5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2130,7 +2161,7 @@ GameObject:
   - component: {fileID: 1067343895}
   - component: {fileID: 1067343894}
   m_Layer: 3
-  m_Name: Platform 1 (14)
+  m_Name: Platform 15
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2260,7 +2291,7 @@ GameObject:
   - component: {fileID: 1162104759}
   - component: {fileID: 1162104758}
   m_Layer: 3
-  m_Name: Platform 1 (7)
+  m_Name: Platform 8
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2390,7 +2421,7 @@ GameObject:
   - component: {fileID: 1236990135}
   - component: {fileID: 1236990136}
   m_Layer: 0
-  m_Name: Ceiling (2)
+  m_Name: Ceiling 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2404,7 +2435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236990133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18, y: 9, z: 0}
+  m_LocalPosition: {x: -18, y: 10, z: 0}
   m_LocalScale: {x: 67, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2520,7 +2551,7 @@ GameObject:
   - component: {fileID: 1278742092}
   - component: {fileID: 1278742091}
   m_Layer: 3
-  m_Name: Platform 1 (9)
+  m_Name: Platform 10
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2534,7 +2565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278742089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.5, y: -13, z: 0}
+  m_LocalPosition: {x: -18, y: -11.5, z: 0}
   m_LocalScale: {x: 3.5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2650,7 +2681,7 @@ GameObject:
   - component: {fileID: 1307054570}
   - component: {fileID: 1307054569}
   m_Layer: 6
-  m_Name: Pipe (3)
+  m_Name: Pipe 4
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2780,7 +2811,7 @@ GameObject:
   - component: {fileID: 1369055191}
   - component: {fileID: 1369055192}
   m_Layer: 7
-  m_Name: Fan
+  m_Name: Fan 1
   m_TagString: fan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3040,7 +3071,7 @@ GameObject:
   - component: {fileID: 1393899832}
   - component: {fileID: 1393899831}
   m_Layer: 3
-  m_Name: Platform 1 (4)
+  m_Name: Platform 5
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3054,7 +3085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393899829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 1.6999998, z: 0}
+  m_LocalPosition: {x: 2, y: 1, z: 0}
   m_LocalScale: {x: 3.5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3170,7 +3201,7 @@ GameObject:
   - component: {fileID: 1469260039}
   - component: {fileID: 1469260038}
   m_Layer: 6
-  m_Name: Pipe (1)
+  m_Name: Pipe 2
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3184,7 +3215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469260036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: -5.6000004, z: 0}
+  m_LocalPosition: {x: -11, y: -5.6000004, z: 0}
   m_LocalScale: {x: 5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3300,7 +3331,7 @@ GameObject:
   - component: {fileID: 1655851779}
   - component: {fileID: 1655851778}
   m_Layer: 3
-  m_Name: Platform 1 (10)
+  m_Name: Platform 11
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3430,7 +3461,7 @@ GameObject:
   - component: {fileID: 1695819255}
   - component: {fileID: 1695819254}
   m_Layer: 3
-  m_Name: Platform 1 (5)
+  m_Name: Platform 6
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3444,7 +3475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695819252}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 6, z: 0}
+  m_LocalPosition: {x: -4, y: 4.8, z: 0}
   m_LocalScale: {x: 3.5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3560,7 +3591,7 @@ GameObject:
   - component: {fileID: 1699610346}
   - component: {fileID: 1699610345}
   m_Layer: 3
-  m_Name: Platform 1 (15)
+  m_Name: Platform 16
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3678,6 +3709,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1705279361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705279362}
+  - component: {fileID: 1705279363}
+  m_Layer: 0
+  m_Name: Wall 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1705279362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705279361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: -9, z: 0}
+  m_LocalScale: {x: 9, y: 40, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948501684}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1705279363
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705279361}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1721209793
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,7 +3805,7 @@ GameObject:
   - component: {fileID: 1721209796}
   - component: {fileID: 1721209795}
   m_Layer: 6
-  m_Name: Pipe (2)
+  m_Name: Pipe 3
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3820,7 +3935,7 @@ GameObject:
   - component: {fileID: 1755819328}
   - component: {fileID: 1755819327}
   m_Layer: 3
-  m_Name: Platform 1 (16)
+  m_Name: Platform 17
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3938,6 +4053,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1784630449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784630450}
+  - component: {fileID: 1784630451}
+  m_Layer: 0
+  m_Name: Wall 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1784630450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784630449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -53.7, y: -9, z: 0}
+  m_LocalScale: {x: 9, y: 40, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948501684}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1784630451
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784630449}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1804268061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3950,7 +4149,7 @@ GameObject:
   - component: {fileID: 1804268064}
   - component: {fileID: 1804268063}
   m_Layer: 3
-  m_Name: Platform 1 (8)
+  m_Name: Platform 9
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3964,7 +4163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804268061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: -13, z: 0}
+  m_LocalPosition: {x: -3.5, y: -11.5, z: 0}
   m_LocalScale: {x: 3.5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4080,7 +4279,7 @@ GameObject:
   - component: {fileID: 1842790407}
   - component: {fileID: 1842790408}
   m_Layer: 8
-  m_Name: Toxic water (1)
+  m_Name: Toxic water 2
   m_TagString: toxicWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4094,8 +4293,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842790405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: -16, z: 0}
-  m_LocalScale: {x: 54, y: 1, z: 1}
+  m_LocalPosition: {x: -12, y: -16, z: 0}
+  m_LocalScale: {x: 56, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 468147698}
@@ -4231,6 +4430,8 @@ Transform:
   - {fileID: 106342718}
   - {fileID: 468147698}
   - {fileID: 619733133}
+  - {fileID: 818152725}
+  - {fileID: 1948501684}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4246,7 +4447,7 @@ GameObject:
   - component: {fileID: 1909190117}
   - component: {fileID: 1909190116}
   m_Layer: 3
-  m_Name: Platform 1 (13)
+  m_Name: Platform 14
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4376,7 +4577,7 @@ GameObject:
   - component: {fileID: 1937864527}
   - component: {fileID: 1937864528}
   m_Layer: 6
-  m_Name: Pipe
+  m_Name: Pipe 1
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4390,7 +4591,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937864525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32, y: 8.1, z: 0}
+  m_LocalPosition: {x: -32, y: 9.1, z: 0}
   m_LocalScale: {x: 5, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4494,6 +4695,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1948501683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1948501684}
+  m_Layer: 0
+  m_Name: Walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1948501684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948501683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1784630450}
+  - {fileID: 1705279362}
+  m_Father: {fileID: 1886429469}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2053729180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4506,7 +4740,7 @@ GameObject:
   - component: {fileID: 2053729183}
   - component: {fileID: 2053729182}
   m_Layer: 7
-  m_Name: Fan (2)
+  m_Name: Fan 3
   m_TagString: fan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4635,10 +4869,12 @@ GameObject:
   - component: {fileID: 2055013541}
   - component: {fileID: 2055013540}
   - component: {fileID: 2055013539}
-  - component: {fileID: 2055013538}
+  - component: {fileID: 2055013546}
   - component: {fileID: 2055013542}
   - component: {fileID: 2055013537}
   - component: {fileID: 2055013543}
+  - component: {fileID: 2055013545}
+  - component: {fileID: 2055013544}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -4660,33 +4896,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 8
   heartManager: {fileID: 0}
---- !u!50 &2055013538
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055013536}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 2
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!70 &2055013539
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4821,6 +5030,57 @@ MonoBehaviour:
   pipeLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2055013544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055013536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74326aa75da528446bfd529863baa7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2055013545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055013536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaefe12322b2090419853765ad9ad376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &2055013546
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055013536}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2.5
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2091577300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4833,7 +5093,7 @@ GameObject:
   - component: {fileID: 2091577302}
   - component: {fileID: 2091577303}
   m_Layer: 8
-  m_Name: Toxic water
+  m_Name: Toxic water 1
   m_TagString: toxicWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4847,8 +5107,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091577300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24, y: -3.8000002, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 1}
+  m_LocalPosition: {x: -25, y: -3.8000002, z: 0}
+  m_LocalScale: {x: 53, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 468147698}
