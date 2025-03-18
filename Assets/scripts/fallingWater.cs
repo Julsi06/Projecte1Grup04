@@ -9,7 +9,14 @@ public class fallingWater : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("fallingWater"))
         {
-            Death();
+            if (Input.GetKey(KeyCode.P))
+            {
+                ;
+            }
+            else
+            {
+                Death();
+            }
         }
     }
 
@@ -17,5 +24,5 @@ public class fallingWater : MonoBehaviour
     {
         gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    } 
 }
