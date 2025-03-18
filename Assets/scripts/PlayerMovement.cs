@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float horizontalSpeed; // S'estableix que la seva velocitat s'indicar‡ a Unity
-    private Rigidbody2D player; // S'estableix que tindr‡ fÌsiques
+    [SerializeField] private float horizontalSpeed; // S'estableix que la seva velocitat s'indicarÔøΩ a Unity
+    private Rigidbody2D player; // S'estableix que tindrÔøΩ fÔøΩsiques
     private bool isFacingRight = true; // Indica si el personaje mira a la derecha
 
     private void Awake()
@@ -24,20 +24,16 @@ public class PlayerMovement : MonoBehaviour
         // Captura la velocidad vertical actual para no afectar el salto
         float verticalVelocity = player.velocity.y;
         float horizontalVelocity = horizontalSpeed;
-
-        //funcio de unity
         float moveInput = Input.GetAxisRaw("Horizontal"); // -1 (izquierda), 0 (parado), 1 (derecha)
 
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             horizontalVelocity = -horizontalSpeed;
-            
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             horizontalVelocity = horizontalSpeed;
-            
         }
         else
         {
@@ -45,16 +41,15 @@ public class PlayerMovement : MonoBehaviour
             horizontalVelocity = 0;
         }
 
-        // Verifica si hay que cambiar la direcciÛn del personaje
-        if (moveInput > 0 && !isFacingRight) // Se mueve a la derecha pero est· mirando a la izquierda
+        // Verifica si hay que cambiar la direcci√≥n del personaje
+        if (moveInput > 0 && !isFacingRight) // Se mueve a la derecha pero est√° mirando a la izquierda
         {
             flip();
         }
-        else if (moveInput < 0 && isFacingRight) // Se mueve a la izquierda pero est· mirando a la derecha
+        else if (moveInput < 0 && isFacingRight) // Se mueve a la izquierda pero est√° mirando a la derecha
         {
             flip();
         }
-        
 
         // Aplica la velocidad manteniendo el eje Y (vertical) sin cambios
         player.velocity = new Vector2(horizontalVelocity, verticalVelocity);
@@ -62,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void flip()
     {
-        isFacingRight = !isFacingRight; // Cambia la direcciÛn
+        isFacingRight = !isFacingRight; // Cambia la direcciÔøΩn
         //viene de fabrica del unity (x,y,z);
         transform.Rotate(0f, 180f, 0f);
     }
