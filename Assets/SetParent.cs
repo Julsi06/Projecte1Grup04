@@ -4,25 +4,15 @@ using UnityEngine;
 
 public class SetParent : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
-
-    private void Awake()
-    {
-
-
-        transform.SetParent(player.transform);
-
-    }
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
