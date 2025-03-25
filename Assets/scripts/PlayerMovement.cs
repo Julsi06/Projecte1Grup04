@@ -8,13 +8,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float horizontalSpeed; // S'estableix que la seva velocitat s'indicarà a Unity
     private Rigidbody2D player; // S'estableix que tindrà físiques
-        
+    private Animator animator;
     private void Awake()
     {
         // S'agafaran les dades del rigidbody2d del player a Unity
         player = GetComponent<Rigidbody2D>();
         // Disable drag to avoid inertia
         player.drag = 0;
+        animator = GetComponent<Animator>();
     }
 
     //update is called once per frame
@@ -24,11 +25,22 @@ public class PlayerMovement : MonoBehaviour
         float verticalVelocity = player.velocity.y;
         float horizontalVelocity = horizontalSpeed;
 
+
+        if (horizontalVelocity != 0f)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+
+
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             horizontalVelocity = -horizontalSpeed;
         }
-       
+
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             horizontalVelocity = horizontalSpeed;
@@ -39,8 +51,9 @@ public class PlayerMovement : MonoBehaviour
             // Detiene solo el movimiento horizontal (drag) cuando no se presionan teclas
             horizontalVelocity = 0;
         }
-        
+
         // Aplica la velocidad manteniendo el eje Y (vertical) sin cambios
         player.velocity = new Vector2(horizontalVelocity, verticalVelocity);
     }
 }
+
