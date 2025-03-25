@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class weapon : MonoBehaviour
@@ -7,12 +8,28 @@ public class weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    [SerializeField] private int maxBullets = 6;
+    private int bulletsInt;
+
+    void Start()
+    {
+        bulletsInt = maxBullets; // Assign the max bullets value from the weapon object
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("Tecla Q presionada"); // Mensaje de prueba
-            Shoot();
+            if (bulletsInt != 0)
+            {
+                Shoot();
+                bulletsInt--;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bulletsInt = maxBullets;
         }
     }
 
