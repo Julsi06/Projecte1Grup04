@@ -29,16 +29,13 @@ public class PlayerMovement : MonoBehaviour
         //funcio de unity
         float moveInput = Input.GetAxisRaw("Horizontal"); // -1 (izquierda), 0 (parado), 1 (derecha)
 
-
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             horizontalVelocity = -horizontalSpeed;
-
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             horizontalVelocity = horizontalSpeed;
-
         }
         else
         {
@@ -55,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
         {
             flip();
         }
-
 
         // Aplica la velocidad manteniendo el eje Y (vertical) sin cambios
         player.velocity = new Vector2(horizontalVelocity, verticalVelocity);
