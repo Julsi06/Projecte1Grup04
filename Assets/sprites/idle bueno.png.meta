@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d01c2b6962b959f418725c3b9ef46728
+guid: 20b24daacf41c544e8a38d9bdf87af9c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_0
+      name: idle bueno_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 508
-        width: 52
-        height: 112
+        x: 82
+        y: 540
+        width: 28
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51c227a8524a06a4d9c0f66682b6b2dc
-      internalID: 1262390989
+      spriteID: 37186faf1da9d7b4ab74cf17501398bf
+      internalID: -1590489119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_1
+      name: idle bueno_1
       rect:
         serializedVersion: 2
-        x: 260
-        y: 508
-        width: 52
-        height: 110
+        x: 274
+        y: 540
+        width: 28
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7c3de4cd96345247b57b6cd9939630e
-      internalID: 1783699120
+      spriteID: c47257b0a22f45e40a48180dd664e3cc
+      internalID: -2070378197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_2
+      name: idle bueno_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 340
-        width: 52
-        height: 108
+        x: 82
+        y: 372
+        width: 28
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 651d2e05985a3cd4fabb70cd17238063
-      internalID: 1817646213
+      spriteID: 24c9e81e36daee648a0016cb15d43285
+      internalID: 636961208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_3
+      name: idle bueno_3
       rect:
         serializedVersion: 2
-        x: 260
-        y: 340
-        width: 52
-        height: 108
+        x: 274
+        y: 372
+        width: 30
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9e0bd7e125ee1f419c502dcddac72fd
-      internalID: -133608574
+      spriteID: b801b314868358f419c71fa0283d784c
+      internalID: -1193567456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_4
+      name: idle bueno_4
       rect:
         serializedVersion: 2
-        x: 68
-        y: 172
-        width: 52
-        height: 110
+        x: 82
+        y: 204
+        width: 32
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4d3823bb3a159240be6569a506c285b
-      internalID: -1815556726
+      spriteID: df924ff35d2cf254dbc6929d03f074e9
+      internalID: 1524414109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_5
+      name: idle bueno_5
       rect:
         serializedVersion: 2
-        x: 260
-        y: 172
-        width: 52
-        height: 110
+        x: 274
+        y: 204
+        width: 30
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 221d4e0898d12a745b3fc1f841de4ed4
-      internalID: 949427758
+      spriteID: a2b7c32a5556e8d43b10d7784dda78e8
+      internalID: -1677171956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_6
+      name: idle bueno_6
       rect:
         serializedVersion: 2
-        x: 68
-        y: 4
-        width: 52
-        height: 112
+        x: 82
+        y: 36
+        width: 28
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7f7d7a5ac7ad90409494464e4f007a9
-      internalID: 1563890802
+      spriteID: a9ad41466ed213843aec26629e0021a5
+      internalID: 628716850
       vertices: []
       indices: 
       edges: []
@@ -267,13 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idle_0: 1262390989
-      idle_1: 1783699120
-      idle_2: 1817646213
-      idle_3: -133608574
-      idle_4: -1815556726
-      idle_5: 949427758
-      idle_6: 1563890802
+      idle bueno_0: -1590489119
+      idle bueno_1: -2070378197
+      idle bueno_2: 636961208
+      idle bueno_3: -1193567456
+      idle bueno_4: 1524414109
+      idle bueno_5: -1677171956
+      idle bueno_6: 628716850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
