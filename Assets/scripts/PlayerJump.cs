@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 650f;
+    [SerializeField] private float jumpForce = 400f;
     [SerializeField] private LayerMask groundLayer; // el layerMask estableix el que detectara el rayccast 
     [SerializeField] private int maxJumps = 2; // Número máximo de saltos permitidos
     public float RaycastDistance = 0.5f;
@@ -16,6 +16,8 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D player;
     private int jumpCount; // Contador de saltos
     bool isGrounded = false; // Indica si el personaje está en el suelo
+    bool isJumping = false;
+    bool isDoubleJumping = false;
     Animator animator;
 
     private void Awake()
@@ -30,10 +32,24 @@ public class PlayerJump : MonoBehaviour
     {
         CheckGrounded(); // Verifica si el personaje toca el suelo
 
+        if (isGrounded) 
+        {
+            animator.SetBool("isJumping", isJumping);
+            animator.SetBool("isDoubleJumping", isDoubleJumping);
+        }
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
-            animator.SetBool("isJumping", isGrounded);
+            isJumping = true;
+            animator.SetBool("isJumping", isJumping);
+            isDoubleJumping = false;
+            
+            if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= maxJumps)
+            {
+                Jump();
+                isDoubleJumping = true;
+                animator.SetBool("isDoubleJumping", isDoubleJumping);
+            }
         }
     }
 
@@ -48,8 +64,9 @@ public class PlayerJump : MonoBehaviour
         // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
-            jumpCount = 0;
-            animator.SetBool("isJumping", !isGrounded);
+            isGrounded = true;
+            isJumping = false;
+            isDoubleJumping = false;
         }
         
     }
