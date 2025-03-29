@@ -1,45 +1,65 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 325f;
+    [SerializeField] private float jumpForce = 650f;
     [SerializeField] private LayerMask groundLayer; // el layerMask estableix el que detectara el rayccast 
     [SerializeField] private int maxJumps = 2; // Número máximo de saltos permitidos
+    public float RaycastDistance = 0.5f;
+
 
     private Rigidbody2D player;
     private int jumpCount; // Contador de saltos
+    bool isGrounded = false; // Indica si el personaje está en el suelo
+    Animator animator;
+
     private void Awake()
     {
         // Agafa els components del GameObject (jugador)
         player = GetComponent<Rigidbody2D>();
+        jumpCount = 1;
+        animator = GetComponent<Animator>();
     }
+
     private void Update()
     {
-        // Detecta input para saltar
+        CheckGrounded(); // Verifica si el personaje toca el suelo
+
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
+            isGrounded = false;
+            animator.SetBool("isJumping", !isGrounded);
         }
     }
-    // Nuevo método para reiniciar los saltos al tocar cualquier superficie
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void CheckGrounded()
     {
-        // Reinicia el contador de saltos al tocar cualquier cosa
-        jumpCount = 0;
+        RaycastHit2D hit;
+        Vector2 raycastOrigin = transform.position - new Vector3(0f, 1.01f, 0f);
+
+        // Lanza un rayo hacia abajo para detectar el suelo
+        hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.5f, RaycastDistance, groundLayer);
+
+        // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
+        if (hit.collider != null && hit.collider.CompareTag("Ground"))
+        {
+            jumpCount = 1;
+            isGrounded = true;
+            animator.SetBool("isJumping", !isGrounded);
+        }
     }
+
     private void Jump()
     {
-        // Elimina la velocidad vertical anterior para saltos más consistentes
-        player.velocity = new Vector2(player.velocity.x, 0);
-
-        // Aplica la fuerza de salto (puedes cambiar a Impulse para un salto más inmediato)
-        player.AddForce(new Vector2(0f, jumpForce));
-
-        // Aumenta el contador de saltos
+        animator.SetFloat("yVelocity", player.velocity.y);
+        player.velocity = new Vector2(player.velocity.x, 0f); // Elimina cualquier fuerza acumulada
+        player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force); // Salto instantáneo
         jumpCount++;
     }
-
 }
