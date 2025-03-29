@@ -22,7 +22,7 @@ public class PlayerJump : MonoBehaviour
     {
         // Agafa els components del GameObject (jugador)
         player = GetComponent<Rigidbody2D>();
-        jumpCount = 1;
+        jumpCount = 0;
         animator = GetComponent<Animator>();
     }
 
@@ -33,8 +33,7 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
-            isGrounded = false;
-            animator.SetBool("isJumping", !isGrounded);
+            animator.SetBool("isJumping", isGrounded);
         }
     }
 
@@ -49,10 +48,10 @@ public class PlayerJump : MonoBehaviour
         // Si antes no estaba en el suelo pero ahora sí => Se reinicia el contador de saltos
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
-            jumpCount = 1;
-            isGrounded = true;
+            jumpCount = 0;
             animator.SetBool("isJumping", !isGrounded);
         }
+        
     }
 
     private void Jump()
