@@ -66,21 +66,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentSpeed -= deceleration;
                 if (currentSpeed < 0) currentSpeed = 0;
+                animator.SetBool("isRunning", false); // Detiene la animación de correr
             }
             else if (currentSpeed < 0)
             {
                 currentSpeed += deceleration;
                 if (currentSpeed > 0) currentSpeed = 0;
-            }
-
-            if (isGrounded)
-            {
-                animator.SetBool("isRunning", false); // Detiene la animación de correr si está en el suelo
+                animator.SetBool("isRunning", false); // Detiene la animación de correr
             }
         }
 
         float verticalVelocity = player.velocity.y;
         player.velocity = new Vector2(currentSpeed, verticalVelocity);
+        
 
         if ((currentSpeed > 0 && !isFacingRight) || (currentSpeed < 0 && isFacingRight))
         {
