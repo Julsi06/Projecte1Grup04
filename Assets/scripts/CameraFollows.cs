@@ -11,7 +11,7 @@ public class CameraFollows : MonoBehaviour
     {
         Vector3 position = transform.position;
         position.x = player.position.x; // Sigue al jugador en el eje X
-        position.y = player.position.y; // Sigue al jugador en el eje Y
+        position.y = player.position.y + 5; // Sigue al jugador en el eje Y
         position.z = offsetZ; // Mantén la cámara fija en el eje Z
 
         transform.position = position;

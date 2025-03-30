@@ -10,10 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float acceleration = 0.2f; // Aceleración
     [SerializeField] private float deceleration = 0.3f; // Desaceleración
 
-    [SerializeField] private float jumpForce = 650f;
+    [SerializeField] private float jumpForce = 15f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private int maxJumps = 2;
-    public float RaycastDistance = 0.5f;
+    [SerializeField] private float RaycastDistance = 0.2f;
 
     private Rigidbody2D player;
     private bool isFacingRight = true;
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(player.velocity.y);
         HandleJump();
     }
 
@@ -51,11 +52,13 @@ public class PlayerMovement : MonoBehaviour
         {
             currentSpeed += acceleration;
             if (currentSpeed > maxSpeed) currentSpeed = maxSpeed;
+            animator.SetBool("isRunning", true); // Establece que está corriendo
         }
         else if (moveInput < 0)
         {
             currentSpeed -= acceleration;
             if (currentSpeed < -maxSpeed) currentSpeed = -maxSpeed;
+            animator.SetBool("isRunning", true); // Establece que está corriendo
         }
         else
         {
@@ -68,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentSpeed += deceleration;
                 if (currentSpeed > 0) currentSpeed = 0;
+            }
+
+            if (isGrounded)
+            {
+                animator.SetBool("isRunning", false); // Detiene la animación de correr si está en el suelo
             }
         }
 
@@ -95,34 +103,48 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit;
         Vector2 raycastOrigin = transform.position - new Vector3(0f, 1.01f, 0f);
 
+        // Lanza un rayo hacia abajo para detectar el suelo
         hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.5f, RaycastDistance, groundLayer);
+        Debug.DrawRay(raycastOrigin, Vector2.down * RaycastDistance, Color.red);
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
+            // Si está tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
-            isGrounded = true;
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", false);
+            animator.SetBool("isGrounded", true); // Establece que está en el suelo
+            if (player.velocity.y <= 0)
+            {
+                animator.SetBool("isJumping", false); // Detiene la animación de salto
+                animator.SetBool("isFalling", false); // Detiene la animación de caída
+            }
         }
-        else if (player.velocity.y < 0) // Falling condition
+        else
         {
-            isGrounded = false;
-            animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", true);
+            animator.SetBool("isGrounded", false); // Establece que no está en el suelo
+
+            if (player.velocity.y > 0)
+            {
+                animator.SetBool("isJumping", true); // Establece que está saltando
+                animator.SetBool("isFalling", false); // Asegúrate de que no está cayendo
+            }
+            else if (player.velocity.y < 0)
+            {
+                animator.SetBool("isJumping", false); // Detiene la animación de salto
+                animator.SetBool("isFalling", true); // Establece que está cayendo
+            }
         }
     }
 
     private void Jump()
     {
-        Debug.Log(player.velocity.y);
-        player.velocity = new Vector2(player.velocity.x, 0f);
-        player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
+        player.velocity = new Vector2(player.velocity.x, 0f); // Elimina cualquier fuerza acumulada
+        player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force); // Salto instantáneo
         jumpCount++;
     }
 
     private void Flip()
     {
-        isFacingRight = !isFacingRight;
+        isFacingRight = !isFacingRight; // Cambia la direccion
         transform.Rotate(0f, 180f, 0f);
     }
 }

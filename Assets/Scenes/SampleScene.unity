@@ -4906,9 +4906,9 @@ MonoBehaviour:
   jumpForce: 400
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   maxJumps: 2
-  RaycastDistance: 0.5
+  RaycastDistance: 2.2
 --- !u!50 &2055013538
 Rigidbody2D:
   serializedVersion: 4
