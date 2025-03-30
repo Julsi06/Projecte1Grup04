@@ -393,6 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 156554491}
   - component: {fileID: 156554490}
+  - component: {fileID: 156554492}
   m_Layer: 3
   m_Name: Obstacle 3
   m_TagString: Ground
@@ -460,13 +461,48 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156554488}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 94.4121, y: 7.29, z: 0}
+  m_LocalPosition: {x: 94.28, y: 7.29, z: 0}
   m_LocalScale: {x: 5.5, y: 4.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1214720414}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &156554492
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156554488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10290458, y: -1.1796014}
+  m_Size: {x: 1.6864527, y: 2.1334474}
+  m_Direction: 0
 --- !u!1 &167314814
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,9 +698,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.108306885, y: -0.9651417}
+  m_Offset: {x: 0.108306885, y: -0.9582388}
   serializedVersion: 2
-  m_Radius: 0.8245205
+  m_Radius: 0.83142346
 --- !u!212 &168762007
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2634,9 +2670,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09360012, y: -0.89318866}
+  m_Offset: {x: 0.10489, y: -0.92533046}
   serializedVersion: 2
-  m_Radius: 0.74754405
+  m_Radius: 0.7903997
 --- !u!1 &1284935884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,7 +3672,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.9763561, y: 0.62596697}
+  m_Offset: {x: -0.9688577, y: 0.6420725}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3647,7 +3683,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6404694, y: 0.63433826}
+  m_Size: {x: 1.7154471, y: 0.6665492}
   m_EdgeRadius: 0
 --- !u!212 &1554731351
 SpriteRenderer:
@@ -4622,7 +4658,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.06924923}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4633,7 +4669,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.8615016}
   m_EdgeRadius: 0
 --- !u!212 &2039277200
 SpriteRenderer:
@@ -4703,7 +4739,6 @@ GameObject:
   - component: {fileID: 2055013544}
   - component: {fileID: 2055013543}
   - component: {fileID: 2055013545}
-  - component: {fileID: 2055013546}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -4731,7 +4766,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   maxJumps: 2
-  RaycastDistance: 2.2
+  RaycastDistance: 1.5
 --- !u!50 &2055013538
 Rigidbody2D:
   serializedVersion: 4
@@ -4747,7 +4782,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4876,6 +4911,8 @@ MonoBehaviour:
   pipeLayer:
     serializedVersion: 2
     m_Bits: 64
+  maxSpeed: 4
+  hangingOffset: 0.5
 --- !u!114 &2055013544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4909,24 +4946,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2055013546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055013536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f3052f3bce3f3458d3943401ab631f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 100
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  maxJumps: 2
-  RaycastDistance: 0.5
 --- !u!1 &2120951907
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed = 0f;
     private int jumpCount;
     private bool isGrounded = false;
+    private bool isHanging = false;
     private Animator animator;
 
     private void Awake()
@@ -32,9 +33,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(player.velocity.y);
         HandleJump();
+
+        if (!isHanging) // Si no está colgado, maneja el movimiento normal
+        {
+            HandleMovement();
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -45,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (isHanging) // Si está colgado, no se permite movimiento vertical, pero sí horizontal
+        {
+            // Esto ya está manejado en el script HangingFromPipe
+            return;
+        }
+
         float moveInput = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("xVelocity", Math.Abs(player.velocity.x));
 
@@ -103,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Lanza un rayo hacia abajo para detectar el suelo
         hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.5f, RaycastDistance, groundLayer);
-        Debug.DrawRay(raycastOrigin, Vector2.down * RaycastDistance, Color.red);
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
