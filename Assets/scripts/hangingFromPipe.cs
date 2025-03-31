@@ -62,12 +62,14 @@ public class HangingFromPipe : MonoBehaviour
         {
             animator.SetBool("isHangingMoving", true);  // Se está moviendo mientras cuelga
             animator.SetBool("isHanging", false); // No está en idle
+            animator.SetBool("isFalling", false);
         }
         else
         {
             // Si no hay entrada horizontal, está en idle
             animator.SetBool("isHangingMoving", false);
             animator.SetBool("isHanging", true); // Se queda colgando sin moverse
+            animator.SetBool("isFalling", false);
         }
 
         // El jugador se mueve en la dirección horizontal
@@ -89,6 +91,7 @@ public class HangingFromPipe : MonoBehaviour
                 // Si se colisiona con una tubería, el jugador comienza a colgarse
                 isHanging = true;
                 animator.SetBool("isHanging", true);  // Activa la animación de colgarse
+                animator.SetBool("isFalling", false);
             }
         }
         else
@@ -109,6 +112,7 @@ public class HangingFromPipe : MonoBehaviour
         // Si el jugador se suelta de la tubería, se restablece la gravedad
         isHanging = false;
         animator.SetBool("isHanging", false);  // Desactiva la animación de colgarse
+        animator.SetBool("isHangingMoving", false);
         player.gravityScale = 1.0f;  // Restaura la gravedad
     }
 }
