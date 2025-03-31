@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class buttonDoor : MonoBehaviour
 {
-    [SerializeField] private LayerMask doorLayer;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool isClosed = true;
+    [SerializeField] private GameObject door;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+            isClosed = false;
+            Destroy(door);
         }
     }
 }

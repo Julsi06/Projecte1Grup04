@@ -2840,9 +2840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9bd961f0095904eb3c939fd6d95e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  isClosed: 1
+  door: {fileID: 431936175}
 --- !u!1 &946245241
 GameObject:
   m_ObjectHideFlags: 0
