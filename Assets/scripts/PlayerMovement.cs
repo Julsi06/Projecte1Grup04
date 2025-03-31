@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
             // Esto ya está manejado en el script HangingFromPipe
             return;
         }
-
+        
         float moveInput = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("xVelocity", Math.Abs(player.velocity.x));
 
@@ -90,7 +90,11 @@ public class PlayerMovement : MonoBehaviour
 
         float verticalVelocity = player.velocity.y;
         player.velocity = new Vector2(currentSpeed, verticalVelocity);
-        
+
+        if (verticalVelocity < 0)
+        {
+            animator.SetBool("isFalling", true);
+        }
 
         if ((currentSpeed > 0 && !isFacingRight) || (currentSpeed < 0 && isFacingRight))
         {

@@ -8,7 +8,6 @@ public class HangingFromPipe : MonoBehaviour
     [SerializeField] private float maxSpeed = 4f;  // Velocidad máxima al moverse colgado
     [SerializeField] private float hangingOffset = 0.5f;  // Desplazamiento del sprite hacia abajo para que se enganche desde los brazos
     private Rigidbody2D player;
-    private CapsuleCollider2D capsuleCollider;
     private bool isHanging = false;
     private Animator animator;
 
@@ -16,7 +15,6 @@ public class HangingFromPipe : MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();  // Obtener el componente Animator
-        capsuleCollider = GetComponent<CapsuleCollider2D>(); 
     }
 
     private void Update()
@@ -82,16 +80,10 @@ public class HangingFromPipe : MonoBehaviour
         Vector2 raycastOrigin = transform.position + new Vector3(0f, 1.0f); // Origen ajustado
         Vector2 raycastDirection = Vector2.up;  // Dirección del rayo hacia arriba (si la tubería está arriba del jugador)
 
-
-        // Depuración: Muestra el rayo en la vista de la escena
-        Debug.DrawRay(raycastOrigin, raycastDirection * 1f, Color.red);
-        Debug.Log("Raycast Origin: " + raycastOrigin + " Raycast Direction: " + raycastDirection);
-
         RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, raycastDirection, 1.0f, pipeLayer);  // Raycast hacia la tubería
 
         if (hit.collider != null)
         {
-            Debug.Log("Raycast Hit: " + hit.collider.name);  // Muestra el nombre del objeto al que ha golpeado el rayo
             if (hit.collider.CompareTag("Pipe"))
             {
                 // Si se colisiona con una tubería, el jugador comienza a colgarse
@@ -101,7 +93,6 @@ public class HangingFromPipe : MonoBehaviour
         }
         else
         {
-            Debug.Log("No hit detected.");
             isHanging = false;
         }
 
