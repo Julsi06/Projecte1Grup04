@@ -36,12 +36,6 @@ public class HangingFromPipe : MonoBehaviour
 
             // Movimiento horizontal mientras se cuelga
             HandleHangingMovement();
-
-            // Si presiona 'S' para soltarse
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                DropFromPipe();
-            }
         }
         else
         {
@@ -78,9 +72,9 @@ public class HangingFromPipe : MonoBehaviour
 
     private void CheckHangingFromPipe()
     {
-        // Lanza un rayo hacia arriba desde el centro del jugador para detectar la tubería
-        Vector2 raycastOrigin = transform.position + new Vector3(0f, 1.0f); // Origen ajustado
-        Vector2 raycastDirection = Vector2.up;  // Dirección del rayo hacia arriba (si la tubería está arriba del jugador)
+            // Lanza un rayo hacia arriba desde el centro del jugador para detectar la tubería
+            Vector2 raycastOrigin = transform.position + new Vector3(0f, 1.0f); // Origen ajustado
+            Vector2 raycastDirection = Vector2.up;  // Dirección del rayo hacia arriba (si la tubería está arriba del jugador)
 
         RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, raycastDirection, 1.0f, pipeLayer);  // Raycast hacia la tubería
 
