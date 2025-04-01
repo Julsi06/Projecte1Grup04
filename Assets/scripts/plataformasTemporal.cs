@@ -38,14 +38,7 @@ public class plataformasTemporal : MonoBehaviour
         // Espera la cantidad de segundos especificada en waitTime antes de ejecutar el resto del código
         yield return new WaitForSeconds(waitTime); // FUNCION DE UNITY
 
-        // Ignora la colisión entre la plataforma y el jugador, evitando interacciones físicas no deseadas
-        Physics2D.IgnoreCollision(transform.GetComponent<Collider2D>(), other.gameObject.GetComponent<Collider2D>());
-
-        // Quita todas las restricciones del Rigidbody2D para permitir el movimiento y la rotación libre
-        rb2D.constraints = RigidbodyConstraints2D.None;
-
-        // Aplica una pequeña fuerza en la dirección X para iniciar el movimiento de caída
-        rb2D.AddForce(new Vector2(0.1f, 0));
+        rb2D.gravityScale = 1;
 
         // Aquí la plataforma comenzará a caer
     }
