@@ -7,7 +7,7 @@ public class ToxicWater : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ToxicWater"))
+        if (collision.gameObject.CompareTag("toxicWater"))
         {
             Death();
         }
