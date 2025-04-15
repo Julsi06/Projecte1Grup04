@@ -2,24 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Movement variables
     [SerializeField] private float maxSpeed = 8f;  // Velocidad máxima
     [SerializeField] private float acceleration = 0.2f; // Aceleración
     [SerializeField] private float deceleration = 0.3f; // Desaceleración
 
-    [SerializeField] private float jumpForce = 15f;
+    // Jump and ground detecting variables
+    [SerializeField] private float jumpForce = 400f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private int maxJumps = 2;
-    [SerializeField] private float RaycastDistance = 0.2f;
+    [SerializeField] private float RaycastDistance = 1.5f;
 
+    // Player initialized variables
     private Rigidbody2D player;
     private bool isFacingRight = true;
     private float currentSpeed = 0f;
     private int jumpCount;
-    private bool isGrounded = false;
     private bool isHanging = false;
     private Animator animator;
 
@@ -107,8 +110,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
-            isGrounded = false;
-            animator.SetBool("isJumping", !isGrounded);
+            animator.SetBool("isJumping", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y / 1.2f);
         }
     }
 
@@ -119,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Lanza un rayo hacia abajo para detectar el suelo
         hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.5f, RaycastDistance, groundLayer);
+        Debug.DrawRay(raycastOrigin, Vector2.down * 1.2f, Color.red);
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
@@ -135,12 +142,12 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isGrounded", false); // Establece que no está en el suelo
 
-            if (player.velocity.y > 0)
+            if (player.velocity.y > 0.1f)
             {
                 animator.SetBool("isJumping", true); // Establece que está saltando
                 animator.SetBool("isFalling", false); // Asegúrate de que no está cayendo
             }
-            else if (player.velocity.y < 0)
+            else if (player.velocity.y < -0.1f)
             {
                 animator.SetBool("isJumping", false); // Detiene la animación de salto
                 animator.SetBool("isFalling", true); // Establece que está cayendo
@@ -154,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force); // Salto instantáneo
         jumpCount++;
     }
-
+     
     private void Flip()
     {
         isFacingRight = !isFacingRight; // Cambia la direccion

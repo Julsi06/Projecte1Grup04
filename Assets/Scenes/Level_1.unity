@@ -4527,6 +4527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plataformaMovilObj (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
+      propertyPath: m_TagString
+      value: movingPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 2202966750121851761, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6396,6 +6400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plataformaMovilObj (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
+      propertyPath: m_TagString
+      value: movingPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 2202966750121851761, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -7064,6 +7072,10 @@ PrefabInstance:
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_Name
       value: plataformaMovilObj (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
+      propertyPath: m_TagString
+      value: movingPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 2202966750121851761, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_RootOrder
@@ -8026,6 +8038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plataformaMovilObj (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
+      propertyPath: m_TagString
+      value: movingPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 2202966750121851761, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -8683,6 +8699,10 @@ PrefabInstance:
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_Name
       value: plataformaMovilObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
+      propertyPath: m_TagString
+      value: movingPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 2202966750121851761, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_RootOrder
@@ -9358,7 +9378,6 @@ GameObject:
   - component: {fileID: 1717097724}
   - component: {fileID: 1717097726}
   - component: {fileID: 1717097725}
-  - component: {fileID: 1717097727}
   m_Layer: 0
   m_Name: Toxic water 3
   m_TagString: toxicWater
@@ -9478,18 +9497,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1717097727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717097723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2a0b478e01e3843966ec93270e3556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1719670277
 GameObject:
   m_ObjectHideFlags: 0
@@ -9957,7 +9964,6 @@ GameObject:
   - component: {fileID: 1818395286}
   - component: {fileID: 1818395288}
   - component: {fileID: 1818395287}
-  - component: {fileID: 1818395289}
   m_Layer: 0
   m_Name: Toxic water 1
   m_TagString: toxicWater
@@ -10077,18 +10083,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1818395289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818395285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2a0b478e01e3843966ec93270e3556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1862534414
 GameObject:
   m_ObjectHideFlags: 0

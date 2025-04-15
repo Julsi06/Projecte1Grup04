@@ -34,7 +34,7 @@ Transform:
   - {fileID: 8533153515729757350}
   - {fileID: 4984784555912174551}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &591619661303265400
 GameObject:
@@ -184,7 +184,8 @@ MonoBehaviour:
   - {fileID: 9117201619234453760}
   - {fileID: 8533153515729757350}
   - {fileID: 4984784555912174551}
-  velocidadMovimiento: 10
+  velocidadMovimiento: 3
+  stopTime: 2
 --- !u!1 &1541167523777407027
 GameObject:
   m_ObjectHideFlags: 0

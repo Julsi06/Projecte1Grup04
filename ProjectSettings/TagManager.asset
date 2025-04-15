@@ -9,6 +9,7 @@ TagManager:
   - toxicWater
   - Pipe
   - door
+  - movingPlatform
   layers:
   - Default
   - TransparentFX
