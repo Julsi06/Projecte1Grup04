@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ToxicWater : MonoBehaviour
+public class toxicWater : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ToxicWater"))
-        {
+        if (collision.gameObject.CompareTag("toxicWater"))
             Death();
-        }
     }
 
-    void Death()
+    private void Death()
     {
         gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
