@@ -4,12 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - heart
   - Ground
   - Pipe
-  - fan
   - toxicWater
-  - fallingWater
+  - door
   layers:
   - Default
   - TransparentFX
