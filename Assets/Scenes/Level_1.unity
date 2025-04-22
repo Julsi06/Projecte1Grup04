@@ -4655,7 +4655,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_Name
-      value: plataformaMovilObj (4)
+      value: Moving platform 5
       objectReference: {fileID: 0}
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_TagString
@@ -6408,7 +6408,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_Name
-      value: plataformaMovilObj (2)
+      value: Moving platform 3
       objectReference: {fileID: 0}
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_TagString
@@ -7081,7 +7081,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_Name
-      value: plataformaMovilObj (3)
+      value: Moving platform 4
       objectReference: {fileID: 0}
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_TagString
@@ -8046,7 +8046,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_Name
-      value: plataformaMovilObj (1)
+      value: Moving platform 2
       objectReference: {fileID: 0}
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_TagString
@@ -8588,7 +8588,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_Name
-      value: plataformaMovilObj
+      value: Moving platform 1
       objectReference: {fileID: 0}
     - target: {fileID: 104487382372075078, guid: d0ed9b0a1e7a40042be367aba12b1d50, type: 3}
       propertyPath: m_TagString

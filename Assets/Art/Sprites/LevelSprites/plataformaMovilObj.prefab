@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2707405370256625805}
   m_Layer: 0
-  m_Name: puntoMovimiento
+  m_Name: pointA
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8533153515729757350}
   m_Layer: 0
-  m_Name: puntoMovimiento (2)
+  m_Name: pointC
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4984784555912174551}
   m_Layer: 0
-  m_Name: puntoMovimiento (3)
+  m_Name: pointD
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9117201619234453760}
   m_Layer: 0
-  m_Name: puntoMovimiento (1)
+  m_Name: pointB
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
