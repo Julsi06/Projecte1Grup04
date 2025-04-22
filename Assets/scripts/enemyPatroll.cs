@@ -8,6 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     [SerializeField] private float velocidadMovimientoEnemigo;
 
+    private bool isFacingRight = true; // Indica si el personaje mira a la derecha
 
     private int siguienteEnemigo = 1;
     private bool ordenEnemigos = true;
@@ -40,4 +41,11 @@ public class NewBehaviourScript : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, puntosMovimientoEnemigo[siguienteEnemigo].position, velocidadMovimientoEnemigo * Time.deltaTime);
     }
+    private void flip()
+    {
+        isFacingRight = !isFacingRight; // Cambia la dirección
+                                        //viene de fabrica del unity (x,y,z);
+        transform.Rotate(0f, 180f, 0f);
+    }
+
 }
