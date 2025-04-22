@@ -134,7 +134,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isGrounded", true); // Establece que está en el suelo
             if (player.velocity.y <= 0)
             {
-                animator.SetBool("isJumping", false); // Detiene la animación de salto
+                if(jumpCount == maxJumps)
+                    animator.SetBool("isDoubleJumping", false); // Detiene la animación de doble salto
+                else
+                    animator.SetBool("isJumping", false); // Detiene la animación de salto
+
                 animator.SetBool("isFalling", false); // Detiene la animación de caída
             }
         }
@@ -144,12 +148,18 @@ public class PlayerMovement : MonoBehaviour
 
             if (player.velocity.y > 0.1f)
             {
-                animator.SetBool("isJumping", true); // Establece que está saltando
+                if (jumpCount == maxJumps)
+                    animator.SetBool("isDoubleJumping", true); // Detiene la animación de doble salto
+                else
+                    animator.SetBool("isJumping", true); // Detiene la animación de salto
                 animator.SetBool("isFalling", false); // Asegúrate de que no está cayendo
             }
             else if (player.velocity.y < -0.1f)
             {
-                animator.SetBool("isJumping", false); // Detiene la animación de salto
+                if (jumpCount == maxJumps)
+                    animator.SetBool("isDoubleJumping", false); // Detiene la animación de doble salto
+                else
+                    animator.SetBool("isJumping", false); // Detiene la animación de salto
                 animator.SetBool("isFalling", true); // Establece que está cayendo
             }
         }
