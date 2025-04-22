@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 442284441}
   - component: {fileID: 442284440}
   m_Layer: 0
-  m_Name: Ceiling 1 (1)
+  m_Name: Ceiling 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1271,6 +1271,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1352,6 +1353,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c2c4acf8a62ab4fb7748dccb338787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1796599489}
+  offsetZ: -10
 --- !u!1 &527724674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,7 +2869,7 @@ GameObject:
   - component: {fileID: 1423113514}
   - component: {fileID: 1423113513}
   m_Layer: 0
-  m_Name: Wall 2 (3)
+  m_Name: Wall 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2984,7 +2999,7 @@ GameObject:
   - component: {fileID: 1457617153}
   - component: {fileID: 1457617152}
   m_Layer: 0
-  m_Name: Wall 2 (2)
+  m_Name: Wall 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3114,7 +3129,7 @@ GameObject:
   - component: {fileID: 1503941698}
   - component: {fileID: 1503941697}
   m_Layer: 6
-  m_Name: Pipe 1 (1)
+  m_Name: Pipe 2
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3379,7 +3394,7 @@ GameObject:
   - component: {fileID: 1705279363}
   - component: {fileID: 1705279364}
   m_Layer: 0
-  m_Name: Wall 2
+  m_Name: Wall 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3511,6 +3526,8 @@ GameObject:
   - component: {fileID: 1796599491}
   - component: {fileID: 1796599493}
   - component: {fileID: 1796599494}
+  - component: {fileID: 1796599495}
+  - component: {fileID: 1796599496}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3685,6 +3702,39 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &1796599495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796599486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c6c1f79b42c374e8dc18c94f613326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1796599496
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796599486}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74d3361a8e4fb724c896b6f3365b6863, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1813995130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4708,7 +4758,7 @@ GameObject:
   - component: {fileID: 2118076483}
   - component: {fileID: 2118076482}
   m_Layer: 0
-  m_Name: Wall 2 (1)
+  m_Name: 'Wall 2 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
