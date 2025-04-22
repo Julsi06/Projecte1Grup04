@@ -47,8 +47,8 @@ GameObject:
   - component: {fileID: 5844681207310575126}
   - component: {fileID: 7445099454293633311}
   - component: {fileID: 1013053081749136453}
-  - component: {fileID: 3269300196749099312}
   - component: {fileID: 2127609335056233882}
+  - component: {fileID: 5733664497082518817}
   m_Layer: 3
   m_Name: plataforma
   m_TagString: Ground
@@ -168,25 +168,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3269300196749099312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591619661303265400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f9ad67c6f4694146a15f474f13ebab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puntosMovimiento:
-  - {fileID: 2707405370256625805}
-  - {fileID: 9117201619234453760}
-  - {fileID: 8533153515729757350}
-  - {fileID: 4984784555912174551}
-  velocidadMovimiento: 3
-  stopTime: 2
 --- !u!251 &2127609335056233882
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -206,6 +187,25 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &5733664497082518817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591619661303265400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9ad67c6f4694146a15f474f13ebab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntosMovimiento:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  velocidadMovimiento: 3
+  stopTime: 2
 --- !u!1 &1541167523777407027
 GameObject:
   m_ObjectHideFlags: 0
