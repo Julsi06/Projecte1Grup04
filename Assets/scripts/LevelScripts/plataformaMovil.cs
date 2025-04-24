@@ -22,7 +22,7 @@ public class PlataformaMovil : MonoBehaviour
     // Manages the platforms' movement and the direction of the journey that they do
     private void Update()
     {
-        // Doesn't do enything on the Update method if the platform is paused or no points have been assigned
+        // Doesn't do anything on the Update method if the platform is paused or no points have been assigned
         // to the platforms
         if (waitingPlatform)
             return;
