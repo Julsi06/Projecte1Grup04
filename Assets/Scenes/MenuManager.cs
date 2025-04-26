@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OnExitClick()
     {
+        Debug.Log("salir...");
         Application.Quit();
     }
 }
