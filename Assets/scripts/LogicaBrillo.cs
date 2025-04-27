@@ -3,35 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class NewBehaviourScript : MonoBehaviour
 {
     public Slider slider;
     public float sliderValue;
     public Image panelBrillo;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        //valor para que se quede guardado, el ultimo brillo configuarado antes de salirt del juego o etc
-        slider.value = PlayerPrefs.GetFloat("brillo", 0.5f);
+        // Cargar el valor guardado del brillo (alpha del panel)
+        sliderValue = PlayerPrefs.GetFloat("brillo", 0.5f);
+        slider.value = sliderValue;
 
-       
-        panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, slider.value);
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Aplicar el valor al alpha del panel (dejando los colores r, g, b intactos)
+        panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, sliderValue);
     }
 
     public void ChangeSlider(float valor)
     {
         sliderValue = valor;
         PlayerPrefs.SetFloat("brillo", sliderValue);
-        panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
+        // Actualizar solo el alpha (componente 'a') del color del panel
+        panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, sliderValue);
     }
 }
