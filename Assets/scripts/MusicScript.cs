@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicScript : MonoBehaviour
@@ -8,8 +7,7 @@ public class MusicScript : MonoBehaviour
     public AudioClip muerteMusica;    // Asigna en el Inspector
 
     private AudioSource musicaFondo;
-    private AudioSource saltoAudio;
-    private AudioSource muerteAudio;
+    private AudioSource efectosAudio;
 
     private bool haMuerto = false;
 
@@ -20,36 +18,53 @@ public class MusicScript : MonoBehaviour
         musicaFondo.loop = true;
         musicaFondo.Play();
 
-        // Audio de salto
-        saltoAudio = gameObject.AddComponent<AudioSource>();
-
-        // Audio de muerte
-        muerteAudio = gameObject.AddComponent<AudioSource>();
+        // Audio para salto y muerte (compartido)
+        efectosAudio = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
     {
-        // Reproducir música de salto
+        // Reproducir música de salto si no ha muerto
         if (Input.GetKeyDown(KeyCode.Space) && !haMuerto)
         {
-            saltoAudio.clip = musicaSalto;
-            saltoAudio.Play();
+            PlayFX(musicaSalto);
+
+            //StartCoroutine(ReproducirEfectoTemporal(musicaSalto));
+
         }
     }
 
-    // Llama a esta función cuando el jugador muere
+    // Llama a esta función desde otro script cuando el jugador muere
     public void ReproducirMusicaMuerte()
     {
         if (!haMuerto)
         {
             haMuerto = true;
+            musicaFondo.Pause();
+            efectosAudio.clip = muerteMusica;
+            efectosAudio.Play();
+        }
+    }
 
-            // Detiene la música de fondo
-            musicaFondo.Stop();
+    private void PlayFX(AudioClip clip)
+    {
+        efectosAudio.clip = clip;
+        efectosAudio.Play();
+    }
 
-            // Reproduce la música de muerte
-            muerteAudio.clip = muerteMusica;
-            muerteAudio.Play();
+    // Corrutina que pausa la música de fondo, reproduce un efecto, y la reanuda
+    IEnumerator ReproducirEfectoTemporal(AudioClip clip)
+    {
+        musicaFondo.Pause();
+
+        efectosAudio.clip = clip;
+        efectosAudio.Play();
+
+        yield return new WaitForSeconds(clip.length);
+
+        if (!haMuerto)
+        {
+            musicaFondo.UnPause();
         }
     }
 }
