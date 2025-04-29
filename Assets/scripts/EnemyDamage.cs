@@ -33,5 +33,16 @@ public class EnemyDamage : MonoBehaviour
         Destroy(gameObject); // Destroy enemy object
       
     }
+
+
+    //lo pongo aqui, porque este es un script que todo tipo de enemigo tendra
+    private void OnCollisionEnter2D(collision2D collision)
+    {
+        if(collision.gameObject.compareTag("Player"))
+        {
+            Vector2 direccionDanio = new Vector2(transform.position.x, 0);
+            collision.gameObject.GetComponent<PlayerRecibeDaño>().RecibeDanio(direccionDanio, 1);
+        }
+    }
 }
 
