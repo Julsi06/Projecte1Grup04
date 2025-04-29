@@ -24,11 +24,10 @@ public class EnemyRadius : MonoBehaviour
     {
        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        Debug.Log(distanceToPlayer);
+        //Debug.Log(distanceToPlayer);
         // Si el jugador está dentro del radio de detección
         if (distanceToPlayer < detectionRadius)
         {
-            Debug.Log("Entro");
             Vector2 tmpDirection = (player.position - transform.position).normalized;
             direction = new Vector2(tmpDirection.x, 0); // Se mueve solo en X
         }

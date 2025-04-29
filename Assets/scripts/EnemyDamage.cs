@@ -16,7 +16,6 @@ public class EnemyDamage : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-
         
         animator.SetTrigger("isAttacked");
 
