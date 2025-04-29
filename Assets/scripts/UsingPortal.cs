@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class UsingPortal : MonoBehaviour
 {
+    [SerializeField] private Transform pointDestination;
     GameObject gameobjectToMove;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("portal"))
@@ -15,6 +17,6 @@ public class UsingPortal : MonoBehaviour
 
     private void MoveToNewPosition()
     {
-        gameobjectToMove.transform.position = new Vector3(-19.26f, -32.62f, 0f);
+        transform.position = pointDestination.position;
     }
 }
