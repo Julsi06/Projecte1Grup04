@@ -17,7 +17,8 @@ public class EnemyDamage : MonoBehaviour
     {
         health -= damage;
 
-        animator.SetBool("isAttacked", true);
+        
+        animator.SetTrigger("isAttacked");
 
         Debug.Log($"Enemy took {damage} damage. Current health: {health}");
         if (health <= 0)
@@ -25,7 +26,7 @@ public class EnemyDamage : MonoBehaviour
             die(); // Call die() when health reaches zero
         }
 
-        animator.SetBool("isAttacked", false);
+        
     }
 
     private void die()
