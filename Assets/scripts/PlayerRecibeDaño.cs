@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class PlayerRecibeDaño : MonoBehaviour
 {
-
     bool recibiendoDanio;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void RecibeDanio(vector2 direccion,int cantDanio)
+    public void RecibeDanio(Vector2 direccion,int cantDanio)
     {
         if (!recibiendoDanio) //hacemos esto para darle un calldown del jugador al recibir daño y no recibirlo infinitamente
         {
