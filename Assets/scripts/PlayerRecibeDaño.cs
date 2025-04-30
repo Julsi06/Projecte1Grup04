@@ -5,33 +5,54 @@ using UnityEngine;
 public class PlayerRecibeDaño : MonoBehaviour
 {
 
-    bool recibiendoDanio;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int vidaMaxima = 3;
+    private float fuerzaKnockback = 5f;
+    [SerializeField] private float tiempoInvulnerabilidad = 1f;
+
+    private int vidaActual;
+    private bool puedeRecibirDaño = true;
+    private Rigidbody2D rb;
+
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        vidaActual = vidaMaxima;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Método público para recibir daño desde el enemigo
+    public void RecibirDaño(Vector2 direccionAtaque, int daño)
     {
-        
+        if (!puedeRecibirDaño) return;
+
+        vidaActual -= daño;
+        Debug.Log($"¡Daño recibido! Vida restante: {vidaActual}");
+
+        // Knockback (empuje en dirección opuesta al ataque)
+        Vector2 direccionKnockback = new Vector2(
+            Mathf.Sign(transform.position.x - direccionAtaque.x),
+            0.3f  // Pequeño componente vertical
+        ).normalized;
+
+        rb.velocity = Vector2.zero;
+        rb.AddForce(direccionKnockback * fuerzaKnockback, ForceMode2D.Impulse);
+
+        // Temporizador de invulnerabilidad
+        StartCoroutine(ActivarInvulnerabilidad());
+
+        if (vidaActual <= 0) Morir();
     }
 
-    public void RecibeDanio(vector2 direccion,int cantDanio)
+    private System.Collections.IEnumerator ActivarInvulnerabilidad()
     {
-        if (!recibiendoDanio) //hacemos esto para darle un calldown del jugador al recibir daño y no recibirlo infinitamente
-        {
-            recibiendoDanio = true;
-            // creamos direccion opuesta donde atacamos
-            Vector2 rebote = new Vector2(transform.position.x - direccion.x, 1).normalized;
-            rb.AddForce(rebote, ForceMode2D.Impulse);
-        }
+        puedeRecibirDaño = false;
+        yield return new WaitForSeconds(tiempoInvulnerabilidad);
+        puedeRecibirDaño = true;
     }
 
-    public void DesactivarDanio()
+    private void Morir()
     {
-        recibiendoDanio = false;
+        Debug.Log("¡Jugador derrotado!");
+        Destroy(gameObject);
     }
-
 }
