@@ -3,7 +3,9 @@ guid: f72be8a7d2c94ca46907b90c4b9484e9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - musicaSalto: {fileID: 8300000, guid: 5a6927fcd4d517f4f81f0b89b4523780, type: 3}
+  - muerteMusica: {fileID: 8300000, guid: d18028a73abe99c45ae9b51e57f2bad2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
