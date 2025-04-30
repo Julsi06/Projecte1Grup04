@@ -6,14 +6,31 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    [SerializeField] private int bulletLoad = 3;
+    [SerializeField] private int actualBullet;
 
-    void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        actualBullet = bulletLoad;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && actualBullet > 0)
         {
             Debug.Log("Tecla Q presionada"); // Mensaje de prueba
             Shoot();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            reload();
+        }
+    }
+
+
+    void reload()
+    {
+        actualBullet = bulletLoad;
     }
 
     void Shoot()
@@ -32,5 +49,8 @@ public class Weapon : MonoBehaviour
 
         Debug.Log("Disparando...");
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        actualBullet--;
     }
+
+  
 }
