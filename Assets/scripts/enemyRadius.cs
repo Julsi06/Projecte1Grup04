@@ -22,7 +22,6 @@ public class EnemyRadius : MonoBehaviour
 
     void Update()
     {
-       
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         //Debug.Log(distanceToPlayer);
         // Si el jugador está dentro del radio de detección
@@ -47,6 +46,14 @@ public class EnemyRadius : MonoBehaviour
 
         // Actualizamos la posición para el siguiente frame
         lastXPosition = transform.position.x;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("wall"))
+        {
+            speed = -speed;
+        }
     }
 
     // Mover el enemigo en FixedUpdate para que funcione bien con la física
