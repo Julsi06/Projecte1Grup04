@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     [SerializeField] private int bulletLoad = 3;
-    [SerializeField] private int actualBullet;
+    private int actualBullet;
 
     private void Awake()
     {

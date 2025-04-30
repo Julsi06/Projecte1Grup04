@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isHanging = false;
     private Animator animator;
     public int maxPlayerLives = 5;
+    
 
     private void Awake()
     {
@@ -168,5 +169,4 @@ public class PlayerMovement : MonoBehaviour
         isFacingRight = !isFacingRight; // Cambia la direccion
         transform.Rotate(0f, 180f, 0f);
     }
-
 }

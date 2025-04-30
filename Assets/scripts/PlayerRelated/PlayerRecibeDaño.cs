@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerRecibeDaño : MonoBehaviour
 {
 
-    [SerializeField] private int vidaMaxima = 3;
+    [SerializeField] private int vidaMaxima = 50;
     private float fuerzaKnockback = 5f;
     [SerializeField] private float tiempoInvulnerabilidad = 1f;
+    [SerializeField] private Transform spawnPoint;
 
     private int vidaActual;
     private bool puedeRecibirDaño = true;
     private Rigidbody2D rb;
 
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        vidaActual = vidaMaxima;
+        Respawn();
     }
 
     // Método público para recibir daño desde el enemigo
@@ -43,7 +44,7 @@ public class PlayerRecibeDaño : MonoBehaviour
         if (vidaActual <= 0) Morir();
     }
 
-    private System.Collections.IEnumerator ActivarInvulnerabilidad()
+    private IEnumerator ActivarInvulnerabilidad()
     {
         puedeRecibirDaño = false;
         yield return new WaitForSeconds(tiempoInvulnerabilidad);
@@ -53,6 +54,12 @@ public class PlayerRecibeDaño : MonoBehaviour
     private void Morir()
     {
         Debug.Log("¡Jugador derrotado!");
-        Destroy(gameObject);
+        Respawn();
+    }
+
+    private void Respawn()
+    {
+        transform.position = spawnPoint.position;
+        vidaActual = vidaMaxima; 
     }
 }

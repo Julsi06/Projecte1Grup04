@@ -31,7 +31,6 @@ public class EnemyDamage : MonoBehaviour
     private void die()
     {
         Destroy(gameObject); // Destroy enemy object
-      
     }
 
 

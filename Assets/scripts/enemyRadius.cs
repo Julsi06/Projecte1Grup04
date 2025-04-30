@@ -19,7 +19,6 @@ public class EnemyRadius : MonoBehaviour
         lastXPosition = transform.position.x;
     }
 
-
     void Update()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -46,14 +45,6 @@ public class EnemyRadius : MonoBehaviour
 
         // Actualizamos la posición para el siguiente frame
         lastXPosition = transform.position.x;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("wall"))
-        {
-            speed = -speed;
-        }
     }
 
     // Mover el enemigo en FixedUpdate para que funcione bien con la física
