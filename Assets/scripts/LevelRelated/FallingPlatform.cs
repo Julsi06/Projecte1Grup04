@@ -5,7 +5,7 @@ using UnityEngine;
 public class FallingPlatform : MonoBehaviour
 {
     // Time parameters for platforms
-    private float fallDelay = 0.5f;
+    private float fallDelay = 5f;
     private float destroyDelay = 5f;
 
     // Giving the platform a rigidbody so we can manipulate its states
