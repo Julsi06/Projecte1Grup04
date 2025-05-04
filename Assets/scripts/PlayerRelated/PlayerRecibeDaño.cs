@@ -5,33 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRecibeDaño : MonoBehaviour
 {
-
-    [SerializeField] private int vidaMaxima = 50;
+    [SerializeField] private int maxLives = 50;
     private float fuerzaKnockback = 5f;
     [SerializeField] private float tiempoInvulnerabilidad = 1f;
-    [SerializeField] private Transform spawnPoint;
 
-    private int vidaActual;
-    private bool puedeRecibirDaño = true;
+    private int currentLives;
+    private bool canTakeDamage = true;
     private Rigidbody2D rb;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        Respawn();
+        currentLives = maxLives;
     }
 
     // Método público para recibir daño desde el enemigo
-    public void RecibirDaño(Vector2 direccionAtaque, int daño)
+    public void RecibirDaño(Vector2 attackDirection, int daño)
     {
-        if (!puedeRecibirDaño) return;
+        if (!canTakeDamage) return;
 
-        vidaActual -= daño;
-        Debug.Log($"¡Daño recibido! Vida restante: {vidaActual}");
+        currentLives -= daño;
+        Debug.Log($"¡Daño recibido! Vida restante: {currentLives}");
 
         // Knockback (empuje en dirección opuesta al ataque)
         Vector2 direccionKnockback = new Vector2(
-            Mathf.Sign(transform.position.x - direccionAtaque.x),
+            Mathf.Sign(transform.position.x - attackDirection.x),
             0.3f  // Pequeño componente vertical
         ).normalized;
 
@@ -41,25 +39,20 @@ public class PlayerRecibeDaño : MonoBehaviour
         // Temporizador de invulnerabilidad
         StartCoroutine(ActivarInvulnerabilidad());
 
-        if (vidaActual <= 0) Morir();
+        if (currentLives <= 0) Morir();
     }
 
     private IEnumerator ActivarInvulnerabilidad()
     {
-        puedeRecibirDaño = false;
+        canTakeDamage = false;
         yield return new WaitForSeconds(tiempoInvulnerabilidad);
-        puedeRecibirDaño = true;
+        canTakeDamage = true;
     }
 
     private void Morir()
     {
         Debug.Log("¡Jugador derrotado!");
-        Respawn();
     }
 
-    private void Respawn()
-    {
-        transform.position = spawnPoint.position;
-        vidaActual = vidaMaxima; 
-    }
+    
 }
