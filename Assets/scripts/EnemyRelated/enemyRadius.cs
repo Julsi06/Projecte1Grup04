@@ -7,7 +7,7 @@ public class EnemyRadius : MonoBehaviour
     private float lastXPosition;
     public Transform player; // Indica la posición del player
     public float detectionRadius = 5.0f;
-    public float speed = 15.0f;
+    public float speed = 50.0f;
     private bool isFacingRight = false; // Indica si el personaje mira a la derecha
     
     private Rigidbody2D rb;

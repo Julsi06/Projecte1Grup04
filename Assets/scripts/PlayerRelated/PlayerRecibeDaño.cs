@@ -5,18 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRecibeDaño : MonoBehaviour
 {
-    [SerializeField] private int maxLives = 50;
+    private PlayerMovement playerMovement;
     private float fuerzaKnockback = 5f;
     [SerializeField] private float tiempoInvulnerabilidad = 1f;
 
-    private int currentLives;
+    [SerializeField] private int currentLives;
     private bool canTakeDamage = true;
     private Rigidbody2D rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentLives = maxLives;
+        playerMovement = GetComponent<PlayerMovement>();
+        currentLives = playerMovement.maxPlayerLives;
     }
 
     // Método público para recibir daño desde el enemigo
