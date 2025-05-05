@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ToxicWater : MonoBehaviour
 {
+    [SerializeField] private Transform respawnPoint;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("toxicWater"))
@@ -13,7 +14,6 @@ public class ToxicWater : MonoBehaviour
 
     private void Death()
     {
-        gameObject.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameObject.transform.position = respawnPoint.position;
     }
 }

@@ -3903,6 +3903,37 @@ Transform:
   m_Father: {fileID: 574005808}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1301731131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301731132}
+  m_Layer: 0
+  m_Name: Respawn point
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1301731132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301731131}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.11, y: -14.25, z: -0.21467943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1886429469}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1370066355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5492,7 +5523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796599486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.91, y: -37.86, z: 0}
+  m_LocalPosition: {x: 6.3, y: -21.08, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5596,6 +5627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c6c1f79b42c374e8dc18c94f613326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 1301731132}
 --- !u!95 &1796599496
 Animator:
   serializedVersion: 5
@@ -5642,8 +5674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb44b51222e8a6844930f6c401ee9235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLives: 50
   tiempoInvulnerabilidad: 1
+  respawnPoint: {fileID: 1301731132}
+  currentLives: 0
 --- !u!1 &1804965362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,6 +5944,7 @@ Transform:
   - {fileID: 2114161217}
   - {fileID: 559508178}
   - {fileID: 1718662252}
+  - {fileID: 1301731132}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

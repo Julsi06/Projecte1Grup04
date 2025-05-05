@@ -8,7 +8,7 @@ public class PlayerRecibeDaño : MonoBehaviour
     private PlayerMovement playerMovement;
     private float fuerzaKnockback = 5f;
     [SerializeField] private float tiempoInvulnerabilidad = 1f;
-
+    [SerializeField] private Transform respawnPoint;
     [SerializeField] private int currentLives;
     private bool canTakeDamage = true;
     private Rigidbody2D rb;
@@ -53,6 +53,8 @@ public class PlayerRecibeDaño : MonoBehaviour
     private void Morir()
     {
         Debug.Log("¡Jugador derrotado!");
+        transform.position = respawnPoint.position;
+        currentLives = playerMovement.maxPlayerLives;
     }
 
     
