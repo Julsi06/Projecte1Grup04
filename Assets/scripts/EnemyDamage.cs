@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int health = 100; // Enemy health
+    [SerializeField] private int health = 100; // Enemy health
     private Animator animator;
-
-
     void Start()
     {
         // Obtener referencia al componente Animator
@@ -24,16 +22,11 @@ public class EnemyDamage : MonoBehaviour
         {
             die(); // Call die() when health reaches zero
         }
-
-        
     }
 
     private void die()
     {
         Destroy(gameObject); // Destroy enemy object
     }
-
-
- 
 }
 

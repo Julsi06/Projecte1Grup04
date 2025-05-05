@@ -13,8 +13,6 @@ public class Bullet : MonoBehaviour
         // Asigna automáticamente el Rigidbody2D
         rb = GetComponent<Rigidbody2D>();
 
-      
-
         // Mueve la bala hacia la derecha con la velocidad indicada
         rb.velocity = transform.right * speed;
     }
