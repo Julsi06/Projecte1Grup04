@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
-    public int damage = 40;
+    public int damage = 10;
     private Rigidbody2D rb;
 
     void Start()
@@ -20,12 +20,11 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         // Printeo para saber si todo va bien
-        Debug.Log("Impacto con: " + hitInfo.name);
         EnemyDamage enemy = hitInfo.GetComponent<EnemyDamage>();
         
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            if(hitInfo.gameObject.CompareTag("enemy")) enemy.TakeDamage(damage);
         }
 
         // Destruye la bala al colisionar
