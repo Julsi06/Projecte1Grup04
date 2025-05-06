@@ -126,10 +126,19 @@ public class PlayerMovement : MonoBehaviour
 
         // Lanza un rayo hacia abajo para detectar el suelo
         hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.5f, RaycastDistance, groundLayer);
-        Debug.DrawRay(raycastOrigin, Vector2.down * 1.2f, Color.red);
+        Debug.DrawRay(raycastOrigin, Vector2.down * 0.5f, Color.red);
+        if (hit.collider != null)
+        {
+            Debug.Log("Raycast hit: " + hit.collider.name + " | Tag: " + hit.collider.tag);
+        }
+        else
+        {
+            Debug.Log("Raycast didn't hit anything.");
+        }
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
+            Debug.Log("touching ground...");
             // Si está tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
             animator.SetBool("isGrounded", true); // Establece que está en el suelo
