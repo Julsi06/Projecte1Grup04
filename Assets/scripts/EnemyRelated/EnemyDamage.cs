@@ -11,6 +11,7 @@ public class EnemyDamage : MonoBehaviour
         // Obtener referencia al componente Animator
         animator = GetComponent<Animator>();
     }
+
     public void TakeDamage(int damage)
     {
         health -= damage;

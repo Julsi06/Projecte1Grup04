@@ -6,43 +6,28 @@ using UnityEngine.SceneManagement;
 public class PlayerRecibeDaño : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-    private float fuerzaKnockback = 5f;
     [SerializeField] private float tiempoInvulnerabilidad = 1f;
     [SerializeField] private Transform respawnPoint;
-    [SerializeField] private int currentLives;
-    private bool canTakeDamage = true;
-    private Rigidbody2D rb;
+    public int currentLives;
+    public bool canTakeDamage = true;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
         currentLives = playerMovement.maxPlayerLives;
     }
 
-    // Método público para recibir daño desde el enemigo
-    public void RecibirDaño(Vector2 attackDirection, int daño)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!canTakeDamage) return;
+        if(collision.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log("Collision");
+            currentLives--;
+            StartCoroutine(ActivarInvulnerabilidad());
+            if (currentLives <= 0) Morir();
 
-        currentLives -= daño;
-        Debug.Log($"¡Daño recibido! Vida restante: {currentLives}");
-
-        // Knockback (empuje en dirección opuesta al ataque)
-        Vector2 direccionKnockback = new Vector2(
-            Mathf.Sign(transform.position.x - attackDirection.x),
-            0.3f  // Pequeño componente vertical
-        ).normalized;
-
-        rb.velocity = Vector2.zero;
-        rb.AddForce(direccionKnockback * fuerzaKnockback, ForceMode2D.Impulse);
-
-        // Temporizador de invulnerabilidad
-        StartCoroutine(ActivarInvulnerabilidad());
-
-        if (currentLives <= 0) Morir();
+        }
     }
-
     private IEnumerator ActivarInvulnerabilidad()
     {
         canTakeDamage = false;
@@ -56,6 +41,4 @@ public class PlayerRecibeDaño : MonoBehaviour
         transform.position = respawnPoint.position;
         currentLives = playerMovement.maxPlayerLives;
     }
-
-    
 }

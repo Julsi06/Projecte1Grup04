@@ -6,7 +6,7 @@ public class EnemyRadius : MonoBehaviour
 {
     private float lastXPosition;
     public Transform player; // Indica la posición del player
-    public float detectionRadius = 5.0f;
+    public float detectionRadius = 10.0f;
     public float speed = 50.0f;
     private bool isFacingRight = false; // Indica si el personaje mira a la derecha
     
@@ -57,7 +57,6 @@ public class EnemyRadius : MonoBehaviour
     private void flip()
     {
         isFacingRight = !isFacingRight; // Cambia la dirección
-        Debug.Log("flip enemy");                        //viene de fabrica del unity (x,y,z);
         transform.Rotate(0f, 180f, 0f);
     }
 
