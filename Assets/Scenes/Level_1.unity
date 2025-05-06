@@ -5876,6 +5876,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -7188361835134658488, guid: 829a25c261ab2c8469b56371ced254f2, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: -6952811847518503083, guid: 829a25c261ab2c8469b56371ced254f2, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -7055,52 +7059,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -3938057177892177367, guid: 829a25c261ab2c8469b56371ced254f2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 796149470}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: -2695619058785784247, guid: 829a25c261ab2c8469b56371ced254f2, type: 3}
---- !u!1 &796149463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3938057177892177367, guid: 829a25c261ab2c8469b56371ced254f2, type: 3}
-  m_PrefabInstance: {fileID: 796149462}
-  m_PrefabAsset: {fileID: 0}
---- !u!19719996 &796149470
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796149463}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 0
 --- !u!1 &810644205
 GameObject:
   m_ObjectHideFlags: 0
@@ -12488,9 +12448,10 @@ GameObject:
   - component: {fileID: 2055013539}
   - component: {fileID: 2055013538}
   - component: {fileID: 2055013537}
+  - component: {fileID: 2055013547}
+  - component: {fileID: 2055013546}
   - component: {fileID: 2055013543}
   - component: {fileID: 2055013545}
-  - component: {fileID: 2055013546}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -12545,7 +12506,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &2055013539
 CapsuleCollider2D:
@@ -12642,7 +12603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055013536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 188.48, y: 6.42, z: 0}
+  m_LocalPosition: {x: 187, y: -5.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -12656,7 +12617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055013536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159d4108f4ffecd49bf17559e7b6eeac, type: 3}
   m_Name: 
@@ -12697,5 +12658,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee2a0b478e01e3843966ec93270e3556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2055013547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055013536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b0bff80b874d746b9d5fde8039ed49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

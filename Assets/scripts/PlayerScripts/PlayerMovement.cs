@@ -19,18 +19,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float RaycastDistance = 1.5f;
 
     // Player initialized variables
+    public bool IsDoubleJumping { get; private set; }
+
     private Rigidbody2D player;
     private bool isFacingRight = true;
     private float currentSpeed = 0f;
     private int jumpCount;
     private bool isHanging = false;
-    private Animator animator;
     public int maxPlayerLives = 4;
+
 
     private void Awake()
     {
         player = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         player.drag = 0;
         jumpCount = 1;
     }
@@ -49,32 +50,22 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
-        CheckGrounded();
-        animator.SetFloat("yVelocity", player.velocity.y);
+        CheckGrounded();        
     }
 
     private void HandleMovement()
     {
-        if (isHanging) // Si está colgado, no se permite movimiento vertical, pero sí horizontal
-        {
-            // Esto ya está manejado en el script HangingFromPipe
-            return;
-        }
-        
         float moveInput = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("xVelocity", Math.Abs(player.velocity.x));
 
         if (moveInput > 0)
         {
             currentSpeed += acceleration;
             if (currentSpeed > maxSpeed) currentSpeed = maxSpeed;
-            animator.SetBool("isRunning", true); // Establece que está corriendo
         }
         else if (moveInput < 0)
         {
             currentSpeed -= acceleration;
             if (currentSpeed < -maxSpeed) currentSpeed = -maxSpeed;
-            animator.SetBool("isRunning", true); // Establece que está corriendo
         }
         else
         {
@@ -82,23 +73,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentSpeed -= deceleration;
                 if (currentSpeed < 0) currentSpeed = 0;
-                animator.SetBool("isRunning", false); // Detiene la animación de correr
             }
             else if (currentSpeed < 0)
             {
                 currentSpeed += deceleration;
                 if (currentSpeed > 0) currentSpeed = 0;
-                animator.SetBool("isRunning", false); // Detiene la animación de correr
             }
         }
 
         float verticalVelocity = player.velocity.y;
+
+
         player.velocity = new Vector2(currentSpeed, verticalVelocity);
 
-        if (verticalVelocity < 0)
-        {
-            animator.SetBool("isFalling", true);
-        }
+
 
         if ((currentSpeed > 0 && !isFacingRight) || (currentSpeed < 0 && isFacingRight))
         {
@@ -111,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
-            animator.SetBool("isJumping", true);
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -122,10 +109,10 @@ public class PlayerMovement : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit2D hit;
-        Vector2 raycastOrigin = transform.position - new Vector3(0f, 1.01f, 0f);
+        Vector2 raycastOrigin = transform.position - new Vector3(0f, 0.75f, 0f);
 
         // Lanza un rayo hacia abajo para detectar el suelo
-        hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.5f, RaycastDistance, groundLayer);
+        hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.6f, RaycastDistance, groundLayer);
         Debug.DrawRay(raycastOrigin, Vector2.down * 0.5f, Color.red);
         if (hit.collider != null)
         {
@@ -141,38 +128,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("touching ground...");
             // Si está tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
-            animator.SetBool("isGrounded", true); // Establece que está en el suelo
-            if (player.velocity.y <= 0)
-            {
-                if(jumpCount == maxJumps)
-                    animator.SetBool("isDoubleJumping", false); // Detiene la animación de doble salto
-                else
-                    animator.SetBool("isJumping", false); // Detiene la animación de salto
-
-                animator.SetBool("isFalling", false); // Detiene la animación de caída
-            }
+            IsDoubleJumping = false;
         }
-        else
-        {
-            animator.SetBool("isGrounded", false); // Establece que no está en el suelo
-
-            if (player.velocity.y > 0.1f)
-            {
-                if (jumpCount == maxJumps)
-                    animator.SetBool("isDoubleJumping", true); // Detiene la animación de doble salto
-                else
-                    animator.SetBool("isJumping", true); // Detiene la animación de salto
-                animator.SetBool("isFalling", false); // Asegúrate de que no está cayendo
-            }
-            else if (player.velocity.y < -0.1f)
-            {
-                if (jumpCount == maxJumps)
-                    animator.SetBool("isDoubleJumping", false); // Detiene la animación de doble salto
-                else
-                    animator.SetBool("isJumping", false); // Detiene la animación de salto
-                animator.SetBool("isFalling", true); // Establece que está cayendo
-            }
-        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position - new Vector3(0f, .75f, 0f), transform.position - new Vector3(0f, .75f, 0f) + Vector3.down * 0.6f);
     }
 
     private void Jump()
@@ -180,6 +141,9 @@ public class PlayerMovement : MonoBehaviour
         player.velocity = new Vector2(player.velocity.x, 0f); // Elimina cualquier fuerza acumulada
         player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force); // Salto instantáneo
         jumpCount++;
+
+        // Activa doble salto si es el segundo salto
+        IsDoubleJumping = (jumpCount == 2);
     }
      
     private void Flip()
