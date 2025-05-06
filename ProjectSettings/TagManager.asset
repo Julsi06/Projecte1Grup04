@@ -11,6 +11,7 @@ TagManager:
   - portal
   - wall
   - enemy
+  - damagePlat
   layers:
   - Default
   - TransparentFX

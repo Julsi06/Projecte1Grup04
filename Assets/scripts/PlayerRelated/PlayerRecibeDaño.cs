@@ -27,7 +27,12 @@ public class PlayerRecibeDaño : MonoBehaviour
             if (currentLives <= 0) Morir();
 
         }
+        if(collision.gameObject.CompareTag("damagePlat"))
+        {
+            currentLives--;
+        }
     }
+
     private IEnumerator ActivarInvulnerabilidad()
     {
         canTakeDamage = false;

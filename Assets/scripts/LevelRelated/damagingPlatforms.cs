@@ -14,21 +14,14 @@ public class damagingPlatforms : MonoBehaviour
     private bool waitingPlatform = false;
     private Vector3 nextPosition;
 
-    // Parameters from player scripts to control the player's lives
-    public GameObject player;
-    private PlayerMovement playerMovement;
-    private int playerLives;
-
     private void Start()
     {
         nextPosition = pointB.position;
-        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     // Manages the platforms' movement and the direction of the journey that they do
     private void Update()
     {
-        playerLives = playerMovement.maxPlayerLives;
         // Doesn't do enything on the Update method if the platform is paused or no points have been assigned
         // to the platforms
         if (waitingPlatform)
@@ -52,15 +45,4 @@ public class damagingPlatforms : MonoBehaviour
         // And then continue
         waitingPlatform = false;
     }
-
-    // Player takes damages; one life is taken
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (playerLives > 0)
-                playerLives--;
-        }
-    }
-
 }
