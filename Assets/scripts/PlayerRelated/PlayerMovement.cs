@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCount;
     private bool isHanging = false;
     private Animator animator;
-    public int maxPlayerLives = 5;
+    public float maxPlayerLives = 5f;
     
 
     private void Awake()

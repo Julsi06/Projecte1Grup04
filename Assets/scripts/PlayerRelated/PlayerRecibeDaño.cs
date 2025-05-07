@@ -8,13 +8,16 @@ public class PlayerRecibeDaño : MonoBehaviour
     private PlayerMovement playerMovement;
     [SerializeField] private float tiempoInvulnerabilidad = 1f;
     [SerializeField] private Transform respawnPoint;
-    public int currentLives;
+    public float currentLives;
     public bool canTakeDamage = true;
+    private buttonDoor button;
+    public GameObject door;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
         currentLives = playerMovement.maxPlayerLives;
+        button = GetComponent<buttonDoor>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -24,13 +27,11 @@ public class PlayerRecibeDaño : MonoBehaviour
             Debug.Log("Collision");
             currentLives--;
             StartCoroutine(ActivarInvulnerabilidad());
-            if (currentLives <= 0) Morir();
-
         }
         if(collision.gameObject.CompareTag("damagePlat"))
-        {
-            currentLives--;
-        }
+            currentLives -= 0.75f;
+
+        if (currentLives <= 0) Morir();
     }
 
     private IEnumerator ActivarInvulnerabilidad()
