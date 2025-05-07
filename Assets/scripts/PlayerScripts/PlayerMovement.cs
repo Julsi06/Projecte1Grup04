@@ -49,8 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        HandleMovement();
-        CheckGrounded();        
+        CheckGrounded();
+        HandleMovement();       
     }
 
     private void HandleMovement()
@@ -82,7 +82,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float verticalVelocity = player.velocity.y;
-
+       
+        // Aplica un threshold para evitar valores residuales en Y
+        if (Mathf.Abs(verticalVelocity) < 0.1f)
+        {
+            verticalVelocity = 0f;
+        }
 
         player.velocity = new Vector2(currentSpeed, verticalVelocity);
 
@@ -129,6 +134,12 @@ public class PlayerMovement : MonoBehaviour
             // Si está tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
             IsDoubleJumping = false;
+
+            // Asegura que el Rigidbody no tenga residuos verticales
+            if (Mathf.Abs(player.velocity.y) < 0.1f)
+            {
+                player.velocity = new Vector2(player.velocity.x, 0f);
+            }
         }
     }
     private void OnDrawGizmos()
