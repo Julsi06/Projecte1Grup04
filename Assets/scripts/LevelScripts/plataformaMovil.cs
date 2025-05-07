@@ -45,21 +45,4 @@ public class PlataformaMovil : MonoBehaviour
         // And then continue
         waitingPlatform = false;
     }
-
-    // Player takes damages; one life is taken
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.transform.SetParent(this.transform);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.transform.SetParent(null);
-        }
-    }
 }
