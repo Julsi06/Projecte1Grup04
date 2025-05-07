@@ -5,8 +5,8 @@ using UnityEngine;
 public class FallingPlatform : MonoBehaviour
 {
     // Time parameters for platforms
-    private float fallDelay = 5f;
-    private float respawnDelay = 5f;
+    private float fallDelay = 1.5f;
+    private float respawnDelay = 3f;
     private Vector2 originalPos;
     private bool playedOnce;
     // Giving the platform a rigidbody so we can manipulate its states
