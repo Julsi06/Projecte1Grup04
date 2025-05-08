@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08cbc4424cf5bbd45b4ee76822f8c950
+guid: 409432f400655104e9a45c036887c588
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: saw_activate_0
+      name: saw_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74e0d19db6a47ba4fb06d23c949cfbc3
-      internalID: -2076993782
+      spriteID: 80c5fd023d689c34c9b97acb0999add6
+      internalID: 647060503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: saw_activate_1
+      name: saw_idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fee6938e98b03b49b2dc21ff2b893c4
-      internalID: -1461355530
+      spriteID: e4ea39b1957ae0647a7c7993695827aa
+      internalID: 694252386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: saw_activate_2
+      name: saw_idle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22e229e264da16f44b89c0a3062f4f32
-      internalID: 456330616
+      spriteID: 1528b5bf76f0b2844aca4d5d3a7ef446
+      internalID: -2002244931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: saw_activate_3
+      name: saw_idle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dab3a70f8eed034ba00d781b0006267
-      internalID: 1195370411
+      spriteID: e849380c86258354dacfce3c710b0f2f
+      internalID: 732778744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: saw_activate_4
+      name: saw_idle_4
       rect:
         serializedVersion: 2
         x: 128
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0d70c1210851b841afb80dd5fa19aad
-      internalID: 567613755
+      spriteID: 82dccc3d72f173442882245a546e9260
+      internalID: -441509848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: saw_activate_5
+      name: saw_idle_5
       rect:
         serializedVersion: 2
         x: 160
@@ -255,155 +255,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a70ebcb69fc62ce4aa20d2b52014bb38
-      internalID: -855290717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: saw_activate_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12e4ce7b2487b214ba9ad1fe195ca290
-      internalID: -2058619015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: saw_activate_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 514d5d795d9ecd442841cfe41519d648
-      internalID: -313796049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: saw_activate_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f5054b0224fb214887612cc311a1c99
-      internalID: -95003949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: saw_activate_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be2e63a078eb1e84bb683c1b2d508c96
-      internalID: 1910551173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: saw_activate_10
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 085e6fd0bb66eb24e89e28a18db37920
-      internalID: 1402583397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: saw_activate_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e4d5ce91491f104c96ee57024dad38f
-      internalID: 151293864
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: saw_activate_12
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0983e9494be2d3a44983c01011e7668a
-      internalID: -559319023
+      spriteID: ec4e04721d185b349aed4e0b8a05cf13
+      internalID: 1401330050
       vertices: []
       indices: 
       edges: []
@@ -419,19 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      saw_activate_0: -2076993782
-      saw_activate_1: -1461355530
-      saw_activate_10: 1402583397
-      saw_activate_11: 151293864
-      saw_activate_12: -559319023
-      saw_activate_2: 456330616
-      saw_activate_3: 1195370411
-      saw_activate_4: 567613755
-      saw_activate_5: -855290717
-      saw_activate_6: -2058619015
-      saw_activate_7: -313796049
-      saw_activate_8: -95003949
-      saw_activate_9: 1910551173
+      saw_idle_0: 647060503
+      saw_idle_1: 694252386
+      saw_idle_2: -2002244931
+      saw_idle_3: 732778744
+      saw_idle_4: -441509848
+      saw_idle_5: 1401330050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

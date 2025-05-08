@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a87f68d3ec3d534cb3f0164e40657f4
+guid: f76cf2853b38f7549a71b3a4713aaf24
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barrier_idle_0
+      name: barrier_idle 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b4cc752a5573ad46bb5857d4c675b8b
-      internalID: 126811902
+      spriteID: 599bb4cc3ba9bcd49869066ce5313ff4
+      internalID: 1642990537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_1
+      name: barrier_idle 1_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a83d7d59ffe42c44ae0f1f77a700fe9
-      internalID: 1440504714
+      spriteID: 637fa2448e56f7943932295cbe4f3546
+      internalID: 1694387202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_2
+      name: barrier_idle 1_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 412c18fc5837058408d9e1e0ab998b1a
-      internalID: -1082106861
+      spriteID: a86b14eb5f5aa344c8351fb67753ff4e
+      internalID: 1410531628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_3
+      name: barrier_idle 1_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2af550d2a0f99b646908ede594af7a18
-      internalID: 1808426471
+      spriteID: 92015587672d7d740bc9eb174661a307
+      internalID: 1567115951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_4
+      name: barrier_idle 1_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2faa0f7deaf6e3419f8c33edca9eef2
-      internalID: -1469886297
+      spriteID: cc18da5e95c89934585452625450e8bc
+      internalID: 886134577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_5
+      name: barrier_idle 1_5
       rect:
         serializedVersion: 2
         x: 160
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 773f77814d7cadc419e766098216437f
-      internalID: 801656050
+      spriteID: 8caa5a21f95cc664086735e8cefe1af3
+      internalID: -1375370845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_6
+      name: barrier_idle 1_6
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43c675fca046ffb4692e5fa52fc56b99
-      internalID: 1463923378
+      spriteID: 71bb8e21eac5fb24ea067a98bd5c1c89
+      internalID: -1863708424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_7
+      name: barrier_idle 1_7
       rect:
         serializedVersion: 2
         x: 224
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d4a7c716c52572498c6267b2a82b3a5
-      internalID: 18090684
+      spriteID: 70355c513fa039a4e9aba306788e7716
+      internalID: -1361552615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_8
+      name: barrier_idle 1_8
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8f84988e56a6c441962325e0adae7cf
-      internalID: 18242853
+      spriteID: fe8c851cf649ef44d9de9aa265c8cc2d
+      internalID: -1018187237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_9
+      name: barrier_idle 1_9
       rect:
         serializedVersion: 2
         x: 288
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c5d66fb01552364f918b320de983fa9
-      internalID: -1576033822
+      spriteID: ae302907ad25d434fa26ead77e2bc4a2
+      internalID: -1229211284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_10
+      name: barrier_idle 1_10
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,20 +360,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 678006479e62352499cdb96bc3d919ed
-      internalID: -1419356746
+      spriteID: d7ee36e41669b1c4892693237150ef4e
+      internalID: -832891689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_11
+      name: barrier_idle 1_11
       rect:
         serializedVersion: 2
         x: 352
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,20 +381,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae2e3caabc586194188fe1bcdb19874e
-      internalID: 589492921
+      spriteID: 1ab6daad43a543b43b2919ba236e8bdd
+      internalID: -1226770356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_12
+      name: barrier_idle 1_12
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,20 +402,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6e1c090441d0ea4f94d81677e93fd65
-      internalID: -1266480617
+      spriteID: e840d721284bfaa45aae4d902e7d4034
+      internalID: -1339948305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_13
+      name: barrier_idle 1_13
       rect:
         serializedVersion: 2
         x: 416
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,20 +423,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ee9814629331574aae1b96360591cad
-      internalID: 1841384670
+      spriteID: 3373acf0f0a35384e981562295b0b4b9
+      internalID: -1170788041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_14
+      name: barrier_idle 1_14
       rect:
         serializedVersion: 2
         x: 448
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,20 +444,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 831ad31d631678a4dbb37757a78672a7
-      internalID: -1988595371
+      spriteID: 63816238a03055a4db22b5c01a82c934
+      internalID: 1138069220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_15
+      name: barrier_idle 1_15
       rect:
         serializedVersion: 2
         x: 480
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -465,20 +465,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6fbd96630d19f84fbc41240340482bb
-      internalID: -725861227
+      spriteID: aca3f50f92fee414eb6b950180def100
+      internalID: -438202987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_16
+      name: barrier_idle 1_16
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -486,20 +486,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6a918d59bfa60546accfe619d9816ca
-      internalID: -1723321209
+      spriteID: c5508b18b064fb342853071744d1db32
+      internalID: 381126881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: barrier_idle_17
+      name: barrier_idle 1_17
       rect:
         serializedVersion: 2
         x: 544
         y: 0
         width: 32
-        height: 64
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -507,8 +507,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f11e800d36a4344f9d829090aba802e
-      internalID: 1452029561
+      spriteID: f39fcc6784a16274ba802ee63f6ec714
+      internalID: 736980087
       vertices: []
       indices: 
       edges: []
@@ -524,24 +524,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      barrier_idle_0: 126811902
-      barrier_idle_1: 1440504714
-      barrier_idle_10: -1419356746
-      barrier_idle_11: 589492921
-      barrier_idle_12: -1266480617
-      barrier_idle_13: 1841384670
-      barrier_idle_14: -1988595371
-      barrier_idle_15: -725861227
-      barrier_idle_16: -1723321209
-      barrier_idle_17: 1452029561
-      barrier_idle_2: -1082106861
-      barrier_idle_3: 1808426471
-      barrier_idle_4: -1469886297
-      barrier_idle_5: 801656050
-      barrier_idle_6: 1463923378
-      barrier_idle_7: 18090684
-      barrier_idle_8: 18242853
-      barrier_idle_9: -1576033822
+      barrier_idle 1_0: 1642990537
+      barrier_idle 1_1: 1694387202
+      barrier_idle 1_10: -832891689
+      barrier_idle 1_11: -1226770356
+      barrier_idle 1_12: -1339948305
+      barrier_idle 1_13: -1170788041
+      barrier_idle 1_14: 1138069220
+      barrier_idle 1_15: -438202987
+      barrier_idle 1_16: 381126881
+      barrier_idle 1_17: 736980087
+      barrier_idle 1_2: 1410531628
+      barrier_idle 1_3: 1567115951
+      barrier_idle 1_4: 886134577
+      barrier_idle 1_5: -1375370845
+      barrier_idle 1_6: -1863708424
+      barrier_idle 1_7: -1361552615
+      barrier_idle 1_8: -1018187237
+      barrier_idle 1_9: -1229211284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

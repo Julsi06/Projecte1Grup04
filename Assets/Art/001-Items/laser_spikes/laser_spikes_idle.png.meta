@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 461a44ac81f227043a53ed5e7957a361
+guid: a8e3c9d1edfff564bb0eebaa5f7283e7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: laser_spikes_activate_0
+      name: laser_spikes_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a094e846038a89c4284abc9e43405f08
-      internalID: 949613276
+      spriteID: ecc243c5cb9134c409facf0e9792f5a4
+      internalID: 668014803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_1
+      name: laser_spikes_idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ce70bbd592ea4143b5f44124f781f0e
-      internalID: 1804105736
+      spriteID: d80908f697ac8944781d55251fd16904
+      internalID: -70686886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_2
+      name: laser_spikes_idle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e6d58f0b68e2e24094d1bd5cf64de4f
-      internalID: 723016955
+      spriteID: bf558582a0bb5e5439626bc5aab9bf4b
+      internalID: 2115882896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_3
+      name: laser_spikes_idle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d354a6ac99003fd47833c3e9edbb74f0
-      internalID: 613485189
+      spriteID: d3fc740dab5c0d04e844c6500fb4e570
+      internalID: 660661829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_4
+      name: laser_spikes_idle_4
       rect:
         serializedVersion: 2
         x: 128
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aba8e3d36224b26499a5655e91c20be4
-      internalID: 1158218400
+      spriteID: fe6c3dc8725c24f458f4dc36ed2ad1b0
+      internalID: 1370441507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_5
+      name: laser_spikes_idle_5
       rect:
         serializedVersion: 2
         x: 160
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f014b892aec318d4d8f5e8449df2f1bd
-      internalID: -1858422943
+      spriteID: 1538af5262d7ab24c9c85de8a692a54c
+      internalID: 989631213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_6
+      name: laser_spikes_idle_6
       rect:
         serializedVersion: 2
         x: 192
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 367263df1b4417141a85d12e9f76af44
-      internalID: -166147862
+      spriteID: 0a38b64c69f61d2499d84de276ff629c
+      internalID: 239461020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_7
+      name: laser_spikes_idle_7
       rect:
         serializedVersion: 2
         x: 224
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c2c66823b1d66e4183c7c6a56d037a1
-      internalID: -324635888
+      spriteID: 2a6d5d3a48e57ef448772582287e5c77
+      internalID: 773739832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_8
+      name: laser_spikes_idle_8
       rect:
         serializedVersion: 2
         x: 256
@@ -318,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34ffe6ee2db25664890d89b3ee1d3562
-      internalID: 896993531
+      spriteID: 9b3728ee89c3cd448b201172ee0767c3
+      internalID: 1119586947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_spikes_activate_9
+      name: laser_spikes_idle_9
       rect:
         serializedVersion: 2
         x: 288
@@ -339,8 +339,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a0a55ad98d23c84fa1e6cceab51a8be
-      internalID: 1864384861
+      spriteID: 9c27d3dbe438afe4f8b78d9299d16c2e
+      internalID: -1792394903
       vertices: []
       indices: 
       edges: []
@@ -356,16 +356,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      laser_spikes_activate_0: 949613276
-      laser_spikes_activate_1: 1804105736
-      laser_spikes_activate_2: 723016955
-      laser_spikes_activate_3: 613485189
-      laser_spikes_activate_4: 1158218400
-      laser_spikes_activate_5: -1858422943
-      laser_spikes_activate_6: -166147862
-      laser_spikes_activate_7: -324635888
-      laser_spikes_activate_8: 896993531
-      laser_spikes_activate_9: 1864384861
+      laser_spikes_idle_0: 668014803
+      laser_spikes_idle_1: -70686886
+      laser_spikes_idle_2: 2115882896
+      laser_spikes_idle_3: 660661829
+      laser_spikes_idle_4: 1370441507
+      laser_spikes_idle_5: 989631213
+      laser_spikes_idle_6: 239461020
+      laser_spikes_idle_7: 773739832
+      laser_spikes_idle_8: 1119586947
+      laser_spikes_idle_9: -1792394903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
