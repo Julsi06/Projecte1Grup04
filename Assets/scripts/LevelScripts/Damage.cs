@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class toxicWater : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.CompareTag("toxicWater"))
+        if (collision.gameObject.CompareTag("Damage"))
             Death();
     }
 

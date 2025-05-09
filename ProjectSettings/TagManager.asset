@@ -6,11 +6,10 @@ TagManager:
   tags:
   - Ground
   - Wall
-  - toxicWater
-  - Pipe
   - door
   - movingPlatform
   - Orb
+  - Damage
   layers:
   - Default
   - TransparentFX
