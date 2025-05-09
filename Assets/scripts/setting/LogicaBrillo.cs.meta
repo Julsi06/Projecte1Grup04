@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/DoorAnimationsManagement.cs.meta
+guid: f931e5a8463844f4e90e7f619b228399
+========
+guid: 6446d3f14c77fd9429e619ee1cd5ae55
+>>>>>>>> UI/settings:Assets/scripts/setting/LogicaBrillo.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
