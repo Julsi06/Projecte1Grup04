@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class buttonDoor : MonoBehaviour
 {
-    public bool doorIsClosed = true;
+    public DoorBehaviour door;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            doorIsClosed = false;
+            Debug.Log("Botón activado por el jugador");
+            if (door != null)
+            {
+                Debug.Log("Abriendo puerta...");
+                door.OpenDoor();
+            }
         }
     }
 }

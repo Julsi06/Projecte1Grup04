@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class DoorBehaviour : MonoBehaviour
 {
-    private buttonDoor doorState;
-    private Collider2D doorCollider; 
+    private Animator animator;
+    private Collider2D doorCollider;
+    private bool isOpen = false;
 
     void Start()
     {
-        doorState = GetComponent<buttonDoor>();
+        animator = GetComponent<Animator>();
         doorCollider = GetComponent<Collider2D>();
     }
 
-    private void Update()
+    public void OpenDoor()
     {
-        if (!doorState.doorIsClosed)
-            doorCollider.enabled = false;
+        if (!isOpen)
+        {
+            animator.SetTrigger("Open");
+            isOpen = true;
+        }
+    }
+
+    public void DisableCollider()
+    {
+        doorCollider.enabled = false;
     }
 }

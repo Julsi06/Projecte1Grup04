@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
+    private PlayerRespawn playerRespawn;
+
+    private void Start()
+    {
+        playerRespawn = GetComponent<PlayerRespawn>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -15,6 +22,6 @@ public class Damage : MonoBehaviour
     private void Death()
     {
         gameObject.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        playerRespawn.Respawn();
     }
 }
