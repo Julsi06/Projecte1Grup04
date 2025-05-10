@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAnimationsManagement : MonoBehaviour
+public class DoorBehaviour : MonoBehaviour
 {
     private buttonDoor doorState;
-    private Animator animator;
+    private Collider2D doorCollider; 
+
     void Start()
     {
         doorState = GetComponent<buttonDoor>();
-
+        doorCollider = GetComponent<Collider2D>();
     }
+
     private void Update()
     {
         if (!doorState.doorIsClosed)
-            animator.SetTrigger("Open");
+            doorCollider.enabled = false;
     }
 }

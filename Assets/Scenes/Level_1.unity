@@ -3223,6 +3223,7 @@ GameObject:
   - component: {fileID: 232684551}
   - component: {fileID: 232684550}
   - component: {fileID: 232684552}
+  - component: {fileID: 232684553}
   m_Layer: 0
   m_Name: barrier_idle 1_0
   m_TagString: Damage
@@ -3385,6 +3386,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f931e5a8463844f4e90e7f619b228399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &232684553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232684546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12de438808416945bd3c2fbd3b5b25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &233371234
@@ -34638,7 +34651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055013536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 185.56, y: 4.04, z: 0}
+  m_LocalPosition: {x: 220.31, y: -29.64, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -36885,8 +36898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9bd961f0095904eb3c939fd6d95e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClosed: 1
-  door: {fileID: 232684546}
+  doorIsClosed: 1
 --- !u!61 &2145204928
 BoxCollider2D:
   m_ObjectHideFlags: 0
