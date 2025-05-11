@@ -10,6 +10,7 @@ TagManager:
   - movingPlatform
   - Orb
   - Damage
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
