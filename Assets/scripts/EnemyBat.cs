@@ -4,22 +4,40 @@ using UnityEngine;
 
 public class EnemyBat : MonoBehaviour
 {
-    [serialized] private float radioDetection = 5f;
+    [SerializeField] private float radioDetection = 5f;
     float followVelocity = 3f;
+    float distanciaMinima = 2f;
     public Transform player;
+    [Header("Change movement")]
+    public bool itsStop = true;
 
+    void Update()
+    {
+        SeguirJugador();
+    }
 
     void SeguirJugador()
     {
-        vector2 direccion = (SeguirJugador, position - transform.position).normalized;
-        //raycast en la direccion del jugador 
+        Vector2 direccion = (player.position - transform.position).normalized;
+        // Raycast en la dirección del jugador 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direccion, radioDetection);
 
-        //condiciuon si el raycast alcanza el jugador, el objecte el segueix
-        if(hit.collider != null && hit.Collider.CompareTag("Player"))
+        // Condición si el raycast alcanza el jugador, el objeto lo sigue
+        if (hit.collider != null && hit.collider.CompareTag("Player") && !itsStop)
+        {
+            transform.Translate(direccion * followVelocity * Time.deltaTime);
+        }
+
+        float playerDistance = Vector2.Distance(transform.position, player.position);
+        if (playerDistance <= radioDetection && playerDistance > distanciaMinima && itsStop)
         {
             transform.Translate(direccion * followVelocity * Time.deltaTime);
         }
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radioDetection);
+    }
 }
