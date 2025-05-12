@@ -11,6 +11,13 @@ TagManager:
   - Orb
   - Damage
   - Checkpoint
+  - Pipe
+  - toxicWater
+  - door
+  - portal
+  - wall
+  - enemy
+  - damagePlat
   layers:
   - Default
   - TransparentFX
@@ -21,6 +28,10 @@ TagManager:
   - pipeLayer
   - doorLayer
   - Orb
+  - fanLayer
+  - toxicLayer
+  - fallingWaterLayer
+  - enemyLayer
   - 
   - 
   - 
