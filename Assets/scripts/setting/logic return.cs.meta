@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/scripts/counter.cs.meta
-guid: a733e0d3d56681f49b1ac1c8414787de
-========
-guid: 6446d3f14c77fd9429e619ee1cd5ae55
->>>>>>>> origin/UI/settings:Assets/scripts/setting/LogicaBrillo.cs.meta
+guid: c930f1a2127d0cd41a3042e5a0ca3cad
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
