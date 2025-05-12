@@ -12,7 +12,10 @@ ScriptedImporter:
   errors:
   - Errors detected in tileset 'level_tileset.tsx'. Check the tileset inspector for
     more details. Your map may be broken until these are fixed.
-  warnings: []
+  - Errors detected in tileset 'cartel.tsx'. Check the tileset inspector for more
+    details. Your map may be broken until these are fixed.
+  warnings:
+  - Pixels Per Unit mismatch between map (32) and tileset 'cartel.tsx' (100)
   missingSortingLayers: []
   missingLayers: []
   missingTags: []

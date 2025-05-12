@@ -2,6 +2,7 @@
 <map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="1" nextlayerid="7" nextobjectid="1">
  <tileset firstgid="1" source="level_tileset.tsx"/>
  <tileset firstgid="82" source="decor_tiles.tsx"/>
+ <tileset firstgid="83" source="cartel.tsx"/>
  <layer id="3" name="Exterior" width="32" height="32">
   <data encoding="csv">
    <chunk x="-48" y="-80" width="16" height="16">
