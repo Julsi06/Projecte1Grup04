@@ -6,6 +6,7 @@ public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] private int health = 100; // Enemy health
     private Animator animator;
+
     void Start()
     {
         // Obtener referencia al componente Animator
@@ -26,10 +27,6 @@ public class EnemyDamage : MonoBehaviour
     private void die()
     {
         Destroy(gameObject); // Destroy enemy object
-<<<<<<<< HEAD:Assets/scripts/EnemiesScripts/EnemyDamage.cs
-      
-========
->>>>>>>> Levels/Level2Demo:Assets/scripts/EnemyRelated/EnemyDamage.cs
     }
 }
 

@@ -12,12 +12,7 @@ public class Bullet : MonoBehaviour
     {
         // Asigna automáticamente el Rigidbody2D
         rb = GetComponent<Rigidbody2D>();
-
-<<<<<<<< HEAD:Assets/scripts/PlayerScripts/bullet.cs
       
-
-========
->>>>>>>> Levels/Level2Demo:Assets/scripts/PlayerRelated/bullet.cs
         // Mueve la bala hacia la derecha con la velocidad indicada
         rb.velocity = transform.right * speed;
     }

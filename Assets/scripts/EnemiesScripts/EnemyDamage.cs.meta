@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/scripts/EnemiesScripts/EnemyDamage.cs.meta
 guid: fddfbe41791afd040948147a211d4af6
-========
-<<<<<<<< HEAD:Assets/CameraFollows.cs.meta
-guid: 88c2c4acf8a62ab4fb7748dccb338787
-========
-guid: 27c5098fcec9b2e488e5b1dbcc49636f
->>>>>>>> feature/enemy:Assets/scripts/EnemyDamage.cs.meta
->>>>>>>> Levels/Level2Demo:Assets/scripts/EnemyRelated/EnemyDamage.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
