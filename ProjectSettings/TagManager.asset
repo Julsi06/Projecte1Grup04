@@ -6,9 +6,11 @@ TagManager:
   tags:
   - Ground
   - Wall
-  - toxicWater
-  - Pipe
   - door
+  - movingPlatform
+  - Orb
+  - Damage
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - UI
   - pipeLayer
   - doorLayer
-  - 
+  - Orb
   - 
   - 
   - 
