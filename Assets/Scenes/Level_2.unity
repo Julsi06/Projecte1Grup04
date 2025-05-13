@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c2c4acf8a62ab4fb7748dccb338787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!4 &43589768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2651882290663359782, guid: 11605dd49b8d2c246813c35455855897, type: 3}
@@ -815,10 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27688fc3facb51246a0b80212f1562f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 1408996455}
-  pointB: {fileID: 265880980}
-  speed: 3
-  stopTime: 2
 --- !u!61 &173706115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1013,10 +1008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27688fc3facb51246a0b80212f1562f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 439889380}
-  pointB: {fileID: 1446945912}
-  speed: 3
-  stopTime: 2
 --- !u!61 &227066709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2348,7 +2339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c2c4acf8a62ab4fb7748dccb338787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!4 &634765926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2651882290663359782, guid: 11605dd49b8d2c246813c35455855897, type: 3}
@@ -2656,7 +2646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717841262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 185.05, y: -6.16, z: 0}
+  m_LocalPosition: {x: 62.7, y: -0.6, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6104,8 +6094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c764bf243f87f4396456bba3f24c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClosed: 1
-  door: {fileID: 1153803899}
 --- !u!1 &1528650573
 GameObject:
   m_ObjectHideFlags: 0
@@ -6172,10 +6160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27688fc3facb51246a0b80212f1562f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 96610810}
-  pointB: {fileID: 177591402}
-  speed: 3
-  stopTime: 2
 --- !u!61 &1528650577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6339,10 +6323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27688fc3facb51246a0b80212f1562f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 1283790263}
-  pointB: {fileID: 1874532651}
-  speed: 3
-  stopTime: 2
 --- !u!61 &1548789023
 BoxCollider2D:
   m_ObjectHideFlags: 0
