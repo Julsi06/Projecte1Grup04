@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/scripts/PlayerScripts/weapon.cs.meta
 guid: 9cba982f6233d3d4ab4e807e8d6b166c
-========
-guid: f3b0e0af30625b5498fad2092ff0b8e8
->>>>>>>> Levels/Level2Demo:Assets/scripts/PlayerRelated/weapon.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
