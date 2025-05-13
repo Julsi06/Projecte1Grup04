@@ -2485,6 +2485,7 @@ GameObject:
   - component: {fileID: 717841265}
   - component: {fileID: 717841272}
   - component: {fileID: 717841264}
+  - component: {fileID: 717841273}
   - component: {fileID: 717841263}
   m_Layer: 2
   m_Name: Player
@@ -2721,6 +2722,23 @@ MonoBehaviour:
   bulletUI: {fileID: 2089237174}
   bulletUI1: {fileID: 636862958}
   bulletUI2: {fileID: 1776274104}
+--- !u!114 &717841273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717841262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb44b51222e8a6844930f6c401ee9235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoInvulnerabilidad: 1
+  respawnPoint: {fileID: 412861208}
+  currentLives: 3
+  canTakeDamage: 1
+  door: {fileID: 0}
 --- !u!1 &719254970
 GameObject:
   m_ObjectHideFlags: 0
@@ -6430,7 +6448,7 @@ MonoBehaviour:
   prefabProyectil: {fileID: 791884194307863000, guid: c4ee7bb7090fcaf4ca0e545812a660d7, type: 3}
   canShoot: 1
   itsStop: 1
-  isShooter: 0
+  isShooter: 1
 --- !u!58 &1543944261
 CircleCollider2D:
   m_ObjectHideFlags: 0
