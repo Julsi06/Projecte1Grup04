@@ -40,11 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         HandleJump();
-
-        if (!isHanging) // Si no está colgado, maneja el movimiento normal
-        {
-            HandleMovement();
-        }
+        HandleMovement();
     }
 
 
