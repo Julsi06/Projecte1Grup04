@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCount;
     private bool isHanging = false;
     public int maxPlayerLives = 4;
-
+    float moveInput;
 
     private void Awake()
     {
@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        moveInput = Input.GetAxisRaw("Horizontal");
         HandleJump();
 
         if (!isHanging) // Si no está colgado, maneja el movimiento normal
@@ -55,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (moveInput > 0)
         {
