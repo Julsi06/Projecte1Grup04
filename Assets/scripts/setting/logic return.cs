@@ -9,4 +9,9 @@ public class LogicReturn : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void OnReturnCreditsClick()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

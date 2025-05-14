@@ -3,7 +3,7 @@
  <image source="level_tileset.png" width="300" height="300"/>
  <tile id="0">
   <objectgroup draworder="index" id="2">
-   <object id="3" x="0" y="0" width="32" height="32"/>
+   <object id="5" x="0" y="0" width="32" height="32"/>
   </objectgroup>
  </tile>
  <tile id="1">
