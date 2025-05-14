@@ -9,8 +9,8 @@ public class PlataformaMovil : MonoBehaviour
     // Parameters for the platforms
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private float stopTime = 2f;
+    [SerializeField] private float speed;
+    [SerializeField] private float stopTime;
     private bool waitingPlatform = false;
     private Vector3 nextPosition;
 
