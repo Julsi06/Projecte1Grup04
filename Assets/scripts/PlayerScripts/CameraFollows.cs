@@ -6,7 +6,7 @@ public class CameraFollows : MonoBehaviour
     public Transform player;
     public float offsetZ = -10f;
     public float offsetY = 1.5f;
-    private float moveSpeed = 10f;
+    private float moveSpeed = 15f;
     public float waitTime = 2f;
 
     private Coroutine moveCoroutine;
