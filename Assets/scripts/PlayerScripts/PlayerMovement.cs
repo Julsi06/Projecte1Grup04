@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCount;
     private bool isHanging = false;
     public int maxPlayerLives = 4;
+    public bool canMove = true;
     float moveInput;
 
     private void Awake()
@@ -52,58 +53,63 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-
-        if (moveInput > 0)
+        if (canMove)
         {
-            currentSpeed += acceleration;
-            if (currentSpeed > maxSpeed) currentSpeed = maxSpeed;
-        }
-        else if (moveInput < 0)
-        {
-            currentSpeed -= acceleration;
-            if (currentSpeed < -maxSpeed) currentSpeed = -maxSpeed;
-        }
-        else
-        {
-            if (currentSpeed > 0)
+            if (moveInput > 0)
             {
-                currentSpeed -= deceleration;
-                if (currentSpeed < 0) currentSpeed = 0;
+                currentSpeed += acceleration;
+                if (currentSpeed > maxSpeed) currentSpeed = maxSpeed;
             }
-            else if (currentSpeed < 0)
+            else if (moveInput < 0)
             {
-                currentSpeed += deceleration;
-                if (currentSpeed > 0) currentSpeed = 0;
+                currentSpeed -= acceleration;
+                if (currentSpeed < -maxSpeed) currentSpeed = -maxSpeed;
             }
-        }
+            else
+            {
+                if (currentSpeed > 0)
+                {
+                    currentSpeed -= deceleration;
+                    if (currentSpeed < 0) currentSpeed = 0;
+                }
+                else if (currentSpeed < 0)
+                {
+                    currentSpeed += deceleration;
+                    if (currentSpeed > 0) currentSpeed = 0;
+                }
+            }
 
-        float verticalVelocity = player.velocity.y;
-       
-        // Aplica un threshold para evitar valores residuales en Y
-        if (Mathf.Abs(verticalVelocity) < 0.1f)
-        {
-            verticalVelocity = 0f;
-        }
+            float verticalVelocity = player.velocity.y;
 
-        player.velocity = new Vector2(currentSpeed, verticalVelocity);
+            // Aplica un threshold para evitar valores residuales en Y
+            if (Mathf.Abs(verticalVelocity) < 0.1f)
+            {
+                verticalVelocity = 0f;
+            }
+
+            player.velocity = new Vector2(currentSpeed, verticalVelocity);
 
 
 
-        if ((currentSpeed > 0 && !isFacingRight) || (currentSpeed < 0 && isFacingRight))
-        {
-            Flip();
+            if ((currentSpeed > 0 && !isFacingRight) || (currentSpeed < 0 && isFacingRight))
+            {
+                Flip();
+            }
         }
     }
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
+        if (canMove)
         {
-            Jump();
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            player.velocity = new Vector2(player.velocity.x, player.velocity.y / 1.2f);
+            if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
+            {
+                Jump();
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                player.velocity = new Vector2(player.velocity.x, player.velocity.y / 1.2f);
+            }
         }
     }
 

@@ -26,6 +26,8 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetFloat("xVelocity", Input.GetAxisRaw("Horizontal"));
         animator.SetFloat("yVelocity", verticalVelocity);
 
+        animator.SetBool("isRunning", Mathf.Abs(player.velocity.x) > 0.1f);
+
         PlayerMovement movement = GetComponent<PlayerMovement>();
         animator.SetBool("isDoubleJumping", movement.IsDoubleJumping);
     }

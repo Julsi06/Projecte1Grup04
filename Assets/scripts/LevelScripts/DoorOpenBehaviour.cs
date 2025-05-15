@@ -7,7 +7,7 @@ public class DoorOpenBehaviour : MonoBehaviour
     private Animator animator;
     private Collider2D doorCollider;
     private bool isOpen = false;
-
+    
     void Start()
     {
         animator = GetComponent<Animator>();

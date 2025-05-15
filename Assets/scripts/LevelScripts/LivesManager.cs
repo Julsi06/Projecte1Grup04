@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LivesManager : MonoBehaviour
 {
+    public PlayerRespawn respawn;
+
     public GameObject[] blueHearts; // Corazones azules (vidas activas)
     // Suponemos que los corazones rojos están debajo y siempre visibles.
 
