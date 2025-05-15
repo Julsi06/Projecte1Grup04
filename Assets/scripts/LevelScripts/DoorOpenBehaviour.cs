@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorBehaviour : MonoBehaviour
+public class DoorOpenBehaviour : MonoBehaviour
 {
     private Animator animator;
     private Collider2D doorCollider;

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class buttonDoor : MonoBehaviour
 {
-    public DoorBehaviour door;
+    public DoorOpenBehaviour door;
+    public DoorCloseBehaviour closeDoor;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,6 +16,12 @@ public class buttonDoor : MonoBehaviour
             {
                 Debug.Log("Abriendo puerta...");
                 door.OpenDoor();
+            }
+
+            if (closeDoor != null)
+            {
+                Debug.Log("Cerrando puerta...");
+                closeDoor.CloseDoor();
             }
         }
     }

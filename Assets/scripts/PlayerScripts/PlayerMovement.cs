@@ -110,10 +110,10 @@ public class PlayerMovement : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit2D hit;
-        Vector2 raycastOrigin = transform.position - new Vector3(0f, 0.5f, 0f);
+        Vector2 raycastOrigin = transform.position - new Vector3(0f, 0.75f, 0f);
 
         // Lanza un rayo hacia abajo para detectar el suelo
-        hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.5f, RaycastDistance, groundLayer);
+        hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.75f, RaycastDistance, groundLayer);
         Debug.DrawRay(raycastOrigin, Vector2.down * 0.5f, Color.red);
         if (hit.collider != null)
         {
