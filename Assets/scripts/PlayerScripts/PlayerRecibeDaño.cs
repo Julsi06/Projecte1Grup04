@@ -28,10 +28,19 @@ public class PlayerRecibeDaño : MonoBehaviour
             currentLives--;
             StartCoroutine(ActivarInvulnerabilidad());
         }
-        if(collision.gameObject.CompareTag("damagePlat"))
+        if (collision.gameObject.CompareTag("damagePlat"))
+        {
             currentLives -= 0.75f;
+        }
+        if (collision.gameObject.CompareTag("enemyBullet"))
+        {
+            Debug.Log("enemyBullet");
+            currentLives--;
+            StartCoroutine(ActivarInvulnerabilidad());
+        }
 
-        if (currentLives <= 0) Morir();
+
+            if (currentLives <= 0) Morir();
     }
 
     private IEnumerator ActivarInvulnerabilidad()
