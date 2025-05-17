@@ -4,69 +4,110 @@ using UnityEngine;
 
 public class EnemyBat : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float radioDetection = 5f;
-    [SerializeField] private float coolDownProjectile = 2f; // Variable faltante añadida
-    float followVelocity = 3f;
-    float distanciaMinima = 2f;
-    public Transform player;
+    [SerializeField] private float followVelocity = 3f;
+    [SerializeField] private float distanciaMinima = 2f;
 
-    public GameObject prefabProyectil;
+    [Header("Shooting Settings")]
+    [SerializeField] private float coolDownProjectile = 2f;
+    [SerializeField] private GameObject prefabProyectil;
+
+    [Header("Behavior Flags")]
+    public bool itsStop = true;
+    public bool isShooter = false;
     public bool canShoot = true;
 
-    [Header("Change movement")]
-    public bool itsStop = true;
+    private Transform player;
+    private bool isFacingRight = true;
+    private float lastXPosition;
 
-    [Header("Change shoot")]
-    public bool isShooter = false;
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        lastXPosition = transform.position.x;
+
+        if (player == null)
+        {
+            Debug.LogError("No se encontró al jugador. Asegúrate de que tiene el tag 'Player'");
+        }
+    }
 
     void Update()
     {
-        float playerDistance = Vector2.Distance(transform.position, player.position); // Movido aquí para actualización constante
+        if (player == null) return;
 
-        followPlayer();
-        if (withinDetectionArea() && isShooter)
+        FollowPlayer();
+
+        if (IsWithinDetectionArea() && isShooter && canShoot)
         {
-            StartCoroutine(shootProjectile());
+            StartCoroutine(ShootProjectile());
         }
     }
 
-    void followPlayer()
+    void FollowPlayer()
     {
         float playerDistance = Vector2.Distance(transform.position, player.position);
         Vector2 direction = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, radioDetection);
 
-        if (hit.collider != null && hit.collider.CompareTag("Player") && !itsStop)
+        // Movimiento solo si está en rango
+        if (playerDistance <= radioDetection && playerDistance > distanciaMinima)
         {
-            transform.Translate(direction * followVelocity * Time.deltaTime);
-        }
+            if (!itsStop || (itsStop && playerDistance <= radioDetection))
+            {
+                transform.Translate(direction * followVelocity * Time.deltaTime);
+            }
 
-        if (playerDistance <= radioDetection && playerDistance > distanciaMinima && itsStop)
-        {
-            transform.Translate(direction * followVelocity * Time.deltaTime);
+            // Lógica mejorada de Flip (usa la dirección, no la posición anterior)
+            if (direction.x > 0 && !isFacingRight)
+            {
+                Flip();
+            }
+            else if (direction.x < 0 && isFacingRight)
+            {
+                Flip();
+            }
         }
     }
 
-    bool withinDetectionArea()
+    bool IsWithinDetectionArea()
     {
+        if (player == null) return false;
         float playerDistance = Vector2.Distance(transform.position, player.position);
         return playerDistance <= radioDetection && playerDistance > distanciaMinima;
     }
 
-    IEnumerator shootProjectile()
+    IEnumerator ShootProjectile()
     {
-        if (prefabProyectil != null && canShoot)
+        canShoot = false;
+
+        if (prefabProyectil != null)
         {
-            canShoot = false;
+            Vector2 shootDirection = (player.position - transform.position).normalized;
             GameObject proyectil = Instantiate(prefabProyectil, transform.position, Quaternion.identity);
-            ProjectileEnemy scriptProyectil = proyectil.GetComponent<ProjectileEnemy>();
-            scriptProyectil.SetDirectionShoot((player.position - transform.position).normalized);
-            yield return new WaitForSeconds(coolDownProjectile);
-            canShoot = true;
+
+            ProjectileEnemy projectileScript = proyectil.GetComponent<ProjectileEnemy>();
+            if (projectileScript != null)
+            {
+                projectileScript.SetDirectionShoot(shootDirection);
+            }
+            else
+            {
+                Debug.LogWarning("El prefab del proyectil no tiene el script ProjectileEnemy");
+            }
         }
+
+        yield return new WaitForSeconds(coolDownProjectile);
+        canShoot = true;
     }
 
-    void OnDrawGizmos()
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radioDetection);

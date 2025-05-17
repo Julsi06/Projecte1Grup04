@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Idle Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 14
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3689b92021a78a4aad57cc39ccc9e31
+      internalID: 1935919344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Idle Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 10
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84101319b54fab9459e0404e9a94a663
+      internalID: 1876440563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Idle Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 13
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421ff59b39574e34a873f612674c4b90
+      internalID: -841910101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Idle Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 14
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034a7a78770bec541be63c447cfe883a
+      internalID: -1908689499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SimpleEnemies Bat_Idle Spritesheet_0: 1935919344
+      SimpleEnemies Bat_Idle Spritesheet_1: 1876440563
+      SimpleEnemies Bat_Idle Spritesheet_2: -841910101
+      SimpleEnemies Bat_Idle Spritesheet_3: -1908689499
+      SimpleEnemies Bat_Idle Spritesheet_4: 1410505086
+      SimpleEnemies Bat_Idle Spritesheet_5: 2099926175
+      SimpleEnemies Bat_Idle Spritesheet_6: -737861674
+      SimpleEnemies Bat_Idle Spritesheet_7: 1195480510
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
