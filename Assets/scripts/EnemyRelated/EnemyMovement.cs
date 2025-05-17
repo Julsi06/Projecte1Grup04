@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     {
        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        Debug.Log(distanceToPlayer);
+        //Debug.Log(distanceToPlayer);
         // Si el jugador está dentro del radio de detección
         if (distanceToPlayer < detectionRadius)
         {

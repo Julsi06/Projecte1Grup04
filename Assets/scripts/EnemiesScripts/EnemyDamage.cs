@@ -11,12 +11,13 @@ public class EnemyDamage : MonoBehaviour
     {
         // Obtener referencia al componente Animator
         animator = GetComponent<Animator>();
+        if (animator == null) Debug.LogError("Falta el Animator en: " + gameObject.name);
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-        
+
         animator.SetTrigger("isAttacked");
         if (health <= 0)
         {
@@ -29,4 +30,3 @@ public class EnemyDamage : MonoBehaviour
         Destroy(gameObject); // Destroy enemy object
     }
 }
-

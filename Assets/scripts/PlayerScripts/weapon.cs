@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
             Debug.Log("Tecla Q presionada"); // Mensaje de prueba
             Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             reload();
         }
