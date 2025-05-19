@@ -22,10 +22,9 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && actualBullet > 0)
         {
-            Debug.Log("Tecla Q presionada"); // Mensaje de prueba
             Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             reload();
         }
@@ -69,5 +68,4 @@ public class Weapon : MonoBehaviour
 
 
 }
-///////
 

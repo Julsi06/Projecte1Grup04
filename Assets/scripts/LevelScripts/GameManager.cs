@@ -9,11 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private int score = 0;
-    public TextMeshProUGUI scoreText; // Asignar desde el inspector
+    public TextMeshProUGUI scoreText;
 
     private void Awake()
-    {
-        // Singleton para acceso global
+    {   
         if (instance == null)
         {
             instance = this;

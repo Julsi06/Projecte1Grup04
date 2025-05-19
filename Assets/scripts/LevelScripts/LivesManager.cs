@@ -26,6 +26,15 @@ public class LivesManager : MonoBehaviour
         }
     }
 
+    public void GainLife()
+    {
+        if (currentLives < blueHearts.Length)
+        {
+            blueHearts[currentLives].SetActive(true);
+            currentLives++;
+        }
+    }
+
     public void ResetHearts()
     {
         for (int i = 0; i < blueHearts.Length; i++)

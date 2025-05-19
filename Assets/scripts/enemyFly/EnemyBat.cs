@@ -18,12 +18,20 @@ public class EnemyBat : MonoBehaviour
     public bool isShooter = false;
     public bool canShoot = true;
 
+    [Header("Health Settings")]
+    [SerializeField] private int maxHealth = 3;
+    private int currentHealth;
+
+    private Animator animator;
     private Transform player;
+
     private bool isFacingRight = true;
     private float lastXPosition;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         lastXPosition = transform.position.x;
 
@@ -38,6 +46,11 @@ public class EnemyBat : MonoBehaviour
         if (player == null) return;
 
         FollowPlayer();
+
+        float xBatVelocity = Mathf.Abs(transform.position.x - lastXPosition) / Time.deltaTime;
+
+        animator.SetFloat("xBatVelocity", xBatVelocity);
+        lastXPosition = transform.position.x;
 
         if (IsWithinDetectionArea() && isShooter && canShoot)
         {
@@ -100,6 +113,29 @@ public class EnemyBat : MonoBehaviour
         yield return new WaitForSeconds(coolDownProjectile);
         canShoot = true;
     }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth > 0)
+        {
+            animator.SetTrigger("Hit");
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        animator.SetTrigger("Die");
+        this.enabled = false; 
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, 1.5f);
+    }
+
 
     private void Flip()
     {
