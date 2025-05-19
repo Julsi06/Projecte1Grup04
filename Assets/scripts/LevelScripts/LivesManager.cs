@@ -46,14 +46,14 @@ public class LivesManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LoseLife();
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetHearts();
+        }
+
+        if (currentLives == 0)
+        {
+            respawn.Respawn();
         }
     }
 }
