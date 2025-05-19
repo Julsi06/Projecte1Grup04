@@ -30,5 +30,9 @@ public class PlayerAnimations : MonoBehaviour
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
         animator.SetBool("isDoubleJumping", movement.IsDoubleJumping);
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetBool("isReloading", true);
+        }
     }
 }
