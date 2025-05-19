@@ -32,7 +32,7 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("isDoubleJumping", movement.IsDoubleJumping);
         if(Input.GetKeyDown(KeyCode.E))
         {
-            animator.SetBool("isReloading", true);
+            animator.SetTrigger("isReloading");
         }
     }
 }
