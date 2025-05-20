@@ -39800,6 +39800,7 @@ GameObject:
   - component: {fileID: 2055013541}
   - component: {fileID: 2055013540}
   - component: {fileID: 2055013539}
+  - component: {fileID: 2055013550}
   - component: {fileID: 2055013538}
   - component: {fileID: 2055013537}
   - component: {fileID: 2055013548}
@@ -39826,13 +39827,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3245d32d88f0646bdb21dbd0f77381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 7
-  acceleration: 0.3
+  maxSpeed: 8
+  acceleration: 0.2
   deceleration: 0.3
-  jumpForce: 350
+  jumpForce: 400
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   maxJumps: 2
   RaycastDistance: 1.5
   maxPlayerLives: 4
@@ -40043,6 +40044,29 @@ MonoBehaviour:
   bulletUI: {fileID: 1965646396}
   bulletUI1: {fileID: 569991471}
   bulletUI2: {fileID: 1694743611}
+--- !u!114 &2055013550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055013536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3245d32d88f0646bdb21dbd0f77381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 8
+  acceleration: 0.2
+  deceleration: 0.3
+  jumpForce: 400
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  maxJumps: 2
+  RaycastDistance: 1.5
+  maxPlayerLives: 4
+  canMove: 1
 --- !u!1 &2057627826
 GameObject:
   m_ObjectHideFlags: 0
