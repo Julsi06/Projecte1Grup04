@@ -130,10 +130,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Clickando...");
             // Cada click añade un ataque en la cola
             attackQueue.Enqueue(currentAttackIndex);
-            Debug.Log("Ataque encolado: " + currentAttackIndex);
             currentAttackIndex = (currentAttackIndex + 1) % 4;
             lastClickTime = Time.time; // Actualiza tiempo último clic
             if (!isAttacking)
@@ -158,7 +156,6 @@ public class PlayerMovement : MonoBehaviour
     // Método llamado para iniciar un nuevo ataque de la cola
     public void StartNextAttack()
     {
-        Debug.Log("Iniciando siguiente ataque... ataques restantes: " + attackQueue.Count);
         if (attackQueue.Count > 0)
         {
             isAttacking = true;
@@ -186,18 +183,9 @@ public class PlayerMovement : MonoBehaviour
         // Lanza un rayo hacia abajo para detectar el suelo
         hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.75f, RaycastDistance, groundLayer);
         Debug.DrawRay(raycastOrigin, Vector2.down * 0.5f, Color.red);
-        if (hit.collider != null)
-        {
-            Debug.Log("Raycast hit: " + hit.collider.name + " | Tag: " + hit.collider.tag);
-        }
-        else
-        {
-            Debug.Log("Raycast didn't hit anything.");
-        }
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
-            Debug.Log("touching ground...");
             // Si está tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
             IsDoubleJumping = false;

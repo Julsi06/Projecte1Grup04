@@ -16,7 +16,6 @@ public class Chechkpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             SpawnManager.Instance.SetSpawnPoint(transform.position);
-            Debug.Log("Checkpoint reached on: " + transform.position);
             animator.SetTrigger("Activated");
         }
     }

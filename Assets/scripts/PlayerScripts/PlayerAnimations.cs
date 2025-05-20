@@ -12,7 +12,6 @@ public class PlayerAnimations : MonoBehaviour
     private Animator animator;
 
     private PlayerMovement playerMovement;
-    // Start is called before the first frame update
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -20,7 +19,6 @@ public class PlayerAnimations : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>(); // Inicializa playerMovement
     }
 
-    // Update is called once per frame
     void Update()
     {
         float verticalVelocity = player.velocity.y;
@@ -31,15 +29,6 @@ public class PlayerAnimations : MonoBehaviour
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
         animator.SetBool("isDoubleJumping", movement.IsDoubleJumping);
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            animator.SetTrigger("isReloading");
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            animator.SetTrigger("isShooting");
-        }
-        else{}
     }
 
     public void SetAttackAnimation(int index)
@@ -52,21 +41,21 @@ public class PlayerAnimations : MonoBehaviour
         animator.ResetTrigger("attack4");
         switch (index)
         {
-            case 0:
-                animator.SetTrigger("attack1");
-                break;
-            case 1:
-                animator.SetTrigger("attack2");
-                break;
-            case 2:
-                animator.SetTrigger("attack3");
-                break;
-            case 3:
-                animator.SetTrigger("attack4");
-                break;
-            default:
-                Debug.LogWarning("Índice de ataque inválido en SetAttackAnimation: " + index);
-                break;
+        case 0:
+              animator.SetTrigger("attack1");
+              break;
+        case 1:
+              animator.SetTrigger("attack2");
+              break;
+        case 2:
+              animator.SetTrigger("attack3");
+              break;
+        case 3:
+              animator.SetTrigger("attack4");
+              break;
+        default:
+              Debug.LogWarning("Índice de ataque inválido en SetAttackAnimation: " + index);
+              break;
         }
     }
 

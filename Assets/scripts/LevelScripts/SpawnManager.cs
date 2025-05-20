@@ -23,7 +23,6 @@ public class SpawnManager : MonoBehaviour
     public void SetSpawnPoint(Vector3 newSpawnPoint)
     {
         currentSpawnPoint = newSpawnPoint;
-        Debug.Log("Nuevo punto de spawn guardado en: " + currentSpawnPoint);
     }
 
     public Vector3 GetSpawnPoint()
