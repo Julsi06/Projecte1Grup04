@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBat : MonoBehaviour
@@ -19,7 +18,7 @@ public class EnemyBat : MonoBehaviour
     public bool canShoot = true;
 
     [Header("Health Settings")]
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int maxHealth = 100; // integrado health de EnemyDamage
     private int currentHealth;
 
     private Animator animator;
@@ -28,11 +27,16 @@ public class EnemyBat : MonoBehaviour
     private bool isFacingRight = true;
     private float lastXPosition;
 
+    private bool isDying = false; // controla estado de muerte
+    private float deathTimer = 0f;
+    private float deathDuration = 1.5f; // duración de animación muerte
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        if (animator == null) Debug.LogError("Falta el Animator en: " + gameObject.name);
         currentHealth = maxHealth;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
         lastXPosition = transform.position.x;
 
         if (player == null)
@@ -45,10 +49,19 @@ public class EnemyBat : MonoBehaviour
     {
         if (player == null) return;
 
+        if (isDying)
+        {
+            deathTimer += Time.deltaTime;
+            if (deathTimer >= deathDuration)
+            {
+                Destroy(gameObject);
+            }
+            return; // no hacer nada mientras muere
+        }
+
         FollowPlayer();
 
         float xBatVelocity = Mathf.Abs(transform.position.x - lastXPosition) / Time.deltaTime;
-
         animator.SetFloat("xBatVelocity", xBatVelocity);
         lastXPosition = transform.position.x;
 
@@ -63,7 +76,6 @@ public class EnemyBat : MonoBehaviour
         float playerDistance = Vector2.Distance(transform.position, player.position);
         Vector2 direction = (player.position - transform.position).normalized;
 
-        // Movimiento solo si está en rango
         if (playerDistance <= radioDetection && playerDistance > distanciaMinima)
         {
             if (!itsStop || (itsStop && playerDistance <= radioDetection))
@@ -71,7 +83,6 @@ public class EnemyBat : MonoBehaviour
                 transform.Translate(direction * followVelocity * Time.deltaTime);
             }
 
-            // Lógica mejorada de Flip (usa la dirección, no la posición anterior)
             if (direction.x > 0 && !isFacingRight)
             {
                 Flip();
@@ -114,13 +125,17 @@ public class EnemyBat : MonoBehaviour
         canShoot = true;
     }
 
+    // Funcionalidad integrada de EnemyDamage para daño y muerte
     public void TakeDamage(int damage)
     {
+        if (isDying) return; // ignorar daño si muriendo
+
         currentHealth -= damage;
 
+        animator.SetTrigger("isAttacked"); // trigger integrado de EnemyDamage
         if (currentHealth > 0)
         {
-            animator.SetTrigger("Hit");
+            animator.SetTrigger("Hit"); // trigger previo de EnemyBat
         }
         else
         {
@@ -131,11 +146,10 @@ public class EnemyBat : MonoBehaviour
     private void Die()
     {
         animator.SetTrigger("Die");
-        this.enabled = false; 
-        GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject, 1.5f);
-    }
+        GetComponent<Collider2D>().enabled = false; // deshabilita collider
 
+        Destroy(gameObject);
+    }
 
     private void Flip()
     {
@@ -149,3 +163,4 @@ public class EnemyBat : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radioDetection);
     }
 }
+

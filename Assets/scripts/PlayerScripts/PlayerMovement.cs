@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     // Movement variables
     [SerializeField] private float maxSpeed = 8f;  // Velocidad máxima
     [SerializeField] private float acceleration = 0.2f; // Aceleración
@@ -24,24 +25,37 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D player;
     private bool isFacingRight = true;
     private float currentSpeed = 0f;
-    private int jumpCount;
-    private bool isHanging = false;
+    private int jumpCount;  
     public int maxPlayerLives = 4;
     public bool canMove = true;
     float moveInput;
+
+    // Attack variables
+    private Queue<int> attackQueue = new Queue<int>(); // Cola de ataques
+    private bool isAttacking = false;
+    private int currentAttackIndex = 0; // Para ciclar entre 0-3 animaciones
+
+    private PlayerAnimations animations;
+
+    private float lastClickTime = 0f; // Tiempo del último clic
+    private float clearQueueDelay = 0.2f; // Tiempo para limpiar la cola sin clics
 
     private void Awake()
     {
         player = GetComponent<Rigidbody2D>();
         player.drag = 0;
         jumpCount = 1;
+        animations = GetComponentInChildren<PlayerAnimations>();
+        lastClickTime = -clearQueueDelay; // Para iniciar limpio
     }
 
     private void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         HandleJump();
+        HandleAttackInput(); // Manejar ataque
         HandleMovement();
+        CheckClearAttackQueue();
     }
 
 
@@ -110,6 +124,57 @@ public class PlayerMovement : MonoBehaviour
             {
                 player.velocity = new Vector2(player.velocity.x, player.velocity.y / 1.2f);
             }
+        }
+    }
+    private void HandleAttackInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Clickando...");
+            // Cada click añade un ataque en la cola
+            attackQueue.Enqueue(currentAttackIndex);
+            Debug.Log("Ataque encolado: " + currentAttackIndex);
+            currentAttackIndex = (currentAttackIndex + 1) % 4;
+            lastClickTime = Time.time; // Actualiza tiempo último clic
+            if (!isAttacking)
+            {
+                StartNextAttack();
+            }
+        }
+    }
+
+    private void CheckClearAttackQueue()
+    {
+        if (attackQueue.Count > 0)
+        {
+            if (Time.time - lastClickTime >= clearQueueDelay)
+            {
+                Debug.Log("2 segundos sin clics. Limpiando cola de ataques.");
+                attackQueue.Clear();
+            }
+        }
+    }
+
+    // Método llamado para iniciar un nuevo ataque de la cola
+    public void StartNextAttack()
+    {
+        Debug.Log("Iniciando siguiente ataque... ataques restantes: " + attackQueue.Count);
+        if (attackQueue.Count > 0)
+        {
+            isAttacking = true;
+            int attackIdx = attackQueue.Dequeue();
+            if (animations != null)
+            {
+                animations.SetAttackAnimation(attackIdx);
+            }
+            else
+            {
+                Debug.LogWarning("La referencia a animations es null.");
+            }
+        }
+        else
+        {
+            isAttacking = false; // No hay más ataques: parar estado de ataque
         }
     }
 
