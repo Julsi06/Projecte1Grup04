@@ -47,6 +47,6 @@ public class EnemyControl : MonoBehaviour
             0
         );
         GameObject instanceReference = Instantiate(spider, randomPosition, Quaternion.identity);
-        instanceReference.GetComponent<EnemyMovement>().SetPlayer(playerTransform);
+        instanceReference.GetComponent<spiderMovement>().SetPlayer(playerTransform);
     }
 }
