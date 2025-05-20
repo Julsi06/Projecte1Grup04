@@ -35,9 +35,9 @@ public class PlayerAnimations : MonoBehaviour
     {
         Debug.Log("Iniciando ataque con índice: " + index); // Mensaje de depuración
                                                             // Reseteamos todos los triggers antes para evitar conflictos
+        animator.SetBool("isAttacking", true);
+
         animator.ResetTrigger("attack1");
-        animator.ResetTrigger("attack2");
-        animator.ResetTrigger("attack3");
         animator.ResetTrigger("attack4");
         switch (index)
         {
@@ -45,12 +45,6 @@ public class PlayerAnimations : MonoBehaviour
               animator.SetTrigger("attack1");
               break;
         case 1:
-              animator.SetTrigger("attack2");
-              break;
-        case 2:
-              animator.SetTrigger("attack3");
-              break;
-        case 3:
               animator.SetTrigger("attack4");
               break;
         default:
@@ -62,6 +56,7 @@ public class PlayerAnimations : MonoBehaviour
     public void FinishAttack()
     {
         Debug.Log("FinishAttack llamado."); // Mensaje de depuración
+        animator.SetBool("isAttacking", false);
         if (playerMovement != null)
         {
             playerMovement.StartNextAttack();

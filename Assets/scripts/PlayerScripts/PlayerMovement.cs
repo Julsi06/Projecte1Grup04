@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     float moveInput;
 
     // Attack variables
-    private Queue<int> attackQueue = new Queue<int>(); // Cola de ataques
+    public Queue<int> attackQueue = new Queue<int>(); // Cola de ataques
     private bool isAttacking = false;
     private int currentAttackIndex = 0; // Para ciclar entre 0-3 animaciones
 
@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Cada click añade un ataque en la cola
             attackQueue.Enqueue(currentAttackIndex);
-            currentAttackIndex = (currentAttackIndex + 1) % 4;
+            currentAttackIndex = (currentAttackIndex + 1) % 2;
             lastClickTime = Time.time; // Actualiza tiempo último clic
             if (!isAttacking)
             {
