@@ -9,9 +9,9 @@ public class PlayerMovement : MonoBehaviour
 {
 
     // Movement variables
-    [SerializeField] private float maxSpeed = 8f;  // Velocidad m√°xima
-    [SerializeField] private float acceleration = 0.2f; // Aceleraci√≥n
-    [SerializeField] private float deceleration = 0.3f; // Desaceleraci√≥n
+    [SerializeField] private float maxSpeed = 8f;  // Velocidad m·xima
+    [SerializeField] private float acceleration = 0.2f; // AceleraciÛn
+    [SerializeField] private float deceleration = 0.3f; // DesaceleraciÛn
 
     // Jump and ground detecting variables
     [SerializeField] private float jumpForce = 400f;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D player;
     private bool isFacingRight = true;
     private float currentSpeed = 0f;
-    private int jumpCount;  
+    private int jumpCount;
     public int maxPlayerLives = 4;
     public bool canMove = true;
     float moveInput;
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerAnimations animations;
 
-    private float lastClickTime = 0f; // Tiempo del √∫ltimo clic
+    private float lastClickTime = 0f; // Tiempo del ˙ltimo clic
     private float clearQueueDelay = 0.2f; // Tiempo para limpiar la cola sin clics
 
     private void Awake()
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CheckGrounded();
-        HandleMovement();       
+        HandleMovement();
     }
 
     private void HandleMovement()
@@ -130,10 +130,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // Cada click a√±ade un ataque en la cola
+            // Cada click aÒade un ataque en la cola
             attackQueue.Enqueue(currentAttackIndex);
             currentAttackIndex = (currentAttackIndex + 1) % 2;
-            lastClickTime = Time.time; // Actualiza tiempo √∫ltimo clic
+            lastClickTime = Time.time; // Actualiza tiempo ˙ltimo clic
             if (!isAttacking)
             {
                 StartNextAttack();
@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // M√©todo llamado para iniciar un nuevo ataque de la cola
+    // MÈtodo llamado para iniciar un nuevo ataque de la cola
     public void StartNextAttack()
     {
         if (attackQueue.Count > 0)
@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            isAttacking = false; // No hay m√°s ataques: parar estado de ataque
+            isAttacking = false; // No hay m·s ataques: parar estado de ataque
         }
     }
 
@@ -186,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
-            // Si est√° tocando el suelo, reinicia el contador de saltos
+            // Si est· tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
             IsDoubleJumping = false;
 
@@ -201,13 +201,13 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         player.velocity = new Vector2(player.velocity.x, 0f); // Elimina cualquier fuerza acumulada
-        player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force); // Salto instant√°neo
+        player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force); // Salto instant·neo
         jumpCount++;
 
         // Activa doble salto si es el segundo salto
         IsDoubleJumping = (jumpCount == 2);
     }
-     
+
     private void Flip()
     {
         isFacingRight = !isFacingRight; // Cambia la direccion
