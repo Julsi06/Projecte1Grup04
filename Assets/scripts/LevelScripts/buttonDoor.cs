@@ -5,6 +5,7 @@ public class buttonDoor : MonoBehaviour
     public DoorOpenBehaviour door;
     public DoorCloseBehaviour closeDoor;
     public CameraFollows cameraFollows;
+    public DeactivateCollider invisibleWall;
 
     private bool isActivated = false;
 
@@ -30,6 +31,11 @@ public class buttonDoor : MonoBehaviour
             if (closeDoor != null)
             {
                 closeDoor.CloseDoor();
+            }
+
+            if (invisibleWall != null)
+            {
+                invisibleWall.OpenWall();
             }
         }
     }

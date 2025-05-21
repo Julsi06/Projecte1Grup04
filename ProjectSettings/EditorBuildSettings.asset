@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: cb0f83ee52db5f9498c1e77e5472913c
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d3f2e53cb4902b64dbc2e72fcfa7af7f
@@ -16,11 +16,11 @@ EditorBuildSettings:
     guid: c00ac4fb100e01242bec7cb2edd599e8
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
-    guid: 29c041b5e44fecf4b85a1b94a8bfd380
+    guid: 1e774966b395dbc4ab2d9e563fb260f8
   - enabled: 0
     path: Assets/Scenes/Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreditsScene.unity
     guid: 1e774966b395dbc4ab2d9e563fb260f8
   - enabled: 1
