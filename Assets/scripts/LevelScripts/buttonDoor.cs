@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using System.Collections;
 
 public class buttonDoor : MonoBehaviour
 {
@@ -6,6 +8,8 @@ public class buttonDoor : MonoBehaviour
     public DoorCloseBehaviour closeDoor;
     public CameraFollows cameraFollows;
     public DeactivateCollider invisibleWall;
+    public Light2D lightToDeactivate1;
+    public Light2D lightToDeactivate2;
 
     private bool isActivated = false;
 
@@ -21,10 +25,10 @@ public class buttonDoor : MonoBehaviour
 
             if (door != null && cameraFollows != null)
             {
-                // La cámara se mueve hacia la puerta, y cuando llegue, abre la puerta
                 cameraFollows.MoveCameraToDoor(door.transform, () =>
                 {
                     door.OpenDoor();
+                    StartCoroutine(DisableLightAfterDelay(0.7f));
                 });
             }
 
@@ -37,6 +41,16 @@ public class buttonDoor : MonoBehaviour
             {
                 invisibleWall.OpenWall();
             }
+        }
+    }
+
+    private IEnumerator DisableLightAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (lightToDeactivate1 != null)
+        {
+            lightToDeactivate1.enabled = false;
+            lightToDeactivate2.enabled = false;
         }
     }
 }
