@@ -19,30 +19,39 @@ public class CameraFollows : MonoBehaviour
 
     void LateUpdate()
     {
+        if (playerMovement == null)
+            return;
+
+        Rigidbody2D rb2d = player.GetComponent<Rigidbody2D>();
+
         if (moveCoroutine == null)
         {
-            if (playerMovement != null)
-                playerMovement.canMove = true;
+            // Cámara está sobre el jugador: dejar moverse libremente
+            playerMovement.canMove = true;
 
-            Vector3 pos = transform.position;
-            pos.x = player.position.x;
-            pos.y = player.position.y + offsetY;
-            pos.z = offsetZ;
+            if (rb2d != null)
+            {
+                rb2d.bodyType = RigidbodyType2D.Dynamic;
+                rb2d.constraints = RigidbodyConstraints2D.FreezeRotation; // Quitar cualquier freeze
+            }
 
+            Vector3 pos = new Vector3(player.position.x, player.position.y + offsetY, offsetZ);
             transform.position = pos;
-
-            // Permitir que el jugador se mueva normalmente
-            if (playerMovement != null)
-                playerMovement.canMove = true;
         }
         else
         {
-            if (playerMovement != null)
-                playerMovement.canMove = false;
+            // Cámara está moviéndose a la puerta o lejos del jugador: congelar jugador
+            playerMovement.canMove = false;
 
-            // Cuando la cámara se mueve, bloqueamos el movimiento
-            if (playerMovement != null)
-                playerMovement.canMove = false;
+            if (rb2d != null)
+            {
+                rb2d.velocity = Vector2.zero;
+                rb2d.angularVelocity = 0f;
+                rb2d.bodyType = RigidbodyType2D.Kinematic;
+
+                // Congelar posición X e Y y rotación para que no se mueva ni caiga
+                rb2d.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            }
         }
     }
 
