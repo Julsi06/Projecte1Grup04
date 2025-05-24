@@ -9,7 +9,7 @@ public class LivesManager : MonoBehaviour
     public GameObject[] blueHearts; // Corazones azules (vidas activas)
     // Suponemos que los corazones rojos están debajo y siempre visibles.
 
-    private int currentLives;
+    public int currentLives;
 
     void Start()
     {

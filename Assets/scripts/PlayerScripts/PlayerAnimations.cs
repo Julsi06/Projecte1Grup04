@@ -12,11 +12,13 @@ public class PlayerAnimations : MonoBehaviour
     private Animator animator;
 
     private PlayerMovement playerMovement;
+    private LivesManager livesManager;
     private void Awake()
     {
         animator = GetComponent<Animator>();
         player = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>(); // Inicializa playerMovement
+        livesManager = GetComponent<LivesManager>();
     }
 
     void Update()
@@ -29,6 +31,11 @@ public class PlayerAnimations : MonoBehaviour
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
         animator.SetBool("isDoubleJumping", movement.IsDoubleJumping);
+
+        if(livesManager.currentLives == 0)
+        {
+            animator.SetBool("isDying", true);
+        }
     }
 
     public void SetAttackAnimation(int index)
