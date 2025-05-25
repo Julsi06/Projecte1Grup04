@@ -145,11 +145,21 @@ public class EnemyBat : MonoBehaviour
 
     private void Die()
     {
+        isDying = true; // Cambia el estado a muriendo
         animator.SetTrigger("Die");
-        GetComponent<Collider2D>().enabled = false; // deshabilita collider
+        GetComponent<Collider2D>().enabled = false; // Deshabilita el collider
 
-        Destroy(gameObject);
+        // Inicia una corutina para esperar la duración de la animación de muerte
+        StartCoroutine(WaitAndDestroy());
     }
+
+    private IEnumerator WaitAndDestroy()
+    {
+        // Espera la duración de la animación de muerte
+        yield return new WaitForSeconds(deathDuration);
+        Destroy(gameObject); // Destruye el objeto después de la animación
+    }
+
 
     private void Flip()
     {

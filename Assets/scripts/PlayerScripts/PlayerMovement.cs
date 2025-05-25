@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int maxJumps = 2;
     [SerializeField] private float RaycastDistance = 1.5f;
 
+    public Collider2D attackCollider;
+
     // Player initialized variables
     public bool IsDoubleJumping { get; private set; }
 
@@ -147,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Time.time - lastClickTime >= clearQueueDelay)
             {
-                Debug.Log("2 segundos sin clics. Limpiando cola de ataques.");
                 attackQueue.Clear();
             }
         }
@@ -163,6 +164,7 @@ public class PlayerMovement : MonoBehaviour
             if (animations != null)
             {
                 animations.SetAttackAnimation(attackIdx);
+                attackCollider.enabled = true;
             }
             else
             {
@@ -172,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isAttacking = false; // No hay más ataques: parar estado de ataque
+            attackCollider.enabled = false;
         }
     }
 
@@ -212,5 +215,18 @@ public class PlayerMovement : MonoBehaviour
     {
         isFacingRight = !isFacingRight; // Cambia la direccion
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("enemy"))
+        {
+            // Aquí puedes llamar al método de daño del enemigo
+            EnemyBat enemy = collision.GetComponent<EnemyBat>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1); // Cambia el valor según el daño que quieras infligir
+            }
+        }
     }
 }

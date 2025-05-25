@@ -13,6 +13,9 @@ public class PlayerAnimations : MonoBehaviour
 
     private PlayerMovement playerMovement;
     private LivesManager livesManager;
+
+    public Collider2D attackCollider;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -32,10 +35,10 @@ public class PlayerAnimations : MonoBehaviour
         PlayerMovement movement = GetComponent<PlayerMovement>();
         animator.SetBool("isDoubleJumping", movement.IsDoubleJumping);
 
-        if(livesManager.currentLives == 0)
-        {
-            animator.SetBool("isDying", true);
-        }
+        //if(livesManager.currentLives == 0)
+        //{
+        //    animator.SetBool("isDying", true);
+        //}
     }
 
     public void SetAttackAnimation(int index)
@@ -56,7 +59,12 @@ public class PlayerAnimations : MonoBehaviour
               break;
         default:
               Debug.LogWarning("Índice de ataque inválido en SetAttackAnimation: " + index);
-              break;
+              break;    
+        }
+
+        if (attackCollider != null)
+        {
+            attackCollider.enabled = true;
         }
     }
 
@@ -64,6 +72,12 @@ public class PlayerAnimations : MonoBehaviour
     {
         Debug.Log("FinishAttack llamado."); // Mensaje de depuración
         animator.SetBool("isAttacking", false);
+
+        if (attackCollider != null)
+        {
+            attackCollider.enabled = false;
+        }
+
         if (playerMovement != null)
         {
             playerMovement.StartNextAttack();
