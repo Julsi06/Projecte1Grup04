@@ -211,6 +211,6 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         isFacingRight = !isFacingRight; // Cambia la direccion
-        transform.Rotate(0f, 90f, 0f);
+        transform.Rotate(0f, 180f, 0f);
     }
 }
