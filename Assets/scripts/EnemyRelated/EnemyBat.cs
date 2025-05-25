@@ -7,6 +7,15 @@ public class EnemyBat : MonoBehaviour
     [SerializeField] private float radioDetection = 5f;
     [SerializeField] private float followVelocity = 3f;
     [SerializeField] private float distanciaMinima = 2f;
+    [SerializeField] private float leftLimitOffset = -12f;
+    [SerializeField] private float rightLimitOffset = 5f;
+    private float leftLimit;
+    private float rightLimit;
+    private float startXPosition;
+    private float startYPosition;
+
+    [SerializeField] private float patrolSpeed = 2f;
+    private float moveDirection = 1f;
 
     [Header("Shooting Settings")]
     [SerializeField] private float coolDownProjectile = 2f;
@@ -18,7 +27,7 @@ public class EnemyBat : MonoBehaviour
     public bool canShoot = true;
 
     [Header("Health Settings")]
-    [SerializeField] private int maxHealth = 100; // integrado health de EnemyDamage
+    [SerializeField] private int maxHealth = 100;
     private int currentHealth;
 
     private Animator animator;
@@ -27,17 +36,23 @@ public class EnemyBat : MonoBehaviour
     private bool isFacingRight = true;
     private float lastXPosition;
 
-    private bool isDying = false; // controla estado de muerte
+    private bool isDying = false;
     private float deathTimer = 0f;
-    private float deathDuration = 1.5f; // duración de animación muerte
+    private float deathDuration = 1.5f;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         if (animator == null) Debug.LogError("Falta el Animator en: " + gameObject.name);
+
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         lastXPosition = transform.position.x;
+        startXPosition = transform.position.x;
+        startYPosition = transform.position.y;
+
+        leftLimit = startXPosition + leftLimitOffset;
+        rightLimit = startXPosition + rightLimitOffset;
 
         if (player == null)
         {
@@ -56,10 +71,10 @@ public class EnemyBat : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            return; // no hacer nada mientras muere
+            return;
         }
 
-        FollowPlayer();
+        FollowPlayerOrPatrol();
 
         float xBatVelocity = Mathf.Abs(transform.position.x - lastXPosition) / Time.deltaTime;
         animator.SetFloat("xBatVelocity", xBatVelocity);
@@ -71,25 +86,39 @@ public class EnemyBat : MonoBehaviour
         }
     }
 
-    void FollowPlayer()
+    void FollowPlayerOrPatrol()
     {
         float playerDistance = Vector2.Distance(transform.position, player.position);
-        Vector2 direction = (player.position - transform.position).normalized;
 
         if (playerDistance <= radioDetection && playerDistance > distanciaMinima)
         {
-            if (!itsStop || (itsStop && playerDistance <= radioDetection))
-            {
-                transform.Translate(direction * followVelocity * Time.deltaTime);
-            }
+            // Movimiento hacia el jugador
+            Vector2 direction = (player.position - transform.position).normalized;
+            transform.Translate(new Vector2(direction.x, 0f) * followVelocity * Time.deltaTime);
 
             if (direction.x > 0 && !isFacingRight)
-            {
                 Flip();
-            }
             else if (direction.x < 0 && isFacingRight)
-            {
                 Flip();
+        }
+        else
+        {
+            // Patrullaje entre límites
+            transform.Translate(Vector2.right * moveDirection * patrolSpeed * Time.deltaTime);
+
+            if (transform.position.x <= leftLimit)
+            {
+                if (!isFacingRight) Flip();
+                transform.position = new Vector2(leftLimit, transform.position.y);
+                moveDirection = -1f;
+                
+            }
+            else if (transform.position.x >= rightLimit)
+            {
+                if (!isFacingRight) Flip();
+                transform.position = new Vector2(rightLimit, transform.position.y);
+                moveDirection = 1f;
+                
             }
         }
     }
@@ -125,17 +154,17 @@ public class EnemyBat : MonoBehaviour
         canShoot = true;
     }
 
-    // Funcionalidad integrada de EnemyDamage para daño y muerte
     public void TakeDamage(int damage)
     {
-        if (isDying) return; // ignorar daño si muriendo
+        if (isDying) return;
 
         currentHealth -= damage;
 
-        animator.SetTrigger("isAttacked"); // trigger integrado de EnemyDamage
+        animator.SetTrigger("isAttacked");
+
         if (currentHealth > 0)
         {
-            animator.SetTrigger("Hit"); // trigger previo de EnemyBat
+            animator.SetTrigger("Hit");
         }
         else
         {
@@ -145,21 +174,18 @@ public class EnemyBat : MonoBehaviour
 
     private void Die()
     {
-        isDying = true; // Cambia el estado a muriendo
+        isDying = true;
         animator.SetTrigger("Die");
-        GetComponent<Collider2D>().enabled = false; // Deshabilita el collider
+        GetComponent<Collider2D>().enabled = false;
 
-        // Inicia una corutina para esperar la duración de la animación de muerte
         StartCoroutine(WaitAndDestroy());
     }
 
     private IEnumerator WaitAndDestroy()
     {
-        // Espera la duración de la animación de muerte
         yield return new WaitForSeconds(deathDuration);
-        Destroy(gameObject); // Destruye el objeto después de la animación
+        Destroy(gameObject);
     }
-
 
     private void Flip()
     {
@@ -171,6 +197,9 @@ public class EnemyBat : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radioDetection);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(new Vector2(startXPosition + leftLimitOffset, transform.position.y),
+                        new Vector2(startXPosition + rightLimitOffset, transform.position.y));
     }
 }
-
