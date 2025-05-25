@@ -216,17 +216,4 @@ public class PlayerMovement : MonoBehaviour
         isFacingRight = !isFacingRight; // Cambia la direccion
         transform.Rotate(0f, 180f, 0f);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("enemy"))
-        {
-            // Aquí puedes llamar al método de daño del enemigo
-            EnemyBat enemy = collision.GetComponent<EnemyBat>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(1); // Cambia el valor según el daño que quieras infligir
-            }
-        }
-    }
 }
