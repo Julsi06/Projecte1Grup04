@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
+    private LivesManager livesManager;
     private PlayerRespawn playerRespawn;
 
     private void Start()
     {
+        livesManager = FindObjectOfType<LivesManager>();
         playerRespawn = GetComponent<PlayerRespawn>();
     }
 
@@ -23,5 +25,9 @@ public class Damage : MonoBehaviour
     {
         gameObject.SetActive(false);
         playerRespawn.Respawn();
+        if (livesManager != null)
+        {
+            livesManager.LoseLife();
+        }
     }
 }

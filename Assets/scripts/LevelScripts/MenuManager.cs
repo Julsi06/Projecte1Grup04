@@ -19,9 +19,14 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("CreditsScene");
     }
+    public void OnRestartClick()
+    {
+        SceneManager.LoadScene("Level_1");
+    }
     public void OnExitClick()
     {
         Debug.Log("salir...");
         Application.Quit();
     }
+
 }

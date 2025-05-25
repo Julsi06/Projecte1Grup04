@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LivesManager : MonoBehaviour
@@ -53,7 +54,7 @@ public class LivesManager : MonoBehaviour
 
         if (currentLives == 0)
         {
-            respawn.Respawn();
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

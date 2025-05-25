@@ -37,8 +37,11 @@ public class EnemyBat : MonoBehaviour
     private float lastXPosition;
 
     private bool isDying = false;
+    private bool isHit = false;
     private float deathTimer = 0f;
     private float deathDuration = 1.5f;
+
+    private Vector3 originalScale;
 
     void Start()
     {
@@ -53,6 +56,8 @@ public class EnemyBat : MonoBehaviour
 
         leftLimit = startXPosition + leftLimitOffset;
         rightLimit = startXPosition + rightLimitOffset;
+
+        originalScale = transform.localScale;
 
         if (player == null)
         {
@@ -88,40 +93,54 @@ public class EnemyBat : MonoBehaviour
 
     void FollowPlayerOrPatrol()
     {
+        if (isHit || isDying)
+            return;
+
         float playerDistance = Vector2.Distance(transform.position, player.position);
 
         if (playerDistance <= radioDetection && playerDistance > distanciaMinima)
         {
-            // Movimiento hacia el jugador
+            // Following the player
             Vector2 direction = (player.position - transform.position).normalized;
-            transform.Translate(new Vector2(direction.x, 0f) * followVelocity * Time.deltaTime);
+            transform.position += new Vector3(direction.x, 0f, 0f) * followVelocity * Time.deltaTime;
 
-            if (direction.x > 0 && !isFacingRight)
+            // Flip strictly based on player position with threshold to avoid jitter
+            if (direction.x < -0.1f && isFacingRight)
+            {
                 Flip();
-            else if (direction.x < 0 && isFacingRight)
+            }
+            else if (direction.x > 0.1f && !isFacingRight)
+            {
                 Flip();
+            }
         }
         else
         {
-            // Patrullaje entre límites
-            transform.Translate(Vector2.right * moveDirection * patrolSpeed * Time.deltaTime);
+            // Patrolling mode
 
+            // Clamp position so enemy does not go out of bounds
+            float clampedX = Mathf.Clamp(transform.position.x, leftLimit, rightLimit);
+            if (transform.position.x != clampedX)
+            {
+                transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
+            }
+
+            // Change direction if at edges
             if (transform.position.x <= leftLimit)
-            {
-                if (!isFacingRight) Flip();
-                transform.position = new Vector2(leftLimit, transform.position.y);
-                moveDirection = -1f;
-                
-            }
-            else if (transform.position.x >= rightLimit)
-            {
-                if (!isFacingRight) Flip();
-                transform.position = new Vector2(rightLimit, transform.position.y);
                 moveDirection = 1f;
-                
-            }
+            else if (transform.position.x >= rightLimit)
+                moveDirection = -1f;
+
+            // Flip based only on patrol moveDirection
+            if (moveDirection > 0 && !isFacingRight)
+                Flip();
+            else if (moveDirection < 0 && isFacingRight)
+                Flip();
+
+            transform.position += new Vector3(moveDirection, 0f, 0f) * patrolSpeed * Time.deltaTime;
         }
     }
+
 
     bool IsWithinDetectionArea()
     {
@@ -157,7 +176,7 @@ public class EnemyBat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (isDying) return;
-
+        isHit = true;
         currentHealth -= damage;
 
         animator.SetTrigger("isAttacked");
@@ -190,7 +209,9 @@ public class EnemyBat : MonoBehaviour
     private void Flip()
     {
         isFacingRight = !isFacingRight;
-        transform.Rotate(0f, 180f, 0f);
+        Vector3 scale = transform.localScale;
+        scale.x = isFacingRight ? Mathf.Abs(originalScale.x) : -Mathf.Abs(originalScale.x);
+        transform.localScale = scale;
     }
 
     void OnDrawGizmosSelected()
@@ -203,3 +224,4 @@ public class EnemyBat : MonoBehaviour
                         new Vector2(startXPosition + rightLimitOffset, transform.position.y));
     }
 }
+
