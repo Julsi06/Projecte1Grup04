@@ -13,6 +13,11 @@ public class AttackArea : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
+
+            if (collision.CompareTag("enemyBullet"))
+            {
+                Destroy(collision.gameObject); // Destruye la bala enemiga
+            }
         }
     }
 }

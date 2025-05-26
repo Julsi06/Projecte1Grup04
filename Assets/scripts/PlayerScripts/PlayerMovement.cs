@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const float RAYCAST_GROUND = 0.25f;
 
     // Movement variables
     [SerializeField] private float maxSpeed = 8f;  // Velocidad máxima
@@ -181,14 +182,16 @@ public class PlayerMovement : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit2D hit;
-        Vector2 raycastOrigin = transform.position - new Vector3(0f, 0.75f, 0f);
+        Vector2 raycastOrigin = transform.position - new Vector3(0f, RAYCAST_GROUND, 0f);
 
         // Lanza un rayo hacia abajo para detectar el suelo
-        hit = Physics2D.Raycast(raycastOrigin, Vector2.down * 0.75f, RaycastDistance, groundLayer);
-        Debug.DrawRay(raycastOrigin, Vector2.down * 0.5f, Color.red);
+        hit = Physics2D.Raycast(raycastOrigin, Vector2.down * RAYCAST_GROUND, RaycastDistance, groundLayer);
+        Debug.DrawRay(raycastOrigin, Vector2.down * RAYCAST_GROUND, Color.red);
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
+
+            Debug.Log("Pta vida tt");
             // Si está tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
             IsDoubleJumping = false;

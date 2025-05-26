@@ -12,6 +12,8 @@ public class LivesManager : MonoBehaviour
 
     public int currentLives;
 
+    private bool isImmune = false;
+
     void Start()
     {
         currentLives = blueHearts.Length;
@@ -20,6 +22,12 @@ public class LivesManager : MonoBehaviour
 
     public void LoseLife()
     {
+        if (isImmune)
+        {
+            Debug.Log("Jugador inmune: no se pierde vida.");
+            return;
+        }
+
         if (currentLives > 0)
         {
             currentLives--;
@@ -45,14 +53,21 @@ public class LivesManager : MonoBehaviour
         currentLives = blueHearts.Length;
     }
 
+    private void SetImmunity(bool value)
+    {
+        isImmune = value;
+        Debug.Log("Inmunidad: " + (isImmune ? "ACTIVADA" : "DESACTIVADA"));
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            ResetHearts();
+            isImmune = !isImmune; // Alternar inmunidad con la tecla P
+            Debug.Log("Modo inmune: " + (isImmune ? "ON" : "OFF"));
         }
 
-        if (currentLives == 0)
+        if (currentLives == 0 && !isImmune)
         {
             SceneManager.LoadScene("GameOver");
         }
