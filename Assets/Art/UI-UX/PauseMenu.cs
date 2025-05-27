@@ -41,12 +41,12 @@ public class PauseMenu : MonoBehaviour
     public void OpenOptions()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("SettingsScene");
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
         Debug.Log("Salir del juego");
     }
 }

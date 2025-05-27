@@ -14,7 +14,6 @@ public class PlayerAnimations : MonoBehaviour
     private PlayerMovement playerMovement;
     private LivesManager livesManager;
 
-    public Collider2D attackCollider;
 
     private void Awake()
     {
@@ -62,21 +61,13 @@ public class PlayerAnimations : MonoBehaviour
               break;    
         }
 
-        if (attackCollider != null)
-        {
-            attackCollider.enabled = true;
-        }
+        
     }
 
     public void FinishAttack()
     {
         Debug.Log("FinishAttack llamado."); // Mensaje de depuración
         animator.SetBool("isAttacking", false);
-
-        if (attackCollider != null)
-        {
-            attackCollider.enabled = false;
-        }
 
         if (playerMovement != null)
         {

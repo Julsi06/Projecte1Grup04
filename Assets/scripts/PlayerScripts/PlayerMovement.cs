@@ -133,6 +133,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (attackCollider != null)
+            {
+                attackCollider.enabled = true;
+            }
             // Cada click añade un ataque en la cola
             attackQueue.Enqueue(currentAttackIndex);
             currentAttackIndex = (currentAttackIndex + 1) % 2;
@@ -140,6 +144,13 @@ public class PlayerMovement : MonoBehaviour
             if (!isAttacking)
             {
                 StartNextAttack();
+            }
+        }
+        else
+        {
+            if (attackCollider != null)
+            {
+                attackCollider.enabled = false;
             }
         }
     }
