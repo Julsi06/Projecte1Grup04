@@ -45,8 +45,10 @@ public class RobotDialogueSystem : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("OnTriggerEnter called with: " + other.name);
+
         if (other.CompareTag("Player"))
         {
             ActivateDialogue();
@@ -69,6 +71,9 @@ public class RobotDialogueSystem : MonoBehaviour
 
     void SetDialogueVisibility(bool visible)
     {
+
+        Debug.Log("Entro");
+
         // Desactivar/activar todos los objetos del diálogo
         if (robotObject != null)
             robotObject.SetActive(visible);

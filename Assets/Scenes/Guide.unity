@@ -682,8 +682,6 @@ MonoBehaviour:
   dialogueText: {fileID: 2146899379}
   dialogueImage: {fileID: 433824151}
   additionalObjectsToDisable: []
-  activationPoint: {fileID: 1833958779}
-  activationRadius: 5
   message: Bienvenido, para mover al personaje utilice las teclas A y D
   closeKey: 13
   returnKey: 127
@@ -991,6 +989,7 @@ GameObject:
   - component: {fileID: 1705098431}
   - component: {fileID: 1705098430}
   - component: {fileID: 1705098432}
+  - component: {fileID: 1705098433}
   m_Layer: 0
   m_Name: cartel
   m_TagString: Untagged
@@ -1067,7 +1066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.83, y: -1.13}
+  m_AnchoredPosition: {x: 0.39, y: -1.02}
   m_SizeDelta: {x: 13.4433, y: 11.812}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705098432
@@ -1087,12 +1086,55 @@ MonoBehaviour:
   dialogueText: {fileID: 2146899379}
   dialogueImage: {fileID: 433824151}
   additionalObjectsToDisable: []
-  activationPoint: {fileID: 1833958779}
-  activationRadius: 5
   message: Bienvenido, para mover al personaje utilice las teclas A y D
   closeKey: 9
   returnKey: 13
   disableOnAnyKey: 1
+--- !u!61 &1705098433
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705098429}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.7082412, y: 0.9727118}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8235173, y: 1.9669757}
+  m_EdgeRadius: 0
 --- !u!1 &1747968286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,13 +1275,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1833958779}
   - component: {fileID: 1833958780}
+  - component: {fileID: 1833958781}
+  - component: {fileID: 1833958782}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1833958779
 Transform:
   m_ObjectHideFlags: 0
@@ -1307,6 +1351,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1833958781
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833958778}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21133333}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.28866667}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1833958782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833958778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c071fae960e5d4e915ee8fa857bbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotObject: {fileID: 1250958508}
+  dialoguePanel: {fileID: 1705098429}
+  dialogueText: {fileID: 2146899379}
+  dialogueImage: {fileID: 433824151}
+  additionalObjectsToDisable: []
+  message: Bienvenido, para mover al personaje utilice las teclas A y D
+  closeKey: 13
+  returnKey: 13
+  disableOnAnyKey: 0
 --- !u!1 &2146899377
 GameObject:
   m_ObjectHideFlags: 0
