@@ -8,51 +8,49 @@ public class RobotDialogueSystem : MonoBehaviour
     public GameObject robotObject;       // Modelo 3D/2D del robot
     public GameObject dialoguePanel;     // Panel UI del diálogo
     public TextMeshProUGUI dialogueText; // Componente de texto
-    public Image dialogueImage; // Imagen del diálogo (opcional)
+    public Image dialogueImage;          // Imagen del diálogo (opcional)
+    public GameObject[] additionalObjectsToDisable; // Array de objetos adicionales a desactivar
 
-    [Header("Configuración de Activación")]
-    public Transform activationPoint;    // Punto de activación
-    public float activationRadius = 5f;  // Radio de activación
+    [Header("Configuración del Diálogo")]
     public string message = "Bienvenido, para mover al personaje utilice las teclas A y D";
 
-    private Transform player;
+    [Header("Configuración de Teclas")]
+    public KeyCode closeKey = KeyCode.Space; // Tecla para cerrar diálogo
+    public KeyCode returnKey = KeyCode.Return; // Tecla Intro/Enter
+    public bool disableOnAnyKey = false; // Opción para cerrar con cualquier tecla
+
     private bool isDialogueActive = false;
+    private bool canCloseDialogue = false;
 
     void Start()
     {
         // Validar referencias
-        if (robotObject == null || dialoguePanel == null || dialogueText == null || activationPoint == null)
+        if (dialoguePanel == null || dialogueText == null)
         {
-            Debug.LogError("¡Faltan asignaciones en el inspector!", this);
+            Debug.LogError("¡Faltan asignaciones esenciales en el inspector!", this);
             enabled = false;
             return;
         }
 
-        // Obtener referencia al jugador
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (player == null)
-        {
-            Debug.LogError("No se encontró objeto con tag 'Player'", this);
-            enabled = false;
-            return;
-        }
-
-        // Ocultar todos los elementos al inicio
         SetDialogueVisibility(false);
     }
 
     void Update()
     {
-        // Verificar activación por proximidad
-        if (!isDialogueActive && Vector3.Distance(player.position, activationPoint.position) <= activationRadius)
-        {
-            ActivateDialogue();
-        }
-
-        // Verificar desactivación por tecla
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space))
+        // Verificar si se debe cerrar el diálogo
+        if (isDialogueActive && canCloseDialogue &&
+            (Input.GetKeyDown(closeKey) || Input.GetKeyDown(returnKey) || (disableOnAnyKey && Input.anyKeyDown)))
         {
             DeactivateDialogue();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            ActivateDialogue();
+            canCloseDialogue = true;
         }
     }
 
@@ -71,24 +69,24 @@ public class RobotDialogueSystem : MonoBehaviour
 
     void SetDialogueVisibility(bool visible)
     {
-        robotObject.SetActive(visible);
-        dialoguePanel.SetActive(visible);
-        dialogueText.gameObject.SetActive(visible);
+        // Desactivar/activar todos los objetos del diálogo
+        if (robotObject != null)
+            robotObject.SetActive(visible);
+
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(visible);
+
+        if (dialogueText != null)
+            dialogueText.gameObject.SetActive(visible);
 
         if (dialogueImage != null)
             dialogueImage.gameObject.SetActive(visible);
-    }
 
-
-    // Visualización del área de activación en el editor
-    void OnDrawGizmosSelected()
-    {
-        if (activationPoint != null)
+        // Desactivar objetos adicionales si existen
+        foreach (var obj in additionalObjectsToDisable)
         {
-            Gizmos.color = new Color(0, 1, 1, 0.3f);
-            Gizmos.DrawSphere(activationPoint.position, activationRadius);
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(activationPoint.position, activationRadius);
+            if (obj != null)
+                obj.SetActive(visible);
         }
     }
 }
