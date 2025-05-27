@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a10e7cc1a23f11d47beaad5d6b333856
+guid: af05d4d1e2b01f441988eae09118e1bc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: quit_0
+      name: buttonMainMenu (6)_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 61
-        width: 731
-        height: 245
+        x: 0
+        y: 225
+        width: 742
+        height: 224
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,29 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aef38c1cb854f34380cd7845596e2b4
-      internalID: 1095983123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: quit_3
-      rect:
-        serializedVersion: 2
-        x: 3640
-        y: 61
-        width: 731
-        height: 251
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a59252adac87d1149a71556a704c39f0
-      internalID: 1828137754
+      spriteID: d2105006da089374da02248926fd9f2c
+      internalID: -473309049
       vertices: []
       indices: 
       edges: []
@@ -188,10 +167,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      quit_0: 1095983123
-      quit_1: -1909873493
-      quit_2: 1886028481
-      quit_3: 1828137754
+      buttonMainMenu (6)_0: -473309049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

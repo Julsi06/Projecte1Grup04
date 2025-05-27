@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 91f0912e2ddd1c447b2104bcc7717f74
+guid: 37a302146d5131b4caaa2985f96b7a4c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,70 +134,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: buton normal (2)_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 484
-        width: 842
-        height: 242
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 230a1044db5c54142b26d5443ea1f24f
-      internalID: 524398534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buton normal (2)_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 242
-        width: 842
-        height: 242
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7de75fa07c3044c44991a87aaf777693
-      internalID: -592235790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buton normal (2)_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 842
-        height: 242
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 369d8894f1e3a0a4ab2398e001a45ab1
-      internalID: 427532810
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -208,10 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      buton normal (2)_0: 524398534
-      buton normal (2)_1: -592235790
-      buton normal (2)_2: 427532810
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

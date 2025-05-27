@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2470936a435e262469af465ea7b0f242
+guid: d3ce8ba28ac230e40bba948bc9b786ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,43 +136,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: creditsss_0
+      name: buttonMainMenu_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 8
-        width: 1075
-        height: 252
+        x: 0
+        y: 675
+        width: 742
+        height: 225
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7caf43870ca89a8468ec739cf4b3b3bc
-      internalID: -755715318
+      spriteID: 2e1168f551c32104f935dd02e4fd117d
+      internalID: -1949386558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creditsss_1
+      name: buttonMainMenu_1
       rect:
         serializedVersion: 2
-        x: 3623
-        y: 8
-        width: 1075
-        height: 245
+        x: 0
+        y: 450
+        width: 742
+        height: 225
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6ae3aac8f278314d961a93b4b1ae31d
-      internalID: 2057935137
+      spriteID: 5d78704dc4c48674cb1123e8ea64578c
+      internalID: 463666607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonMainMenu_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 225
+        width: 742
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c9b31ffd449b249825d8d183d7593f
+      internalID: -1311521387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonMainMenu_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 742
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb155aeaf48eedc499eaf808e5d21b30
+      internalID: -1462741246
       vertices: []
       indices: 
       edges: []
@@ -188,8 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      creditsss_0: -755715318
-      creditsss_1: 2057935137
+      buttonMainMenu_0: -1949386558
+      buttonMainMenu_1: 463666607
+      buttonMainMenu_2: -1311521387
+      buttonMainMenu_3: -1462741246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
