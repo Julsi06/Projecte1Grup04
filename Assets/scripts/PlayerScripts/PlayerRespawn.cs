@@ -21,12 +21,4 @@ public class PlayerRespawn : MonoBehaviour
             Debug.LogError("No se ha establecido un punto de spawn válido.");
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Respawn();
-        }
-    }
 }
