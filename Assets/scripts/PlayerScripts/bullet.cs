@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         // Printeo para saber si todo va bien
-        EnemyBat enemy = hitInfo.GetComponent<EnemyBat>();
+        Enemy enemy = hitInfo.GetComponent<Enemy>();
 
         if (enemy != null)
         {

@@ -8,7 +8,7 @@ public class AttackArea : MonoBehaviour
     {
         if (collision.CompareTag("enemy")) // Asegúrate que tus enemigos tengan el tag "Enemy"
         {
-            EnemyBat enemy = collision.GetComponent<EnemyBat>();
+            Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);

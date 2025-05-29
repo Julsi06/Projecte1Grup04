@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyBat : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float radioDetection = 5f;

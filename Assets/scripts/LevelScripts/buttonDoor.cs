@@ -5,11 +5,12 @@ using System.Collections;
 public class buttonDoor : MonoBehaviour
 {
     public DoorOpenBehaviour door;
-    public DoorCloseBehaviour closeDoor;
+    public DoorOpenBehaviour door2;
     public CameraFollows cameraFollows;
-    public DeactivateCollider invisibleWall;
     public Light2D lightToDeactivate1;
     public Light2D lightToDeactivate2;
+    public Light2D lightToDeactivate3;
+    public Light2D lightToDeactivate4;
 
     private bool isActivated = false;
 
@@ -28,18 +29,13 @@ public class buttonDoor : MonoBehaviour
                 cameraFollows.MoveCameraToDoor(door.transform, () =>
                 {
                     door.OpenDoor();
+                    
                     StartCoroutine(DisableLightAfterDelay(0.7f));
                 });
             }
-
-            if (closeDoor != null)
+            if (door2 != null)
             {
-                closeDoor.CloseDoor();
-            }
-
-            if (invisibleWall != null)
-            {
-                invisibleWall.OpenWall();
+                door2.OpenDoor();
             }
         }
     }
@@ -47,10 +43,17 @@ public class buttonDoor : MonoBehaviour
     private IEnumerator DisableLightAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (lightToDeactivate1 != null)
+        if (lightToDeactivate1 != null && door2 == null)
         {
             lightToDeactivate1.enabled = false;
             lightToDeactivate2.enabled = false;
+        }
+        if (lightToDeactivate1 != null && door2 != null)
+        {
+            lightToDeactivate1.enabled = false;
+            lightToDeactivate2.enabled = false;
+            lightToDeactivate3.enabled = false;
+            lightToDeactivate4.enabled = false;
         }
     }
 }
