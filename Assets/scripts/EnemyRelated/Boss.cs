@@ -180,6 +180,7 @@ public class Boss : MonoBehaviour
         if (isDying) return;
         isHit = true;
         currentHealth -= damage;
+        Debug.Log("Boss is taking damage");
 
         animator.SetTrigger("isAttacked");
 
