@@ -197,9 +197,13 @@ public class Boss : MonoBehaviour
     private void Die()
     {
         isDying = true;
-        animator.SetTrigger("Die");
         GetComponent<Collider2D>().enabled = false;
 
+        animator.ResetTrigger("isAttacked");
+        animator.ResetTrigger("Hit");
+        animator.ResetTrigger("attack");
+
+        animator.SetTrigger("Die");
         StartCoroutine(WaitAndDestroy());
     }
 
