@@ -21,9 +21,9 @@ public class ProjectileEnemy : MonoBehaviour
         shootDirection = direction.normalized; // Set normalized direction
     }
 
-    void Update() 
+    void Update()
     {
-        
+
         // lifeTime es un valor constante, Time.deltaTime es el tiempo entre frames
         transform.Translate(shootDirection * projectileVelocity * Time.deltaTime);
     }
