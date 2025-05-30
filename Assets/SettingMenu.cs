@@ -2,34 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour
 {
-    public AudioMixer mainMixer;
+    public Slider brilloSlider;
+    public Slider volumenSlider;
 
-    public SpriteRenderer[] spriteRenderer;
-
-    private void Start()
+    void Start()
     {
-        spriteRenderer = FindObjectsOfType<SpriteRenderer>();
+        // Leer valores previos y aplicar a la UI
+        brilloSlider.value = PlayerPrefs.GetFloat("Brillo", 1.0f);
+        volumenSlider.value = PlayerPrefs.GetFloat("Volumen", 0.5f);
     }
 
-    public void SetVolume(float volume)
+    public void OnBrilloChange(float valor)
     {
-        mainMixer.SetFloat("Volume", volume);
+        PlayerPrefs.SetFloat("Brillo", valor);
     }
 
-    public void SetFullScreen(bool fullscreen)
+    public void OnVolumenChange(float valor)
     {
-        Debug.Log("The game is on fullscreen");
-        Screen.fullScreen = fullscreen;
+        PlayerPrefs.SetFloat("Volumen", valor);
     }
 
-    public void AdjustBrightness(float brightness)
+    public void GuardarYSalir()
     {
-        foreach(SpriteRenderer spriteRenderer in spriteRenderer) 
-        {
-            spriteRenderer.color = new Color(brightness, brightness, brightness, spriteRenderer.color.a);
-        }
+        PlayerPrefs.Save();
     }
 }
