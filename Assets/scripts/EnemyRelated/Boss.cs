@@ -34,6 +34,16 @@ public class Boss : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
 
+    [Header("Jump Settings")]
+    [SerializeField] private float jumpHeight = 2f;
+    [SerializeField] private float jumpDuration = 1f;
+    [SerializeField] private float jumpCooldown = 3f;
+
+    private bool isJumping = false;
+    private float jumpTimer = 0f;
+    private float jumpProgress = 0f;
+    private Vector3 jumpStartPosition;
+
     private Animator animator;
     private Transform player;
 
@@ -46,8 +56,9 @@ public class Boss : MonoBehaviour
     private float deathDuration = 1.5f;
 
     private Vector3 originalScale;
+    private float shootCooldownTimer = 0f;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
@@ -71,7 +82,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (player == null) return;
 
@@ -86,11 +97,17 @@ public class Boss : MonoBehaviour
         }
 
         FollowPlayerOrPatrol();
+        HandleJump();
 
-        if (IsWithinDetectionArea() && isShooter && canShoot)
+        if (shootCooldownTimer > 0f)
+            shootCooldownTimer -= Time.deltaTime;
+
+        // Shooting logic - only start coroutine once per cooldown cycle
+        if (IsWithinDetectionArea() && isShooter && shootCooldownTimer <= 0f)
         {
             animator.SetTrigger("Attack");
             StartCoroutine(ShootProjectile());
+            shootCooldownTimer = coolDownProjectile;
         }
         else
         {
@@ -98,7 +115,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void FollowPlayerOrPatrol()
+    private void FollowPlayerOrPatrol()
     {
         if (isDying)
             return;
@@ -148,15 +165,44 @@ public class Boss : MonoBehaviour
         }
     }
 
-    bool IsWithinDetectionArea()
+    private void HandleJump()
+    {
+        if (isDying) return;  // no jumps when dying
+
+        jumpTimer -= Time.deltaTime;
+
+        if (!isJumping && jumpTimer <= 0f && IsWithinDetectionArea())
+        {
+            isJumping = true;
+            jumpProgress = 0f;
+            jumpStartPosition = transform.position;
+            jumpTimer = jumpCooldown; // reset cooldown
+        }
+
+        if (isJumping)
+        {
+            jumpProgress += Time.deltaTime / jumpDuration;
+            float height = Mathf.Sin(jumpProgress * Mathf.PI) * jumpHeight;
+            transform.position = new Vector3(transform.position.x, jumpStartPosition.y + height, transform.position.z);
+
+            if (jumpProgress >= 1f)
+            {
+                isJumping = false;
+                transform.position = new Vector3(transform.position.x, jumpStartPosition.y, transform.position.z);
+            }
+        }
+    }
+    private bool IsWithinDetectionArea()
     {
         if (player == null) return false;
         float playerDistance = Vector2.Distance(transform.position, player.position);
         return playerDistance <= radioDetection && playerDistance > distanciaMinima;
     }
 
-    IEnumerator ShootProjectile()
+    private IEnumerator ShootProjectile()
     {
+        Debug.Log("Shooting projectile");
+
         canShoot = false;
 
         if (prefabProyectil != null)
@@ -173,6 +219,10 @@ public class Boss : MonoBehaviour
             {
                 Debug.LogWarning("El prefab del proyectil no tiene el script ProjectileEnemy");
             }
+        }
+        else
+        {
+            Debug.LogWarning("No prefabProyectil assigned!");
         }
 
         yield return new WaitForSeconds(coolDownProjectile);
@@ -235,7 +285,7 @@ public class Boss : MonoBehaviour
         transform.localScale = scale;
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radioDetection);
