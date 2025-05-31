@@ -9,14 +9,23 @@ public class AttackArea : MonoBehaviour
         if (collision.CompareTag("enemy")) // Asegúrate que tus enemigos tengan el tag "Enemy"
         {
             Enemy enemy = collision.GetComponent<Enemy>();
+            Boss boss = collision.GetComponent<Boss>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+            }
+            if(boss != null)
+            {
+                boss.TakeDamage(damage);
             }
 
             if (collision.CompareTag("enemyBullet"))
             {
                 Destroy(collision.gameObject); // Destruye la bala enemiga
+            }
+            if (collision.CompareTag("bossBullet"))
+            {
+                Destroy(collision.gameObject);
             }
         }
     }
