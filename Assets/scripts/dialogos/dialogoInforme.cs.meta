@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: fab830427a66bf5498c9d7c45fa64add
+=======
+guid: 077825773bd69d64e9e7b23a8cc31b2a
+>>>>>>> origin/Levels/fixingMovement
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
