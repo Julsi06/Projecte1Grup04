@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    private float recoverHit = 1f;
+
     [Header("Movement Settings")]
     [SerializeField] private float radioDetection = 5f;
     [SerializeField] private float followVelocity = 3f;
@@ -46,6 +49,8 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
         animator = GetComponent<Animator>();
         if (animator == null) Debug.LogError("Falta el Animator en: " + gameObject.name);
 
@@ -95,7 +100,7 @@ public class Boss : MonoBehaviour
 
     void FollowPlayerOrPatrol()
     {
-        if (isHit || isDying)
+        if (isDying)
             return;
 
         float playerDistance = Vector2.Distance(transform.position, player.position);
@@ -143,7 +148,6 @@ public class Boss : MonoBehaviour
         }
     }
 
-
     bool IsWithinDetectionArea()
     {
         if (player == null) return false;
@@ -179,6 +183,7 @@ public class Boss : MonoBehaviour
     {
         if (isDying) return;
         isHit = true;
+        rb.velocity = Vector2.zero;
         currentHealth -= damage;
         Debug.Log("Boss is taking damage");
 
@@ -187,6 +192,7 @@ public class Boss : MonoBehaviour
         if (currentHealth > 0)
         {
             animator.SetTrigger("Hit");
+            StartCoroutine(RecoverFromHit());
         }
         else
         {
@@ -205,6 +211,14 @@ public class Boss : MonoBehaviour
 
         animator.SetTrigger("Die");
         StartCoroutine(WaitAndDestroy());
+    }
+
+    private IEnumerator RecoverFromHit()
+    {
+        yield return new WaitForSeconds(recoverHit);
+        isHit = false;
+        animator.ResetTrigger("isAttacked");
+        animator.ResetTrigger("Hit");
     }
 
     private IEnumerator WaitAndDestroy()
