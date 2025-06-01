@@ -99067,7 +99067,7 @@ MonoBehaviour:
   itsStop: 1
   isShooter: 1
   canShoot: 0
-  maxHealth: 3
+  maxHealth: 10
   jumpHeight: 2
   jumpDuration: 1
   jumpCooldown: 3
