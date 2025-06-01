@@ -254,7 +254,9 @@ public class Boss : MonoBehaviour
             Die();
             if (door != null)
             {
-                StartCoroutine(DeactiveDoor());
+                //StartCoroutine(DeactiveDoor());
+                door.OpenDoor();
+                door.DisableCollider();
             }
         }
     }
@@ -289,8 +291,6 @@ public class Boss : MonoBehaviour
     private IEnumerator DeactiveDoor()
     {
         yield return new WaitForSeconds(openDoorTimer);
-        door.OpenDoor();
-        door.DisableCollider();
 
     }
 
