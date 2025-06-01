@@ -58,6 +58,11 @@ public class Boss : MonoBehaviour
     private Vector3 originalScale;
     private float shootCooldownTimer = 0f;
 
+    // Doors behaviours
+    public DoorOpenBehaviour door;
+    public DoorOpenBehaviour door2;
+    private float openDoorTimer = 2f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -247,6 +252,10 @@ public class Boss : MonoBehaviour
         else
         {
             Die();
+            if (door != null)
+            {
+                StartCoroutine(DeactiveDoor());
+            }
         }
     }
 
@@ -275,6 +284,14 @@ public class Boss : MonoBehaviour
     {
         yield return new WaitForSeconds(deathDuration);
         Destroy(gameObject);
+    }
+
+    private IEnumerator DeactiveDoor()
+    {
+        yield return new WaitForSeconds(openDoorTimer);
+        door.OpenDoor();
+        door.DisableCollider();
+
     }
 
     private void Flip()
