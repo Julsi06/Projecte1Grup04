@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 791884194307863000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 39.331455, y: -5.961825, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,9 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf2bf703e2b1474093943c1b35092fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileVelocity: 10
+  projectileVelocity: 5
   lifeTime: 2
-  delayBeforeAppearance: 2
 --- !u!114 &4692999891278576571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +160,7 @@ Animator:
   m_GameObject: {fileID: 791884194307863000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 575be5a0433277f44b9d21aade6440ef, type: 2}
+  m_Controller: {fileID: 9100000, guid: 54d652021e9aaa340a3255776092f35c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class BrightnessSlide : MonoBehaviour
 {
     public Slider brightnessSlider;
+    [SerializeField] private Image brightnessPanel;
 
     private void Start()
     {
@@ -33,5 +34,9 @@ public class BrightnessSlide : MonoBehaviour
         Debug.Log(value);
         PlayerPrefs.SetFloat("brightness", value);
         PlayerPrefs.Save();
+
+        Color colorPanel = brightnessPanel.color;
+        colorPanel.a = SettingsManager.Instance.brightness;
+        brightnessPanel.color = colorPanel;
     }
 }

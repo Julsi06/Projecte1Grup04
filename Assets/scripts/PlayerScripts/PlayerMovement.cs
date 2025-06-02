@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Player initialized variables
     public bool IsDoubleJumping { get; private set; }
+    private bool isGrounded; // Nueva variable para trackear si está en tierra
 
     private Rigidbody2D player;
     private bool isFacingRight = true;
@@ -43,6 +44,18 @@ public class PlayerMovement : MonoBehaviour
     private float lastClickTime = 0f; // Tiempo del último clic
     private float clearQueueDelay = 0.2f; // Tiempo para limpiar la cola sin clics
 
+    [Header("Audio Settings")]
+    public AudioClip attackSound; // Clip de audio para el ataque
+    [Range(0f, 1f)] public float attackSoundVolume = 1f; // Volumen del sonido de ataque
+
+    public AudioClip walkSound; // Audio de pasos
+
+    private AudioSource audioSourceAttack;
+    private AudioSource audioSourceWalk;
+
+    // Controlar el tiempo de ataque
+    private bool canPlayAttackSound = true; // Controla si se puede reproducir el sonido de ataque
+
     private void Awake()
     {
         player = GetComponent<Rigidbody2D>();
@@ -50,6 +63,19 @@ public class PlayerMovement : MonoBehaviour
         jumpCount = 1;
         animations = GetComponentInChildren<PlayerAnimations>();
         lastClickTime = -clearQueueDelay; // Para iniciar limpio
+
+        // Crear AudioSources
+        audioSourceAttack = gameObject.AddComponent<AudioSource>();
+        audioSourceWalk = gameObject.AddComponent<AudioSource>();
+
+        // Configuración Audio caminata
+        if (walkSound != null)
+        {
+            audioSourceWalk.clip = walkSound;
+            audioSourceWalk.loop = true;
+            audioSourceWalk.playOnAwake = false;
+            audioSourceWalk.volume = 0.5f; // Puedes ajustar volumen aquí o con un parámetro si quieres
+        }
     }
 
     private void Update()
@@ -59,13 +85,28 @@ public class PlayerMovement : MonoBehaviour
         HandleAttackInput(); // Manejar ataque
         HandleMovement();
         CheckClearAttackQueue();
-    }
 
+        HandleWalkSound();
+    }
 
     private void FixedUpdate()
     {
         CheckGrounded();
         HandleMovement();
+    }
+
+    private void HandleWalkSound()
+    {
+        if (isGrounded && Mathf.Abs(moveInput) > 0.1f)
+        {
+            if (!audioSourceWalk.isPlaying)
+                audioSourceWalk.Play();
+        }
+        else
+        {
+            if (audioSourceWalk.isPlaying)
+                audioSourceWalk.Stop();
+        }
     }
 
     private void HandleMovement()
@@ -98,15 +139,12 @@ public class PlayerMovement : MonoBehaviour
 
             float verticalVelocity = player.velocity.y;
 
-            // Aplica un threshold para evitar valores residuales en Y
             if (Mathf.Abs(verticalVelocity) < 0.1f)
             {
                 verticalVelocity = 0f;
             }
 
             player.velocity = new Vector2(currentSpeed, verticalVelocity);
-
-
 
             if ((currentSpeed > 0 && !isFacingRight) || (currentSpeed < 0 && isFacingRight))
             {
@@ -129,6 +167,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
     private void HandleAttackInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -137,13 +176,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 attackCollider.enabled = true;
             }
-            // Cada click añade un ataque en la cola
             attackQueue.Enqueue(currentAttackIndex);
             currentAttackIndex = (currentAttackIndex + 1) % 2;
-            lastClickTime = Time.time; // Actualiza tiempo último clic
+            lastClickTime = Time.time;
             if (!isAttacking)
             {
                 StartNextAttack();
+            }
+
+            if (canPlayAttackSound && audioSourceAttack != null && attackSound != null)
+            {
+                audioSourceAttack.PlayOneShot(attackSound, attackSoundVolume);
+                canPlayAttackSound = false;
+                StartCoroutine(ResetAttackSoundCooldown());
             }
         }
         else
@@ -153,6 +198,12 @@ public class PlayerMovement : MonoBehaviour
                 attackCollider.enabled = false;
             }
         }
+    }
+
+    private IEnumerator ResetAttackSoundCooldown()
+    {
+        yield return new WaitForSeconds(0.33f);
+        canPlayAttackSound = true;
     }
 
     private void CheckClearAttackQueue()
@@ -166,7 +217,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Método llamado para iniciar un nuevo ataque de la cola
     public void StartNextAttack()
     {
         if (attackQueue.Count > 0)
@@ -185,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            isAttacking = false; // No hay más ataques: parar estado de ataque
+            isAttacking = false;
             attackCollider.enabled = false;
         }
     }
@@ -195,39 +245,37 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit;
         Vector2 raycastOrigin = transform.position - new Vector3(0f, RAYCAST_GROUND, 0f);
 
-        // Lanza un rayo hacia abajo para detectar el suelo
         hit = Physics2D.Raycast(raycastOrigin, Vector2.down * RAYCAST_GROUND, RaycastDistance, groundLayer);
         Debug.DrawRay(raycastOrigin, Vector2.down * RAYCAST_GROUND, Color.red);
 
         if (hit.collider != null && hit.collider.CompareTag("Ground"))
         {
-
-            Debug.Log("Pta vida tt");
-            // Si está tocando el suelo, reinicia el contador de saltos
             jumpCount = 1;
             IsDoubleJumping = false;
+            isGrounded = true;
 
-            // Asegura que el Rigidbody no tenga residuos verticales
             if (Mathf.Abs(player.velocity.y) < 0.1f)
             {
                 player.velocity = new Vector2(player.velocity.x, 0f);
             }
         }
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     private void Jump()
     {
-        player.velocity = new Vector2(player.velocity.x, 0f); // Elimina cualquier fuerza acumulada
-        player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force); // Salto instantáneo
+        player.velocity = new Vector2(player.velocity.x, 0f);
+        player.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
         jumpCount++;
-
-        // Activa doble salto si es el segundo salto
         IsDoubleJumping = (jumpCount == 2);
     }
 
     private void Flip()
     {
-        isFacingRight = !isFacingRight; // Cambia la direccion
+        isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
     }
 }

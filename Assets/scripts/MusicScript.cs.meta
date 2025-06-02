@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f72be8a7d2c94ca46907b90c4b9484e9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - musicaFondoClip: {fileID: 8300000, guid: 8c9989b2603fa7349beb0734556273d6, type: 3}
+  - musicaSalto: {fileID: 8300000, guid: 33dbc16faa67aee49897e2e978f50e41, type: 3}
+  - muerteMusica: {fileID: 8300000, guid: d18028a73abe99c45ae9b51e57f2bad2, type: 3}
+  - andarClip: {fileID: 8300000, guid: 65797a5f8503f9c459526a5343961ce3, type: 3}
+  - audioMixer: {fileID: 24100000, guid: a4657b1a73a168c4fa66892fbecf9f6d, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

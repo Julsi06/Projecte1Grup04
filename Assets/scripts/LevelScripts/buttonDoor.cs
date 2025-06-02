@@ -12,7 +12,15 @@ public class buttonDoor : MonoBehaviour
     public Light2D lightToDeactivate3;
     public Light2D lightToDeactivate4;
 
+    public AudioClip buttonPressSound; // Clip de audio para el sonido del botón
+    private AudioSource audioSource;
+
     private bool isActivated = false;
+
+    private void Awake()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>(); // Asegúrate de tener un AudioSource
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -24,12 +32,17 @@ public class buttonDoor : MonoBehaviour
             isActivated = true;
             Debug.Log("Botón activado por el jugador");
 
+            // Reproducir el sonido del botón
+            if (buttonPressSound != null)
+            {
+                audioSource.PlayOneShot(buttonPressSound);
+            }
+
             if (door != null && cameraFollows != null)
             {
                 cameraFollows.MoveCameraToDoor(door.transform, () =>
                 {
                     door.OpenDoor();
-                    
                     StartCoroutine(DisableLightAfterDelay(0.7f));
                 });
             }

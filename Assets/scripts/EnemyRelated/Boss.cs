@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Boss : MonoBehaviour
 {
@@ -34,6 +35,16 @@ public class Boss : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
 
+    [Header("Jump Settings")]
+    [SerializeField] private float jumpHeight = 2f;
+    [SerializeField] private float jumpDuration = 1f;
+    [SerializeField] private float jumpCooldown = 3f;
+
+    private bool isJumping = false;
+    private float jumpTimer = 0f;
+    private float jumpProgress = 0f;
+    private Vector3 jumpStartPosition;
+
     private Animator animator;
     private Transform player;
 
@@ -41,13 +52,19 @@ public class Boss : MonoBehaviour
     private float lastXPosition;
 
     private bool isDying = false;
-    private bool isHit = false;
     private float deathTimer = 0f;
     private float deathDuration = 1.5f;
 
     private Vector3 originalScale;
+    private float shootCooldownTimer = 0f;
 
-    void Start()
+    // Doors behaviours
+    public DoorOpenBehaviour door;
+    public Light2D lightToDeactivate1;
+    public Light2D lightToDeactivate2;
+    private float openDoorTimer = 2f;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
@@ -71,7 +88,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (player == null) return;
 
@@ -86,11 +103,17 @@ public class Boss : MonoBehaviour
         }
 
         FollowPlayerOrPatrol();
+        HandleJump();
 
-        if (IsWithinDetectionArea() && isShooter && canShoot)
+        if (shootCooldownTimer > 0f)
+            shootCooldownTimer -= Time.deltaTime;
+
+        // Shooting logic - only start coroutine once per cooldown cycle
+        if (IsWithinDetectionArea() && isShooter && shootCooldownTimer <= 0f)
         {
             animator.SetTrigger("Attack");
             StartCoroutine(ShootProjectile());
+            shootCooldownTimer = coolDownProjectile;
         }
         else
         {
@@ -98,7 +121,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void FollowPlayerOrPatrol()
+    private void FollowPlayerOrPatrol()
     {
         if (isDying)
             return;
@@ -148,7 +171,34 @@ public class Boss : MonoBehaviour
         }
     }
 
-    bool IsWithinDetectionArea()
+    private void HandleJump()
+    {
+        if (isDying) return;  // no jumps when dying
+
+        jumpTimer -= Time.deltaTime;
+
+        if (!isJumping && jumpTimer <= 0f && IsWithinDetectionArea())
+        {
+            isJumping = true;
+            jumpProgress = 0f;
+            jumpStartPosition = transform.position;
+            jumpTimer = jumpCooldown; // reset cooldown
+        }
+
+        if (isJumping)
+        {
+            jumpProgress += Time.deltaTime / jumpDuration;
+            float height = Mathf.Sin(jumpProgress * Mathf.PI) * jumpHeight;
+            transform.position = new Vector3(transform.position.x, jumpStartPosition.y + height, transform.position.z);
+
+            if (jumpProgress >= 1f)
+            {
+                isJumping = false;
+                transform.position = new Vector3(transform.position.x, jumpStartPosition.y, transform.position.z);
+            }
+        }
+    }
+    private bool IsWithinDetectionArea()
     {
         if (player == null) return false;
         float playerDistance = Vector2.Distance(transform.position, player.position);
@@ -168,6 +218,11 @@ public class Boss : MonoBehaviour
             if (projectileScript != null)
             {
                 projectileScript.SetDirectionShoot(shootDirection);
+
+                // Flip the projectile based on the enemy's facing direction
+                Vector3 projectileScale = proyectil.transform.localScale;
+                projectileScale.x = isFacingRight ? -Mathf.Abs(projectileScale.x) : Mathf.Abs(projectileScale.x);
+                proyectil.transform.localScale = projectileScale;
             }
             else
             {
@@ -179,10 +234,10 @@ public class Boss : MonoBehaviour
         canShoot = true;
     }
 
+
     public void TakeDamage(int damage)
     {
         if (isDying) return;
-        isHit = true;
         rb.velocity = Vector2.zero;
         currentHealth -= damage;
         Debug.Log("Boss is taking damage");
@@ -197,6 +252,13 @@ public class Boss : MonoBehaviour
         else
         {
             Die();
+            if (door != null)
+            {
+                door.OpenDoor();
+                door.DisableCollider();
+                lightToDeactivate1.enabled = false;
+                lightToDeactivate2.enabled = false;
+            }
         }
     }
 
@@ -207,7 +269,7 @@ public class Boss : MonoBehaviour
 
         animator.ResetTrigger("isAttacked");
         animator.ResetTrigger("Hit");
-        animator.ResetTrigger("attack");
+        animator.ResetTrigger("Attack");
 
         animator.SetTrigger("Die");
         StartCoroutine(WaitAndDestroy());
@@ -216,7 +278,6 @@ public class Boss : MonoBehaviour
     private IEnumerator RecoverFromHit()
     {
         yield return new WaitForSeconds(recoverHit);
-        isHit = false;
         animator.ResetTrigger("isAttacked");
         animator.ResetTrigger("Hit");
     }
@@ -227,6 +288,12 @@ public class Boss : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private IEnumerator DeactiveDoor()
+    {
+        yield return new WaitForSeconds(openDoorTimer);
+
+    }
+
     private void Flip()
     {
         isFacingRight = !isFacingRight;
@@ -235,7 +302,7 @@ public class Boss : MonoBehaviour
         transform.localScale = scale;
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radioDetection);

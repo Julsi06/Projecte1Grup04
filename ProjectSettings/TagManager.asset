@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Ground
   - Wall
-  - door
   - movingPlatform
   - Orb
   - Damage

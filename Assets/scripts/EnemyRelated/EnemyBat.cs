@@ -162,6 +162,11 @@ public class Enemy : MonoBehaviour
             if (projectileScript != null)
             {
                 projectileScript.SetDirectionShoot(shootDirection);
+
+                // Flip the projectile based on the enemy's facing direction
+                Vector3 projectileScale = proyectil.transform.localScale;
+                projectileScale.x = isFacingRight ? -Mathf.Abs(projectileScale.x) : Mathf.Abs(projectileScale.x);
+                proyectil.transform.localScale = projectileScale;
             }
             else
             {
@@ -172,6 +177,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(coolDownProjectile);
         canShoot = true;
     }
+
 
     public void TakeDamage(int damage)
     {
