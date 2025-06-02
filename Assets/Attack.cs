@@ -23,10 +23,6 @@ public class AttackArea : MonoBehaviour
             {
                 Destroy(collision.gameObject); // Destruye la bala enemiga
             }
-            if (collision.CompareTag("bossBullet")) 
-            {
-                Destroy(collision.gameObject);
-            }
         }
     }
 }

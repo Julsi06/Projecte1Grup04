@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Boss : MonoBehaviour
 {
@@ -51,7 +52,6 @@ public class Boss : MonoBehaviour
     private float lastXPosition;
 
     private bool isDying = false;
-    private bool isHit = false;
     private float deathTimer = 0f;
     private float deathDuration = 1.5f;
 
@@ -60,7 +60,8 @@ public class Boss : MonoBehaviour
 
     // Doors behaviours
     public DoorOpenBehaviour door;
-    public DoorOpenBehaviour door2;
+    public Light2D lightToDeactivate1;
+    public Light2D lightToDeactivate2;
     private float openDoorTimer = 2f;
 
     private void Start()
@@ -204,10 +205,8 @@ public class Boss : MonoBehaviour
         return playerDistance <= radioDetection && playerDistance > distanciaMinima;
     }
 
-    private IEnumerator ShootProjectile()
+    IEnumerator ShootProjectile()
     {
-        Debug.Log("Shooting projectile");
-
         canShoot = false;
 
         if (prefabProyectil != null)
@@ -219,25 +218,26 @@ public class Boss : MonoBehaviour
             if (projectileScript != null)
             {
                 projectileScript.SetDirectionShoot(shootDirection);
+
+                // Flip the projectile based on the enemy's facing direction
+                Vector3 projectileScale = proyectil.transform.localScale;
+                projectileScale.x = isFacingRight ? -Mathf.Abs(projectileScale.x) : Mathf.Abs(projectileScale.x);
+                proyectil.transform.localScale = projectileScale;
             }
             else
             {
                 Debug.LogWarning("El prefab del proyectil no tiene el script ProjectileEnemy");
             }
         }
-        else
-        {
-            Debug.LogWarning("No prefabProyectil assigned!");
-        }
 
         yield return new WaitForSeconds(coolDownProjectile);
         canShoot = true;
     }
 
+
     public void TakeDamage(int damage)
     {
         if (isDying) return;
-        isHit = true;
         rb.velocity = Vector2.zero;
         currentHealth -= damage;
         Debug.Log("Boss is taking damage");
@@ -254,9 +254,10 @@ public class Boss : MonoBehaviour
             Die();
             if (door != null)
             {
-                //StartCoroutine(DeactiveDoor());
                 door.OpenDoor();
                 door.DisableCollider();
+                lightToDeactivate1.enabled = false;
+                lightToDeactivate2.enabled = false;
             }
         }
     }
@@ -268,7 +269,7 @@ public class Boss : MonoBehaviour
 
         animator.ResetTrigger("isAttacked");
         animator.ResetTrigger("Hit");
-        animator.ResetTrigger("attack");
+        animator.ResetTrigger("Attack");
 
         animator.SetTrigger("Die");
         StartCoroutine(WaitAndDestroy());
@@ -277,7 +278,6 @@ public class Boss : MonoBehaviour
     private IEnumerator RecoverFromHit()
     {
         yield return new WaitForSeconds(recoverHit);
-        isHit = false;
         animator.ResetTrigger("isAttacked");
         animator.ResetTrigger("Hit");
     }

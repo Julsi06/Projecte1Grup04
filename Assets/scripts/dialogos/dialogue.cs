@@ -83,7 +83,6 @@ public class dialogue : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             IsPlayerInRange = true;
-            Debug.Log("Player entered dialogue range - dialogue will start automatically");
         }
     }
 
@@ -96,7 +95,6 @@ public class dialogue : MonoBehaviour
             {
                 StopAllCoroutines(); // Detener escritura si está en progreso
                 EndDialogue();
-                Debug.Log("Player exited dialogue range, closing dialogue");
             }
         }
     }

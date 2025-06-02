@@ -8,12 +8,17 @@ public class MenuManager : MonoBehaviour
 
     public void OnStartClick()
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene("IntroScene");
     }
 
     public void OnSettingsClick()
     {
         SceneManager.LoadScene("SettingsScene");
+    }
+
+    public void OnReturnClick()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnCreditsClick()
@@ -23,7 +28,6 @@ public class MenuManager : MonoBehaviour
 
     public void OnRestartClick()
     {
-        // Suscribirse al evento de escena cargada
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene("Level_1");
     }
@@ -38,7 +42,6 @@ public class MenuManager : MonoBehaviour
                 player.transform.position = playerStartPosition;
             }
 
-            // Desuscribirse para evitar múltiples llamadas
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }

@@ -37,7 +37,7 @@ public class PortalTrigger : MonoBehaviour
         // Difuminar la pantalla de carga
         yield return StartCoroutine(FadeIn(loadImageCanvasGroup, 1f));
 
-        yield return new WaitForSeconds(1f); // Esperar un momento antes de mover al jugador
+        yield return new WaitForSeconds(0.5f); // Esperar medio segundo antes de mover al jugador
 
         player.transform.position = destinationPosition;
 
@@ -47,7 +47,7 @@ public class PortalTrigger : MonoBehaviour
             playerRb.velocity = Vector2.zero;
         }
 
-        yield return new WaitForSeconds(0.5f); // Esperar un poco más antes de quitar la pantalla de carga
+        yield return new WaitForSeconds(0.25f); // Esperar un cuarto de segundo antes de quitar la pantalla de carga
 
         // Difuminar hacia fuera la pantalla de carga
         yield return StartCoroutine(FadeOut(loadImageCanvasGroup, 1f));
@@ -80,4 +80,3 @@ public class PortalTrigger : MonoBehaviour
         canvasGroup.alpha = 0f;
     }
 }
-
